@@ -29,6 +29,17 @@ let dialogsData = [
     { id: 8, name: 'Vova', src: 'https://sun2-4.userapi.com/s/v1/ig1/X2AsqRo-dhkjrmbPk2fwjAJjQipXwXvaGtQFw42mSpDrZUYK5pR5AiM6HUwJktqkET6WctPB.jpg?size=100x0&quality=96&crop=615,256,588,588&ava=1' }
 ] as Array<DialogsType>
 
+let dialogsElement = [
+                <DialogItem name={dialogsData[0].name} id={dialogsData[0].id} src={dialogsData[0].src} />,
+                <DialogItem name={dialogsData[1].name} id={dialogsData[1].id} src={dialogsData[1].src} />,
+                <DialogItem name={dialogsData[2].name} id={dialogsData[2].id} src={dialogsData[2].src} />,
+                <DialogItem name={dialogsData[3].name} id={dialogsData[3].id} src={dialogsData[3].src} />,
+                <DialogItem name={dialogsData[4].name} id={dialogsData[4].id} src={dialogsData[4].src} />,
+                <DialogItem name={dialogsData[5].name} id={dialogsData[5].id} src={dialogsData[5].src} />,
+                <DialogItem name={dialogsData[6].name} id={dialogsData[6].id} src={dialogsData[6].src} />,
+                <DialogItem name={dialogsData[7].name} id={dialogsData[7].id} src={dialogsData[7].src} />
+]
+
 let messagesData = [
     { id: 1, message: 'Hy, I am Maks' },
     { id: 2, message: 'Hoy are you' },
@@ -36,25 +47,21 @@ let messagesData = [
     { id: 4, message: 'Yo' },
 ] as Array<MessageType>
 
+let messageElement = [
+                <Message message={messagesData[0].message} />,
+                <Message message={messagesData[1].message} />,
+                <Message message={messagesData[2].message} />,
+                <Message message={messagesData[3].message} />
+]
 
 function Dialogs() {
     return (
         <div className={styles.dialogs}>
             <div className={styles.dialogsItems}>
-                <DialogItem name={dialogsData[0].name} id={dialogsData[0].id} src={dialogsData[0].src} />
-                <DialogItem name={dialogsData[1].name} id={dialogsData[1].id} src={dialogsData[1].src} />
-                <DialogItem name={dialogsData[2].name} id={dialogsData[2].id} src={dialogsData[2].src} />
-                <DialogItem name={dialogsData[3].name} id={dialogsData[3].id} src={dialogsData[3].src} />
-                <DialogItem name={dialogsData[4].name} id={dialogsData[4].id} src={dialogsData[4].src} />
-                <DialogItem name={dialogsData[5].name} id={dialogsData[5].id} src={dialogsData[5].src} />
-                <DialogItem name={dialogsData[6].name} id={dialogsData[6].id} src={dialogsData[6].src} />
-                <DialogItem name={dialogsData[7].name} id={dialogsData[7].id} src={dialogsData[7].src} />
+                {dialogsElement}
             </div>
             <div className={styles.messages}>
-                <Message message={messagesData[0].message} />
-                <Message message={messagesData[1].message} />
-                <Message message={messagesData[2].message} />
-                <Message message={messagesData[3].message} />
+                {messageElement}
             </div>
         </div>
     )
