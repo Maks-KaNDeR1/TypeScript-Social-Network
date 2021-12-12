@@ -1,6 +1,5 @@
 
 import React from 'react'
-import { NavLink } from 'react-router-dom';
 import DialogItem from './DialodsItem/DialogsItem';
 import styles from './Dialogs.module.css'
 import Message from './Message/Message';
@@ -13,7 +12,6 @@ type DialogsType = {
 }
 
 type MessageType = {
-    id: number
     message: string
 }
 
@@ -29,39 +27,30 @@ let dialogsData = [
     { id: 8, name: 'Vova', src: 'https://sun2-4.userapi.com/s/v1/ig1/X2AsqRo-dhkjrmbPk2fwjAJjQipXwXvaGtQFw42mSpDrZUYK5pR5AiM6HUwJktqkET6WctPB.jpg?size=100x0&quality=96&crop=615,256,588,588&ava=1' }
 ] as Array<DialogsType>
 
-let dialogsElement = [
-                <DialogItem name={dialogsData[0].name} id={dialogsData[0].id} src={dialogsData[0].src} />,
-                <DialogItem name={dialogsData[1].name} id={dialogsData[1].id} src={dialogsData[1].src} />,
-                <DialogItem name={dialogsData[2].name} id={dialogsData[2].id} src={dialogsData[2].src} />,
-                <DialogItem name={dialogsData[3].name} id={dialogsData[3].id} src={dialogsData[3].src} />,
-                <DialogItem name={dialogsData[4].name} id={dialogsData[4].id} src={dialogsData[4].src} />,
-                <DialogItem name={dialogsData[5].name} id={dialogsData[5].id} src={dialogsData[5].src} />,
-                <DialogItem name={dialogsData[6].name} id={dialogsData[6].id} src={dialogsData[6].src} />,
-                <DialogItem name={dialogsData[7].name} id={dialogsData[7].id} src={dialogsData[7].src} />
-]
+let dialogsElements = dialogsData
+    .map(dialog => <DialogItem name={dialog.name} id={dialog.id} src={dialog.src} />)
+
 
 let messagesData = [
-    { id: 1, message: 'Hy, I am Maks' },
-    { id: 2, message: 'Hoy are you' },
-    { id: 3, message: 'How is your it-kamasutra?' },
-    { id: 4, message: 'Yo' },
+    { message: 'Hy, I am Maks' },
+    { message: 'Hoy are you' },
+    { message: 'How is your it-kamasutra?' },
+    { message: 'Yo' },
 ] as Array<MessageType>
 
-let messageElement = [
-                <Message message={messagesData[0].message} />,
-                <Message message={messagesData[1].message} />,
-                <Message message={messagesData[2].message} />,
-                <Message message={messagesData[3].message} />
-]
+let messageElements = messagesData
+    .map(message => <Message message={message.message} />)
+
+
 
 function Dialogs() {
     return (
         <div className={styles.dialogs}>
             <div className={styles.dialogsItems}>
-                {dialogsElement}
+                {dialogsElements}
             </div>
             <div className={styles.messages}>
-                {messageElement}
+                {messageElements}
             </div>
         </div>
     )
