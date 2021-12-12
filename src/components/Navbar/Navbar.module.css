@@ -1,0 +1,23 @@
+.nav {
+    grid-area: n;
+    /* background: #05427a; */
+    background: rgba(101,108,133,.8);
+    /* background: rgba(101,108,133,.8); */
+    padding: 15px;
+    width: 170px;
+  }
+  
+  .item a{
+    color: white;
+    /* color: #1890ff; */
+    text-decoration: none;
+  }
+  
+  .item a.active  {
+    color: gold;
+  }
+  
+  .item:hover {
+    transform: scale(1.03);
+  
+  }

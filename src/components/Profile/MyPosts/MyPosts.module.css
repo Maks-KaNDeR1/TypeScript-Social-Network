@@ -1,0 +1,21 @@
+
+
+.postsBlock {
+    padding: 10px;
+}
+
+.posts {
+    margin-top: 10px;
+}
+.textarea {
+    border-radius: 5px;
+}
+
+.button {
+    border-radius: 30px;
+ 
+}
+
+.button:hover {
+    transform: scale(1.01);
+}
