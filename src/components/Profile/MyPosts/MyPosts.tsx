@@ -13,21 +13,21 @@ let postData = [
   { id: 2, message: "I'm in to IT", likesCount: '12' }
 ] as Array<PostType>
 
-let postElement = [
-  <Post message={postData[0].message} likesCount={postData[0].likesCount} />,
-  <Post message={postData[1].message} likesCount={postData[1].likesCount} />
-]
+let postElements = postData.map(post =>
+  <Post message={post.message} likesCount={post.likesCount} />
+)
+
 
 const MyPosts = () => {
   return (
     <div>
       My posts
       <div>
-        <textarea className={styles.textarea}>v</textarea>
+        <textarea className={styles.textarea}>vizityor</textarea>
         <button className={styles.button}>Add post</button>
       </div>
       <div className={styles.posts}>
-      { postElement }
+        {postElements}
       </div>
     </div>
   )
