@@ -1,0 +1,13 @@
+
+/* .display{
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    
+} */
+
+.text {
+    padding: 2px;
+    align-self:flex-end;
+}
+
+

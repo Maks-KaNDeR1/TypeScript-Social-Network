@@ -1,39 +1,9 @@
 
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import DialogItem from './DialodsItem/DialogsItem';
 import styles from './Dialogs.module.css'
-
-
-type DialodsItemPropsType = {
-    id: number
-    name: string
-    src: string
-}
-
-
-const DialogItem = (props: DialodsItemPropsType) => {
-    return (
-        <div className={styles.dialog + ' ' + styles.active}>
-            <img src={props.src} />
-            <NavLink to={'/dialogs/' + props.id}>{props.name}</NavLink>
-        </div>
-    )
-}
-
-
-type MessagePropsType = {
-    message: string
-}
-
-const Message = (props: MessagePropsType) => {
-
-    return <div className={styles.display}>
-              <div>
-                 <div className={styles.text}>{props.message}</div>
-              </div>
-            </div>
-}
-
+import Message from './Message/Message';
 
 
 type DialogsType = {
@@ -93,9 +63,3 @@ function Dialogs() {
 
 
 export default Dialogs
-
-
-
-
-
-
