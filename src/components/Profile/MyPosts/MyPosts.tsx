@@ -7,9 +7,9 @@ import Post from './Post/Post';
 
 const MyPosts = () => {
 
-  let posts = state.profilePage.posts
+  const posts = state.profilePage.posts
 
-  let postElements = posts.map(p =>
+  const postElements = posts.map(p =>
     <Post message={p.message} likesCount={p.likesCount} />
   )
 

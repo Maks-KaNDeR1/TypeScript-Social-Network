@@ -28,7 +28,7 @@ profilePage: ProfilePageType
 dialogsPage: DialogsPageType
 }
 
-let state: RootStateType = {
+const state: RootStateType = {
     profilePage: {        
          posts: [
             { id: 1, message: "Hi, Yo", likesCount: 23 },

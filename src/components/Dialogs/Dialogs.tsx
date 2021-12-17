@@ -10,14 +10,14 @@ import Message from './Message/Message';
 
 function Dialogs() {
 
-    let dialogs = state.dialogsPage.dialogs
-    let message = state.dialogsPage.message
+    const dialogs = state.dialogsPage.dialogs
+    const message = state.dialogsPage.message
 
-    let dialogsElements = dialogs.map(d =>
+    const dialogsElements = dialogs.map(d =>
         <DialogItem name={d.name} key={d.id} id={d.id} src={d.src}/>
         )
 
-    let messageElements = message.map(m =>
+        const messageElements = message.map(m =>
         <Message message={m.message} key={m.id}/>
         )
 

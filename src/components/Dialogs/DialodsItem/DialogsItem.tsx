@@ -10,7 +10,7 @@ type DialodsItemPropsType = {
 
 const DialogItem = (props: DialodsItemPropsType) => {
 
-    let path = "/dialogs/" + props.id;
+    const path = "/dialogs/" + props.id;
 
     return (
         <div className={styles.dialog + ' ' + styles.active}>
