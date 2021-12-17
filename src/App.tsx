@@ -5,7 +5,6 @@ import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Dialogs from './components/Dialogs/Dialogs';
 import Profile from './components/Profile/Profile';
-import state from './redux/state';
 
 function App() {
 

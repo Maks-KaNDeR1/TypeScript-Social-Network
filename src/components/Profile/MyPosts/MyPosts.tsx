@@ -13,16 +13,19 @@ const MyPosts = () => {
     <Post message={p.message} likesCount={p.likesCount} />
   )
 
-  const handleclick = () => {
-    alert('Eee')
+  let newPostElement = React.createRef()
+
+  const addPost = () => {
+    let text = newPostElement.current.value
+    alert(text)
   }
 
   return (
     <div>
       My posts
       <div>
-        <textarea className={styles.textarea}>vizityor</textarea>
-        <button onClick={handleclick}
+        <textarea ref={newPostElement} className={styles.textarea}>vizityor</textarea>
+        <button onClick={addPost}
           className={styles.button}>Add post</button>
       </div>
       <div className={styles.posts}>
