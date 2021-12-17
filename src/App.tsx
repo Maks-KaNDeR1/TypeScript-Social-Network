@@ -1,13 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Dialogs from './components/Dialogs/Dialogs';
 import Profile from './components/Profile/Profile';
+import state from './redux/state';
 
 function App() {
+
   return (
     <BrowserRouter>
       <div className="app-wrapper">

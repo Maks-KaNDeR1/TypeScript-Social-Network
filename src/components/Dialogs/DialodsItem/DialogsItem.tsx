@@ -9,10 +9,13 @@ type DialodsItemPropsType = {
 
 
 const DialogItem = (props: DialodsItemPropsType) => {
+
+    let path = "/dialogs/" + props.id;
+
     return (
         <div className={styles.dialog + ' ' + styles.active}>
-            <img src={props.src} />
-            <NavLink to={'/dialogs/' + props.id}>{props.name}</NavLink>
+            <img src={props.src} alt='ava' />
+            <NavLink to={path}>{props.name}</NavLink>
         </div>
     )
 }

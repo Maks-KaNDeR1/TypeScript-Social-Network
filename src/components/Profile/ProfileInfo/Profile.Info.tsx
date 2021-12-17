@@ -6,7 +6,8 @@ const ProfileInfo = () => {
     return (
         <div>
             <div className={styles.descriptionBlock}>
-                ava + description
+                <img src='https://eksmo.ru/upload/iblock/523/rick_morty_l_min.jpg' />
+                 Maks_KaNDeR
             </div>
         </div>
     )

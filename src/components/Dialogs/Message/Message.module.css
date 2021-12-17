@@ -1,9 +1,10 @@
 
-/* .display{
-    display: grid;
-    grid-template-columns: 1fr 10fr;
-    
-} */
+.display{
+    /* display: grid;
+    grid-template-columns: 1fr 10fr; */
+    border-color: darkblue;
+    border-width: 1px;
+}
 
 .text {
     padding: 2px;
