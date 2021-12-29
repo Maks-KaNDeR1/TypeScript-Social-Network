@@ -1,3 +1,5 @@
+import { renderTree } from "../render"
+
 type DialogsType = {
     id: number
     name: string
@@ -17,13 +19,14 @@ type PostType = {
 
 type ProfilePageType = {
     posts: Array<PostType>
+    newPostText: string
 }
 
 type DialogsPageType = {
     dialogs: Array<DialogsType>
     message: Array<MessageType>
 }
-type RootStateType = {
+export type RootStateType = {
 profilePage: ProfilePageType
 dialogsPage: DialogsPageType
 }
@@ -35,7 +38,8 @@ const state: RootStateType = {
             { id: 2, message: "I'm in to IT", likesCount: 12 },
             { id: 3, message: "I'", likesCount: 57 },
             { id: 4, message: "I'm a BOSS", likesCount: 23 }
-          ] 
+          ],
+          newPostText: ''
     },
     dialogsPage: {
         dialogs: [
@@ -55,6 +59,18 @@ const state: RootStateType = {
             {id: 4, message: 'Yo' },
         ] 
     }
+}
+
+
+export const addPost = (PostMessage: string) => {
+    const newPost = {
+        id: 5,
+        message: PostMessage,
+        likesCount: 18
+    }
+    state.profilePage.posts.push(newPost)
+
+    renderTree(state)
 }
 
 
