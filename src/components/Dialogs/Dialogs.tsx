@@ -1,5 +1,6 @@
 
 import React from 'react'
+import store from '../../redux/state';
 import state from '../../redux/state';
 import DialogItem from './DialodsItem/DialogsItem';
 import styles from './Dialogs.module.css'
@@ -10,8 +11,8 @@ import Message from './Message/Message';
 
 function Dialogs() {
 
-    const dialogs = state.dialogsPage.dialogs
-    const message = state.dialogsPage.message
+    const dialogs = store._state.dialogsPage.dialogs
+    const message = store._state.dialogsPage.message
 
     const dialogsElements = dialogs.map(d =>
         <DialogItem name={d.name} key={d.id} id={d.id} src={d.src}/>

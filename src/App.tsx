@@ -9,7 +9,6 @@ import Profile from './components/Profile/Profile';
 function App() {
 
   return (
-    <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Navbar />
@@ -20,7 +19,7 @@ function App() {
           </Routes>
         </div>
       </div>
-    </BrowserRouter>);
+    );
 }
 
 
