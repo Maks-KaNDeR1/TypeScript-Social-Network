@@ -64,9 +64,11 @@ let store = {
     getState() {
         return this._state;
     },
-
     _callSubscriber() {
         console.log('State')
+    },
+    subscribe(observer: any) {
+        this._callSubscriber = observer;  // observer
     },
     addPost(Postssage: string) {
         const newPost = {
@@ -82,14 +84,24 @@ let store = {
         this._state.profilePage.newPostText = newText
         this._callSubscriber()
     },
-    subscribe(observer: any) {
-        this._callSubscriber = observer;  // observer
+
+    dispatch(action: any) {
+        if (action.type === 'ADD_POST') {
+            const newPost = {
+                id: 5,
+                message: this._state.profilePage.newPostText,
+                likesCount: 18
+            }
+            this._state.profilePage.posts.push(newPost)
+            this._state.profilePage.newPostText = ''
+            this._callSubscriber()
+        } else if (action.type === 'UPDATE_NEW_POST_TEXT') {
+            this._state.profilePage.newPostText = action.newText
+            this._callSubscriber()
+        }
     }
 
 }
-
-
-
 
 
 

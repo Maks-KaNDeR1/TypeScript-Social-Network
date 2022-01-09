@@ -1,4 +1,4 @@
-import React, { ChangeEvent, createRef, MouseEvent, MouseEventHandler, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import store from '../../../redux/state';
 import styles from './MyPosts.module.css';
 import Post from './Post/Post';
@@ -16,18 +16,15 @@ const MyPosts = () => {
   )
 
 
-  let [newPostBody, setNewPostBody] = useState('')
-
-
   const addPostHandler = () => {
-    // store.addPost(e.currentTarget.value)
-    store.addPost(newPostBody)
-    setNewPostBody('')
+    store.dispatch({type: 'ADD_POST'})
+    // store.addPost(newPostText)
   }
 
   const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    let text = e.currentTarget.value
+    store.dispatch({type: 'UPDATE_NEW_POST_TEXT', newText: text})
     // store.updateNewPostText(e.currentTarget.value)
-    setNewPostBody(e.currentTarget.value)
   }
 
   return (
@@ -35,11 +32,10 @@ const MyPosts = () => {
       My posts
       <div>
         <textarea
-          // value={newPostText}
-          value={newPostBody}
+          value={newPostText}
           onChange={onPostChange}
           className={styles.textarea}
-        ></textarea>
+        />
         <button onClick={addPostHandler}
           className={styles.button}>Add post</button>
       </div>
