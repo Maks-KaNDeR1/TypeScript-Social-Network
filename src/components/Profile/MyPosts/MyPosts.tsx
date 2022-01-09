@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
-import store from '../../../redux/state';
+import store, { addPoastActionCreator, updateNewPostTextActionCreator } from '../../../redux/state';
 import styles from './MyPosts.module.css';
 import Post from './Post/Post';
 
@@ -17,13 +17,13 @@ const MyPosts = () => {
 
 
   const addPostHandler = () => {
-    store.dispatch({type: 'ADD_POST'})
+    store.dispatch(addPoastActionCreator())
     // store.addPost(newPostText)
   }
 
   const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     let text = e.currentTarget.value
-    store.dispatch({type: 'UPDATE_NEW_POST_TEXT', newText: text})
+    store.dispatch(updateNewPostTextActionCreator(text))
     // store.updateNewPostText(e.currentTarget.value)
   }
 
