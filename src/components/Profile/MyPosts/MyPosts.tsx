@@ -1,14 +1,16 @@
-import React, { ChangeEvent, useState } from 'react';
-import store, { addPoastActionCreator, updateNewPostTextActionCreator } from '../../../redux/state';
+import React, { ChangeEvent } from 'react';
+import store, { ADD_POST, PostType, ProfilePageType, UPDATE_NEW_POST_TEXT } from '../../../redux/state';
 import styles from './MyPosts.module.css';
 import Post from './Post/Post';
 
+type PropsType = {
+  profilePage: ProfilePageType
+}
 
+const MyPosts = (props: PropsType) => {
 
-const MyPosts = () => {
-
-  const posts = store._state.profilePage.posts
-  const newPostText = store._state.profilePage.newPostText
+  const posts = props.profilePage.posts
+  const newPostText = props.profilePage.newPostText
 
 
   const postElements = posts.map(p =>
@@ -17,14 +19,12 @@ const MyPosts = () => {
 
 
   const addPostHandler = () => {
-    store.dispatch(addPoastActionCreator())
-    // store.addPost(newPostText)
+    store.dispatch({ type: ADD_POST, PostText: newPostText })
   }
 
   const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     let text = e.currentTarget.value
-    store.dispatch(updateNewPostTextActionCreator(text))
-    // store.updateNewPostText(e.currentTarget.value)
+    store.dispatch({ type: UPDATE_NEW_POST_TEXT, newText: text  })
   }
 
   return (

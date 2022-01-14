@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state, { RootStateType } from './redux/state';
 import { BrowserRouter } from 'react-router-dom';
-import store from './redux/state';
+import store, { RootStateType } from './redux/state';
 // import { renderTree } from './render';
 
 
@@ -13,7 +12,7 @@ export const renderTree = (state: RootStateType) => {
   ReactDOM.render(
     <BrowserRouter>
       <React.StrictMode>
-        <App />
+        <App state={state} dispatch={store.dispatch.bind(store)} />
       </React.StrictMode>
     </BrowserRouter>,
     document.getElementById('root')
