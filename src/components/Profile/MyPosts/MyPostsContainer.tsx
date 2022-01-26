@@ -1,11 +1,9 @@
 import MyPosts from './MyPosts';
-import React, { ChangeEvent } from 'react';
 import { updateNewMessageBodyAC } from '../../../redux/dialogs-reducer';
 import { addPostAC } from '../../../redux/profile-reducer';
 import store from '../../../redux/redux-store';
-import { DispatchType, RootStateType } from '../../../redux/state';
+import { RootStateType } from '../../../redux/state';
 import { connect } from 'react-redux';
-
 
 
 
@@ -16,18 +14,16 @@ let mapStateToProps = (state: RootStateType) => {
     }
 }
 
-let mapDispatchToProps = (dispatch: DispatchType) => {
+let mapDispatchToProps = (dispatch: any) => {
     return {
         addPostHandler: () => {
             store.dispatch(addPostAC())
         },
-        onPostChange: (text: string) => {
-            store.dispatch(updateNewMessageBodyAC(text))
+        updateNewPostText: (text: string) => {
+            dispatch(updateNewMessageBodyAC(text))
         }
     }
 }
 
-const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts)
+export const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts)
 
-
-export default MyPostsContainer;
