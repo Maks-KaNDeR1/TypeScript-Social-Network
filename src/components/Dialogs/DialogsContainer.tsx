@@ -1,38 +1,57 @@
 
 import React, { ChangeEvent } from 'react'
-import { addMessageAC, DialogsReducerType, updateNewMessageBodyAC } from '../../redux/dialogs-reducer';
+import { connect } from 'react-redux';
+import { addMessageAC, updateNewMessageBodyAC } from '../../redux/dialogs-reducer';
 import store from '../../redux/redux-store';
+import { DispatchType, RootStateType } from '../../redux/state';
 import Dialogs from './Dialogs';
 
-type PropsType = {
-    dialogsPage: DialogsReducerType
+
+// function DialogsContainer (props: PropsType) {
+
+//     const dialogs = props.dialogsPage.dialogs
+//     const message = props.dialogsPage.message
+//     const newMessageBody = props.dialogsPage.newMessageBody
+
+//     const addMessage = () => {
+//         store.dispatch(addMessageAC())
+//     }
+
+//     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+//         let text = e.currentTarget.value
+//         store.dispatch(updateNewMessageBodyAC(text))
+//     }
+
+
+//     return <Dialogs dialogs={dialogs}
+//     message={message}
+//     newMessageBody={newMessageBody}
+//     addMessage={addMessage}
+//     updateNewMessage={onChangeHandler}
+//     />
+// }
+
+let mapStateToProps = (state: RootStateType) => {
+    return {
+        dialogsPage: state.dialogsPage
+    }
+
 }
 
 
-function DialogsContainer (props: PropsType) {
+let mapDispatchToProps = (dispatch: DispatchType) => {
+    return {
+        addMessageHandler: () => {
+            store.dispatch(addMessageAC())
+        },
+        onChangeHandler: (text: string) => {
+            store.dispatch(updateNewMessageBodyAC(text))
+        }
 
-    const dialogs = props.dialogsPage.dialogs
-    const message = props.dialogsPage.message
-    const newMessageBody = props.dialogsPage.newMessageBody
-    
-    const addMessage = () => {
-        store.dispatch(addMessageAC())
     }
-
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        let text = e.currentTarget.value
-        store.dispatch(updateNewMessageBodyAC(text))
-    }
-
-
-    return <Dialogs dialogs={dialogs}
-    message={message}
-    newMessageBody={newMessageBody}
-    addMessage={addMessage}
-    updateNewMessage={onChangeHandler}
-
-    />
 }
 
+
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 
 export default DialogsContainer
