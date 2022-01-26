@@ -4,15 +4,13 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 import { ProfilePageType } from '../../redux/state';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 
-type PropsType = {
-  profilePage: ProfilePageType
-}
 
-const Profile = (props: PropsType) => {
+
+const Profile = () => {
   return (
     <div className={styles.content}>
       <ProfileInfo />
-      <MyPostsContainer profilePage={props.profilePage} />
+      <MyPostsContainer />
     </div>
   )
 }
