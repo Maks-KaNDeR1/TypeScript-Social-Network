@@ -7,7 +7,7 @@ type PropsType = {
   posts: Array<PostType>
   newPostText: string
   addPostHandler: () => void
-  updateNewPostText: (e: ChangeEvent<HTMLTextAreaElement>) => void
+  updateNewPostText: (text: string) => void
 }
 
 const MyPosts = (props: PropsType) => {
@@ -16,16 +16,25 @@ const MyPosts = (props: PropsType) => {
     <Post key={p.id} message={p.message} likesCount={p.likesCount} />
   )
 
+  const addPost = () => {
+    props.addPostHandler()
+  }
+
+  const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    let text = e.currentTarget.value
+    props.updateNewPostText(text)
+  }
+
   return (
     <div>
       My posts
       <div>
         <textarea
           value={props.newPostText}
-          onChange={props.updateNewPostText}
+          onChange={onPostChange}
           className={styles.textarea}
         />
-        <button onClick={props.addPostHandler}
+        <button onClick={addPost}
           className={styles.button}>Add post</button>
       </div>
       <div className={styles.posts}>
