@@ -21,7 +21,7 @@ export type DialogsReducerType = {
     newMessageBody: string
 }
 
-let initialState = {
+let initialState:DialogsReducerType = {
         dialogs: [
             { id: 1, name: 'Sofiyka', src: 'https://sun2-10.userapi.com/s/v1/if1/w1y1anZFpf-CNhV-lyM8U6QCcnKkY164nwL0HkaM1FCU6CxDm4dQ3F0i9yR8ib5JCojY2P7X.jpg?size=100x0&quality=96&crop=58,0,339,339&ava=1' },
             { id: 2, name: 'Maks', src: 'https://sun2-4.userapi.com/s/v1/ig2/tmGqC7l6DkVdw8p1o8raCVmvPtRmFeWjVODUXOn8ClIXSBpLUKtcascbdMK0i0qBhTs0aXgP7qSj-evbmXNdcL9X.jpg?size=100x0&quality=96&crop=26,6,1580,1580&ava=1' },
@@ -41,21 +41,22 @@ let initialState = {
         newMessageBody: ''
 }
 
-export const dialogsReducer = (state = initialState , action: ActionsType): DialogsReducerType  => {
+export const dialogsReducer = (state:DialogsReducerType = initialState , action: ActionsType): DialogsReducerType  => {
     switch (action.type) {
-        case ADD_MESSAGE: {
-            return {
-                ...state,
-                // message: [...state.message, {id: 5, message: body}],
-                newMessageBody: ''
-            }
-        } 
         case UPDATE_NEW_MESSAGE_BODY: {
             return {
                 ...state,
-                // newMessageBody: action.body
+                newMessageBody: action.body
             }
         }
+        case ADD_MESSAGE: {
+            
+            return {
+                ...state,
+                message: [...state.message, {id: 5, message: state.newMessageBody}],
+                newMessageBody: ''
+            }
+        } 
         default:
             return state;
     }
@@ -65,11 +66,11 @@ export const dialogsReducer = (state = initialState , action: ActionsType): Dial
 type ActionsType = addMessageACType | updateNewMessageBodyACType
 
 type addMessageACType = ReturnType<typeof addMessageAC>
-export const addMessageAC = () => ({ type: ADD_MESSAGE })
+export const addMessageAC = () => ({ type: ADD_MESSAGE } as const)
 
 type updateNewMessageBodyACType = ReturnType<typeof updateNewMessageBodyAC>
 export const updateNewMessageBodyAC = (body: string) =>
-    ({ type: UPDATE_NEW_MESSAGE_BODY, body })
+    ({ type: UPDATE_NEW_MESSAGE_BODY, body } as const)
 
 
     export default dialogsReducer

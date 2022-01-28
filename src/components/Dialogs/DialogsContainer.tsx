@@ -6,7 +6,6 @@ import Dialogs from './Dialogs';
 
 
 
-
 let mapStateToProps = (state: RootStateType) => {
     return {
         dialogs: state.dialogsPage.dialogs,
@@ -25,7 +24,6 @@ let mapDispatchToProps = (dispatch: any) => {
         }
     }
 }
-
 
 export const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 

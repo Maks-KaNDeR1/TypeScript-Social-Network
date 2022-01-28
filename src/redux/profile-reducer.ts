@@ -14,7 +14,7 @@ export type profileReducerType = {
 export const ADD_POST = 'ADD_POST'
 export const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
 
-let initialState = {
+let initialState:profileReducerType = {
     posts: [
         { id: 1, message: "Hi, Yo", likesCount: 23 },
         { id: 2, message: "I'm in to IT", likesCount: 12 },
@@ -24,24 +24,24 @@ let initialState = {
     newPostText: ''
 };
 
-export const profileReducer = (state = initialState, action: ActionsType) => {
+export const profileReducer = (state:profileReducerType = initialState , action: ActionsType):profileReducerType  => {
     switch (action.type) {
+        case UPDATE_NEW_POST_TEXT: {
+            return {
+                ...state,
+                newPostText: action.newText
+            }
+        }
         case ADD_POST: {
             const newPost = {
                 id: 5,
-                // message: state.newText,
+                message: state.newPostText,
                 likesCount: 0
             }
             return     {
                 ...state,
                 posts: [...state.posts, newPost],
                 newPostText: ''
-            }
-        }
-        case UPDATE_NEW_POST_TEXT: {
-            return {
-                ...state,
-                // newPostText: action.newText
             }
         }
         default:
@@ -54,11 +54,11 @@ export const profileReducer = (state = initialState, action: ActionsType) => {
 type ActionsType = addPostACType | updateNewPostTextACType
 
 type addPostACType = ReturnType<typeof addPostAC>
-export const addPostAC = () => ({ type: ADD_POST })
+export const addPostAC = () => ({ type: ADD_POST } as const)
 
 type updateNewPostTextACType = ReturnType<typeof updateNewPostTextAC>
 export const updateNewPostTextAC = (text: string) =>
-    ({ type: UPDATE_NEW_POST_TEXT, newText: text })
+    ({ type: UPDATE_NEW_POST_TEXT, newText: text } as const)
 
 
 export default profileReducer

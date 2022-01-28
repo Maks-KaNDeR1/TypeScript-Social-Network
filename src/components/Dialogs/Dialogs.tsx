@@ -26,15 +26,15 @@ function Dialogs(props: PropsType) {
     )
 
     const addMessage = () => {
-                props.addMessageHandler()
-            }
-        
-            const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-                let text = e.currentTarget.value
-               props.updateNewMessage(text)
-            }
+        props.addMessageHandler()
+    }
 
-  
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        let text = e.currentTarget.value
+        props.updateNewMessage(text)
+    }
+
+
     return (
         <div className={styles.dialogs}>
             <div className={styles.dialogsItems}>

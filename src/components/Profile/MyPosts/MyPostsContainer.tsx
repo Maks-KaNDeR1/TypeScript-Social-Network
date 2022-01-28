@@ -1,8 +1,6 @@
 import MyPosts from './MyPosts';
-import { updateNewMessageBodyAC } from '../../../redux/dialogs-reducer';
-import { addPostAC } from '../../../redux/profile-reducer';
-import store from '../../../redux/redux-store';
-import { RootStateType } from '../../../redux/state';
+import { addPostAC, updateNewPostTextAC } from '../../../redux/profile-reducer';
+import {  RootStateType } from '../../../redux/state';
 import { connect } from 'react-redux';
 
 
@@ -17,10 +15,10 @@ let mapStateToProps = (state: RootStateType) => {
 let mapDispatchToProps = (dispatch: any) => {
     return {
         addPostHandler: () => {
-            store.dispatch(addPostAC())
+            dispatch(addPostAC())
         },
         updateNewPostText: (text: string) => {
-            dispatch(updateNewMessageBodyAC(text))
+            dispatch(updateNewPostTextAC(text))
         }
     }
 }
