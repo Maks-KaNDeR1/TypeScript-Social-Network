@@ -10,23 +10,23 @@ type MessageType = {
     message: string
 }
 
-export type PostType = {
+type PostType = {
     id: number
     message: string
     likesCount: number
 }
 
-export type ProfilePageType = {
+type ProfilePageType = {
     posts: Array<PostType>
     newPostText: string
 }
 
-export type DialogsPageType = {
+type DialogsPageType = {
     dialogs: Array<DialogsType>
     message: Array<MessageType>
     newMessageBody: string
 }
-export type RootStateType = {
+type RootStateType = {
     profilePage: ProfilePageType
     dialogsPage: DialogsPageType
 }
@@ -37,7 +37,7 @@ export const ADD_MESSAGE = 'ADD_MESSAGE'
 export const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
 
 
-export type StoreType = {
+type StoreType = {
     _state: RootStateType
     getState: () => RootStateType
     subscribe: (callback: () => void) => void
@@ -48,7 +48,7 @@ export type StoreType = {
 type ActionsType = AddPostActionType | UpdateNewPostTextActionType
     | AddMessageActionType | UpdateNewMessageBodyActionType
 
-export type DispatchType = (action: ActionsType) => void
+type DispatchType = (action: ActionsType) => void
 
 
 type AddPostActionType = {
@@ -151,18 +151,18 @@ let store = {
     }
 }
 
-export const addPostActionCreator = () => {
+const addPostActionCreator = () => {
     return { type: ADD_POST }
 }
-export const updateNewPostTextActionCreator = (text: string) => {
+const updateNewPostTextActionCreator = (text: string) => {
     return { type: UPDATE_NEW_POST_TEXT, newText: text }
 }
 
-export const addMessageActionCreator = () => {
+const addMessageActionCreator = () => {
     return { type: ADD_MESSAGE }
 }
-export const updateNewMessageBodyActionCreator = (text: string) => {
+const updateNewMessageBodyActionCreator = (text: string) => {
     return { type: UPDATE_NEW_MESSAGE_BODY, newMessage: text }
 }
 
-export default store
+store

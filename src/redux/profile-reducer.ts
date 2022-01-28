@@ -1,5 +1,8 @@
 
 
+export const ADD_POST = 'ADD_POST'
+export const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
+
 export type PostType = {
     id: number
     message: string
@@ -11,17 +14,13 @@ export type profileReducerType = {
     newPostText: string
 }
 
-export const ADD_POST = 'ADD_POST'
-export const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
-const b = 6;
-
 let initialState:profileReducerType = {
     posts: [
         { id: 1, message: "Hi, Yo", likesCount: 23 },
         { id: 2, message: "I'm in to IT", likesCount: 12 },
         { id: 3, message: "I'", likesCount: 57 },
         { id: 4, message: "I'm a BOSS", likesCount: 23 }
-    ],
+    ] as Array<PostType>,
     newPostText: ''
 };
 
