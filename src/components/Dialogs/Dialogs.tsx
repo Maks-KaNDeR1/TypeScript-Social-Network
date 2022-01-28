@@ -1,9 +1,9 @@
 
 import React, { ChangeEvent } from 'react'
-import { DialogsType, MessageType } from '../../redux/dialogs-reducer';
 import DialogItem from './DialodsItem/DialogsItem';
 import Message from './Message/Message';
 import styles from './Dialogs.module.css'
+import { DialogsType, MessageType } from '../../redux/dialogs-reducer';
 
 type PropsType = {
     dialogs: Array<DialogsType>
