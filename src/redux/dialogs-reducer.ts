@@ -3,7 +3,6 @@
 export const ADD_MESSAGE = 'ADD_MESSAGE'
 export const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
 
-
 export type DialogsType = {
     id: number
     name: string
@@ -31,13 +30,13 @@ let initialState:DialogsReducerType = {
             { id: 6, name: 'Ustina', src: 'https://sun9-59.userapi.com/impf/Xr5HIhSHG2Xn-b6EXFY0x1KMNfa5VpmofbNzlQ/cS6GLKimqdg.jpg?size=1080x1080&quality=96&sign=e702e7ebd20a8cddfbebd77957c00ecc&type=album' },
             { id: 7, name: 'Sasha', src: 'https://sun2-9.userapi.com/s/v1/ig2/k-NYQ6bwT9zwVHoWsY9mEW35tf56gqKIZSogiC5qcE32xOlTKCMvn3poYzyhEn0fKrStu2jhWt6di522b1IjrWHb.jpg?size=100x0&quality=96&crop=12,12,200,200&ava=1' },
             { id: 8, name: 'Vova', src: 'https://sun2-4.userapi.com/s/v1/ig1/X2AsqRo-dhkjrmbPk2fwjAJjQipXwXvaGtQFw42mSpDrZUYK5pR5AiM6HUwJktqkET6WctPB.jpg?size=100x0&quality=96&crop=615,256,588,588&ava=1' }
-        ],
+        ] as Array<DialogsType>,
         message: [
             { id: 1, message: 'Hy, I am Maks' },
             { id: 2, message: 'Hoy are you' },
             { id: 3, message: 'How is your it-kamasutra?' },
             { id: 4, message: 'Yo' },
-        ],
+        ] as Array<MessageType>,
         newMessageBody: ''
 }
 
