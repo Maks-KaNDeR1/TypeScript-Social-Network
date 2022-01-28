@@ -13,7 +13,7 @@ export type profileReducerType = {
 
 export const ADD_POST = 'ADD_POST'
 export const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
-const a =4;
+const b = 6;
 
 let initialState:profileReducerType = {
     posts: [
