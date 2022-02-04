@@ -14,8 +14,11 @@ function Navbar() {
             <div className={`${styles.item} ${styles.active}`}>
                 <NavLink to="/music">Music</NavLink>
             </div>
-            <div>
-                
+            <div className={`${styles.item} ${styles.active}`}>
+                <NavLink to="/users">Users</NavLink>
+            </div>
+            <div className={`${styles.item} ${styles.active}`}>
+                <NavLink to="/setting">Setting</NavLink>
             </div>
         </div>
     )

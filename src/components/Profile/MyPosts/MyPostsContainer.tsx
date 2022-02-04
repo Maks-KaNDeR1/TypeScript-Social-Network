@@ -14,12 +14,10 @@ type MapStateToPropsType = {
     posts: Array<PostType>
     newPostText: string}
 
-let mapStateToProps = (state: AppStateType): MapStateToPropsType => {
-    return {
+let mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
         posts: state.profilePage.posts,
         newPostText: state.profilePage.newPostText
-    }
-}
+})
 
 let mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
     return {

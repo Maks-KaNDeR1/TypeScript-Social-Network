@@ -17,15 +17,12 @@ type MapDispatchToPropsType = {
     updateNewMessage: (text: string) => void
 }
 
-// export type DialogsPropsType = MapStateToPropsType & MapDispatchToPropsType
 
-let mapStateToProps = (state: AppStateType): MapStateToPropsType => {
-    return {
+let mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
         dialogs: state.dialogsPage.dialogs,
         message: state.dialogsPage.message,
         newMessageBody: state.dialogsPage.newMessageBody
-    }
-}
+    })
 
 let mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
     return {
