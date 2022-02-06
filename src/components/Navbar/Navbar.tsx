@@ -20,6 +20,9 @@ function Navbar() {
             <div className={`${styles.item} ${styles.active}`}>
                 <NavLink to="/setting">Setting</NavLink>
             </div>
+            <div className={`${styles.item} ${styles.active}`}>
+                <NavLink to="/calendar">Сalendar</NavLink>
+            </div>
         </div>
     )
 }
