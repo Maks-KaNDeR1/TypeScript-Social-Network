@@ -4,3 +4,8 @@ width: 80px;
 height: 80px;   
 color: rgba(49, 114, 98, 0.924); 
 }
+
+
+.selectedPage {
+        font-weight: bold;
+    }
