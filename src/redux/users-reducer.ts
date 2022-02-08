@@ -4,6 +4,7 @@ export const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW'
 export const SET_USERS = 'SET_USERS'
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 export const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
+export const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 
 
 type PhotosType = {
@@ -23,7 +24,7 @@ let initialState = {
     pageSize: 10,
     totalUsersCount: 0,
     currentPage: 1,
-    // isFetching: true,
+    isFetching: true,
     // followingInProgress: [] as Array<number>, //array of users ids
     // fake: 10
 };
@@ -52,6 +53,9 @@ export const usersReducer = (state: UsersReducerType = initialState, action: Act
         case SET_CURRENT_PAGE: {
             return { ...state, currentPage: action.currentPage }
         }
+        case TOGGLE_IS_FETCHING: {
+            return { ...state, isFetching: action.isFetching }
+        }
         default:
             return state;
     }
@@ -63,21 +67,24 @@ type ActionsType =
     ToggleFollowType |
     setUsersType |
     setCurrentPageType |
-    setUsersTotalCountType
+    setUsersTotalCountType |
+    toggleIsFetchingType
 
 type ToggleFollowType = ReturnType<typeof toggleFollow>
 export const toggleFollow = (userId: number) =>
     ({ type: TOGGLE_FOLLOW, userId } as const)
+    
+type toggleIsFetchingType = ReturnType<typeof toggleIsFetching>
+export const toggleIsFetching = (isFetching: boolean) =>
+    ({ type: TOGGLE_IS_FETCHING, isFetching } as const)
 
 type setUsersType = ReturnType<typeof setUsers>
 export const setUsers = (users: Array<UserType>) =>
     ({ type: SET_USERS, users } as const)
 
-
 type setCurrentPageType = ReturnType<typeof setCurrentPage>
 export const setCurrentPage = (currentPage: number) =>
     ({ type: SET_CURRENT_PAGE, currentPage } as const)
-
 
 type setUsersTotalCountType = ReturnType<typeof setUsersTotalCount>
 export const setUsersTotalCount = (totalUsersCount: number) =>
