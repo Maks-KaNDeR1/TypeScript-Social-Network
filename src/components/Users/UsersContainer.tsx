@@ -15,10 +15,11 @@ type UsersPropsType = {
     isFetching: boolean
     setUsers: (users: Array<UserType>) => void
     toggleFollow: (userId: number) => void
-    setTotalUsersCount: (totalCount: number) => void
+    setUsersTotalCount: (totalCount: number) => void
     setCurrentPage: (pageNumber: number) => void
     toggleIsFetching: (isFetching: boolean) => void
 }
+
 
 class UsersContainer extends React.Component<UsersPropsType, any> {
     componentDidMount() {
@@ -27,7 +28,7 @@ class UsersContainer extends React.Component<UsersPropsType, any> {
             .then(response => {
                 this.props.toggleIsFetching(false)
                 this.props.setUsers(response.data.items);
-                this.props.setTotalUsersCount(response.data.totalCount);
+                this.props.setUsersTotalCount(response.data.totalCount);
             });
     };
 
@@ -62,13 +63,13 @@ type MapStateToPropsType = {
     isFetching: boolean
 }
 
-type MapDispatchToPropsType = {
-    setUsers: (users: Array<UserType>) => void
-    toggleFollow: (userId: number) => void
-    setTotalUsersCount: (totalCount: number) => void
-    setCurrentPage: (pageNumber: number) => void
-    toggleIsFetching: (isFetching: boolean) => void
-}
+// type MapDispatchToPropsType = {
+//     setUsers: (users: Array<UserType>) => void
+//     toggleFollow: (userId: number) => void
+//     setTotalUsersCount: (totalCount: number) => void
+//     setCurrentPage: (pageNumber: number) => void
+//     toggleIsFetching: (isFetching: boolean) => void
+// }
 
 
 let mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
@@ -79,22 +80,29 @@ let mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
     isFetching: state.usersPage.isFetching
 })
 
-let mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => ({
-    toggleFollow: (userId: number) => {
-        dispatch(toggleFollow(userId))
-    },
-    toggleIsFetching: (isFetching: boolean) => {
-        dispatch(toggleIsFetching(isFetching))
-    },
-    setUsers: (users: Array<UserType>) => {
-        dispatch(setUsers(users));
-    },
-    setCurrentPage: (pageNumber: number) => {
-        dispatch(setCurrentPage(pageNumber))
-    },
-    setTotalUsersCount: (totalCount: number) => {
-        dispatch(setUsersTotalCount(totalCount))
-    }
-})
+// let mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => ({
+//     toggleFollow: (userId: number) => {
+//         dispatch(toggleFollow(userId))
+//     },
+//     toggleIsFetching: (isFetching: boolean) => {
+//         dispatch(toggleIsFetching(isFetching))
+//     },
+//     setUsers: (users: Array<UserType>) => {
+//         dispatch(setUsers(users));
+//     },
+//     setCurrentPage: (pageNumber: number) => {
+//         dispatch(setCurrentPage(pageNumber))
+//     },
+//     setTotalUsersCount: (totalCount: number) => {
+//         dispatch(setUsersTotalCount(totalCount))
+//     }
+// })
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps, {
+    toggleFollow,
+    toggleIsFetching, 
+    setUsers,
+    setCurrentPage,
+    setUsersTotalCount
+}  
+  )(UsersContainer);
