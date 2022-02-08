@@ -9,8 +9,8 @@ type PropsType = {
     dialogs: Array<DialogsType>
     message: Array<MessageType>
     newMessageBody: string
-    addMessageHandler: () => void
-    updateNewMessage: (body: string) => void
+    addMessage: () => void
+    updateNewMessageBody: (body: string) => void
 
 }
 
@@ -26,12 +26,12 @@ function Dialogs(props: PropsType) {
     )
 
     const addMessage = () => {
-        props.addMessageHandler()
+        props.addMessage()
     }
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         let body = e.currentTarget.value
-        props.updateNewMessage(body)
+        props.updateNewMessageBody(body)
     }
 
 

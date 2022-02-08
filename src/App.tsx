@@ -4,9 +4,9 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import { Routes, Route } from 'react-router-dom';
 import Profile from './components/Profile/Profile';
-import { DialogsContainer } from './components/Dialogs/DialogsContainer';
 import Calendar from './components/Calendar/Calendar';
 import UsersContainer from './components/Users/UsersContainer';
+import { DialogsContainer } from './components/Dialogs/DialogsContainer';
 
 
 
