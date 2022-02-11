@@ -3,7 +3,6 @@ import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import { Routes, Route } from 'react-router-dom';
-import Profile from './components/Profile/Profile';
 import Calendar from './components/Calendar/Calendar';
 import UsersContainer from './components/Users/UsersContainer';
 import { DialogsContainer } from './components/Dialogs/DialogsContainer';
@@ -19,9 +18,9 @@ function App() {
       <Navbar />
       <div className="app-wrapper-content">
         <Routes>
-          <Route path="/profile/" element={
+          <Route path="/profile/:userId?" element={
             <ProfileContainer />} />
-          <Route path="/dialogs/" element={
+          <Route path="/dialogs" element={
             <DialogsContainer  />} />
           <Route path="/users" element={
             <UsersContainer  />} />
