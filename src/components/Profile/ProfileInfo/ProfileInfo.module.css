@@ -1,9 +1,14 @@
 
+.descriptionBlock {
+
+}
 
 .descriptionBlock img {
-    margin: 3px;
+    margin-top: 3px;
     height: 90px;
     width: 120px;
     border-style:solid ;
-    border-color: rgb(40, 47, 75);
+    border: rgb(0, 247, 255) 2px solid;
+
 }
+

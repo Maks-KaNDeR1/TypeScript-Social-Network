@@ -28,6 +28,7 @@ type ContactType = {
 }
 
 export type ProfileType = {
+    aboutMe: string
     userId: number
     lookingForAJob: boolean
     lookingForAJobDescription: string
