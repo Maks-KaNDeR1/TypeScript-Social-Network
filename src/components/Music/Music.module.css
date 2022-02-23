@@ -1,0 +1,18 @@
+
+.pleer {
+    margin: 15px;
+}
+.pleer h2{
+    margin-top: 10px;
+}
+
+.pleer button {
+    border-radius: 8px;
+width: 60px;
+height: 55px;
+}
+
+.item{
+  font-weight: 800;
+  font-size: 20px;
+}

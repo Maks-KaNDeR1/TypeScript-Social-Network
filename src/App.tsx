@@ -7,6 +7,7 @@ import Calendar from './components/Calendar/Calendar';
 import UsersContainer from './components/Users/UsersContainer';
 import { DialogsContainer } from './components/Dialogs/DialogsContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
+import Music from './components/Music/Music';
 
 
 
@@ -28,6 +29,8 @@ function App() {
             <UsersContainer  />} />
           <Route path="/calendar" element={
             <Calendar />} />
+          <Route path="/music" element={
+            <Music />} />
         </Routes>
       </div>
     </div>
