@@ -3,13 +3,14 @@ import { NavLink } from 'react-router-dom'
 import styles from './Navbar.module.css'
 
 function Navbar() {
+
     return (
         <div className={styles.nav}>
             <div className={`${styles.item} ${styles.active}`} >
-                <NavLink to="/profile">Profile</NavLink>
+                <NavLink to="/profile/">Profile</NavLink>
             </div>
             <div className={`${styles.item} ${styles.active}`}>
-                <NavLink to="/dialogs">Messages</NavLink>
+                <NavLink to="/dialogs/">Messages</NavLink>
             </div>
             <div className={`${styles.item} ${styles.active}`}>
                 <NavLink to="/music">Music</NavLink>

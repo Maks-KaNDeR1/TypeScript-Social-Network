@@ -12,7 +12,6 @@ const ProfileInfo = (props: PropsType) => {
             if (!props.profile) {
                 return <Preloader />
             }
-    debugger
     return (
         <div>
             <div className={styles.descriptionBlock}>
