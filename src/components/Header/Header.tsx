@@ -5,10 +5,11 @@ import s from './Header.module.css';
 
 
 function Header(props: any) {
+    debugger
     return <header className={s.header} >
         <div className={s.loginBlock}>
             {
-                !props.isAuth ? 'props.login'
+                !props.isAuth ? 'login'
                     : <NavLink to={'/login'}>Login</NavLink>
             }
         </div>
