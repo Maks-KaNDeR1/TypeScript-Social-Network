@@ -36,13 +36,13 @@ const Post = (props: PostPropsType) => {
       <img src='https://i.pinimg.com/600x315/63/e4/e2/63e4e23fffdb56ee09a20ff630eef6ea.jpg' alt='Ava' />
       {props.message}
       <div>
-        <span> likes
+        <span> 
           <button style={buttonStyle}
             onClick={handleClick}
           >
             {likeIt ? "💙" : "🤍"}
           </button>
-        </span> {likes}
+        </span> {likes} likes
       </div>
     </div>
   )

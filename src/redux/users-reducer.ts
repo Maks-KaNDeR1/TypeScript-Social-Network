@@ -1,4 +1,4 @@
-import { idText } from "typescript"
+import { usersAPI } from "../api/api"
 
 
 export const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW'
@@ -59,7 +59,7 @@ export const usersReducer = (state: UsersReducerType = initialState, action: Act
             return { ...state, isFetching: action.isFetching }
         }
         case TOGGLE_IS_FOLLOWING_PROGRESS: {
-             return {
+            return {
                 ...state,
                 followingInProgress: action.isFetching
                     ? [...state.followingInProgress, action.userId]
@@ -84,7 +84,7 @@ type ActionsType =
 type ToggleFollowType = ReturnType<typeof toggleFollow>
 export const toggleFollow = (userId: number) =>
     ({ type: TOGGLE_FOLLOW, userId } as const)
-    
+
 type toggleIsFetchingType = ReturnType<typeof toggleIsFetching>
 export const toggleIsFetching = (isFetching: boolean) =>
     ({ type: TOGGLE_IS_FETCHING, isFetching } as const)
@@ -105,6 +105,39 @@ type setUsersTotalCountType = ReturnType<typeof setUsersTotalCount>
 export const setUsersTotalCount = (totalUsersCount: number) =>
     ({ type: SET_TOTAL_USERS_COUNT, totalUsersCount } as const)
 
+
+
+export const getUsers = (currentPage: number, pageSize: number) => (dispatch: any) => {
+    dispatch(toggleIsFetching(true))
+    usersAPI.getUsers(currentPage, pageSize)
+        .then(data => {
+            dispatch(toggleIsFetching(false))
+            dispatch(setUsers(data.items));
+            dispatch(setUsersTotalCount(data.totalCount));
+        });
+}
+
+export const follow = (id: number) => (dispatch: any) => {
+    dispatch(toggleFollowingProgress(id, true))
+    usersAPI.follow(id)
+        .then(data => {
+            if (data.resultCode === 0) {
+                dispatch(toggleFollow(id))
+            }
+            dispatch(toggleFollowingProgress(id, false))
+        })
+}
+
+export const unfollow = (id: number) => (dispatch: any) => {
+    dispatch(toggleFollowingProgress(id, true))
+    usersAPI.unfollow(id)
+        .then(data => {
+            if (data.resultCode === 0) {
+                dispatch(toggleFollow(id))
+            }
+            dispatch(toggleFollowingProgress(id, false))
+        })
+}
 
 
 
