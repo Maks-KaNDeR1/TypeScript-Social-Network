@@ -16,15 +16,19 @@ const buttonStyle = {
 
 const Post = (props: PostPropsType) => {
 
-  const [like, setLike] = useState(0)
+  const [likes, setLikes] = useState(props.likesCount)
+  const [likeIt, setLikeIt] = useState(false)
+
 
   const handleClick = () => {
-    if (like === 0) {
-      setLike(like + 1)
+    if (!likeIt) {
+      setLikes(likes + 1)
+      setLikeIt(true)
     } else {
-      setLike(like - 1)
+      setLikes(likes - 1)
+      setLikeIt(false)
     }
-    console.log(like)
+    console.log(likes)
   }
 
   return (
@@ -32,13 +36,13 @@ const Post = (props: PostPropsType) => {
       <img src='https://i.pinimg.com/600x315/63/e4/e2/63e4e23fffdb56ee09a20ff630eef6ea.jpg' alt='Ava' />
       {props.message}
       <div>
-        <span> like
+        <span> likes
           <button style={buttonStyle}
             onClick={handleClick}
           >
-            {like ? "💙" : "🤍"}
+            {likeIt ? "💙" : "🤍"}
           </button>
-        </span> {like}
+        </span> {likes}
       </div>
     </div>
   )
