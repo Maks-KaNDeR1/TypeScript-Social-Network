@@ -1,3 +1,4 @@
+import { idText } from "typescript"
 
 
 export const TOGGLE_FOLLOW = 'TOGGLE_FOLLOW'
@@ -5,6 +6,7 @@ export const SET_USERS = 'SET_USERS'
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 export const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
 export const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
+export const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS'
 
 
 type PhotosType = {
@@ -25,7 +27,7 @@ let initialState = {
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: true,
-    // followingInProgress: [] as Array<number>, //array of users ids
+    followingInProgress: [] as Array<number>  //array of users ids
     // fake: 10
 };
 
@@ -56,6 +58,14 @@ export const usersReducer = (state: UsersReducerType = initialState, action: Act
         case TOGGLE_IS_FETCHING: {
             return { ...state, isFetching: action.isFetching }
         }
+        case TOGGLE_IS_FOLLOWING_PROGRESS: {
+             return {
+                ...state,
+                followingInProgress: action.isFetching
+                    ? [...state.followingInProgress, action.userId]
+                    : state.followingInProgress.filter(id => id !== action.userId)
+            }
+        }
         default:
             return state;
     }
@@ -68,7 +78,8 @@ type ActionsType =
     setUsersType |
     setCurrentPageType |
     setUsersTotalCountType |
-    toggleIsFetchingType
+    toggleIsFetchingType |
+    toggleIsFollowingProgressType
 
 type ToggleFollowType = ReturnType<typeof toggleFollow>
 export const toggleFollow = (userId: number) =>
@@ -77,6 +88,10 @@ export const toggleFollow = (userId: number) =>
 type toggleIsFetchingType = ReturnType<typeof toggleIsFetching>
 export const toggleIsFetching = (isFetching: boolean) =>
     ({ type: TOGGLE_IS_FETCHING, isFetching } as const)
+
+type toggleIsFollowingProgressType = ReturnType<typeof toggleFollowingProgress>
+export const toggleFollowingProgress = (userId: number, isFetching: boolean) =>
+    ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, userId, isFetching } as const)
 
 type setUsersType = ReturnType<typeof setUsers>
 export const setUsers = (users: Array<UserType>) =>
