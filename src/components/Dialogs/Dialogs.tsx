@@ -36,7 +36,6 @@ function Dialogs(props: PropsType) {
         props.updateNewMessageBody(body)
     }
 
-    if (!props.isAuth) return <Navigate to='/login' />
 
     return (
         <div className={styles.dialogs}>
