@@ -8,6 +8,7 @@ import { DialogsContainer } from './components/Dialogs/DialogsContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import Music from './components/Music/Music';
 import HeaderContainer from './components/Header/HeaderContainer';
+import Login from './components/Login/Login';
 
 
 
@@ -27,6 +28,8 @@ function App() {
             <DialogsContainer  />} />
           <Route path="/users" element={
             <UsersContainer  />} />
+          <Route path="/login" element={
+            <Login />} />
           <Route path="/calendar" element={
             <Calendar />} />
           <Route path="/music" element={

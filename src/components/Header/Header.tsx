@@ -6,7 +6,6 @@ import s from './Header.module.css';
 
 
 function Header(props: any) {
-    debugger
     return <header className={s.header}>
         <Calendar />
         <div className={s.loginBlock}>

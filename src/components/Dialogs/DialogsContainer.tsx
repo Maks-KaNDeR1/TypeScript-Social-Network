@@ -9,14 +9,15 @@ type MapStateToPropsType = {
     dialogs: Array<DialogsType>
     message: Array<MessageType>
     newMessageBody: string
+    isAuth: boolean
 }
 
-
-let mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
-        dialogs: state.dialogsPage.dialogs,
-        message: state.dialogsPage.message,
-        newMessageBody: state.dialogsPage.newMessageBody
-    })
+let mapStateToProps = (state: any): MapStateToPropsType => ({
+    dialogs: state.dialogsPage.dialogs,
+    message: state.dialogsPage.message,
+    newMessageBody: state.dialogsPage.newMessageBody,
+    isAuth: state.auth.isAuth
+})
 
 export const DialogsContainer = connect(mapStateToProps, {
     addMessage,
