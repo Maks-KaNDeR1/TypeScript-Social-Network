@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentType } from 'react';
 import { connect } from 'react-redux';
 import { AppStateType } from '../../redux/redux-store';
 import {
@@ -29,7 +29,7 @@ type UsersPropsType = {
 }
 
 
-class UsersContainer extends React.Component<UsersPropsType, any> {
+class UsersContainer extends React.Component<any, UsersPropsType> {
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize)
     };
@@ -74,7 +74,7 @@ let mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
 
 
 
-export default compose(
+export default compose<ComponentType>(
     WithAuthRedirect,
     connect(mapStateToProps, {
         toggleIsFetching,

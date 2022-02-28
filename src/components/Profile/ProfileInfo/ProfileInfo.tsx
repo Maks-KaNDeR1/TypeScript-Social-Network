@@ -2,6 +2,7 @@ import React from 'react';
 import { ProfileType } from '../../../redux/profile-reducer';
 import Preloader from '../../common/Preloader/Preloader';
 import s from './ProfileInfo.module.css';
+import ProfileStatus from './ProfileStatus';
 
 type PropsType = {
     profile: ProfileType
@@ -19,6 +20,9 @@ const ProfileInfo = (props: PropsType) => {
                 <img src={props.profile.photos.large} alt='avatar' />
                 <div>
                     <b>Full name</b>: {props.profile.fullName}
+                </div>
+                <div>
+                    <ProfileStatus value='Ya Krut' />
                 </div>
                 <div>
                     <b>Looking for a job</b>: {props.profile.lookingForAJob ? "yes" : "no"}
