@@ -27,8 +27,8 @@ function CurrentTime() {
     return (
         
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h1> {day} {month}  </h1>
-            <h2 style={{marginTop:'0px', color: 'rgba(49, 114, 98, 0.924)' }}
+            {/* <h1> {day} {month}  </h1> */}
+            <h2 style={{marginTop:'0px', color: 'aqua' }}
             > {hour} : {min} : {sec}
             </h2>
         </div>

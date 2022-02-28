@@ -1,3 +1,4 @@
+import { profileAPI } from "../api/api"
 
 
 export const ADD_POST = 'ADD_POST'
@@ -99,6 +100,14 @@ export const updateNewPostText = (text: string) =>
 type SetUserProfileType = ReturnType<typeof setUserProfile>
 export const setUserProfile = (profile: any) =>
     ({ type: SET_USER_PROFILE, profile } as const)
+
+
+export const getUserProfile = (userId: number) => (dispatch: any) => {
+    profileAPI.getUserProfie(userId)
+        .then(data => {
+            dispatch(setUserProfile(data));
+        });
+}
 
 
 export default profileReducer
