@@ -4,7 +4,6 @@ import DialogItem from './DialodsItem/DialogsItem';
 import Message from './Message/Message';
 import styles from './Dialogs.module.css'
 import { DialogsType, MessageType } from '../../redux/dialogs-reducer';
-import { Navigate } from 'react-router-dom';
 
 type PropsType = {
     dialogs: Array<DialogsType>
@@ -12,13 +11,11 @@ type PropsType = {
     newMessageBody: string
     addMessage: () => void
     updateNewMessageBody: (body: string) => void
-    isAuth: boolean
-
 }
 
 
 function Dialogs(props: PropsType) {
-
+    
     const dialogsElements = props.dialogs.map(d =>
         <DialogItem name={d.name} key={d.id} id={d.id} src={d.src} />
     )

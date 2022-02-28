@@ -12,9 +12,14 @@ let initialState = {
     isAuth: false
 };
 
-export type authReducerType = typeof initialState
+export type authReducerType ={
+    id: number | null
+    email: string | null
+    login: string | null
+    isAuth: boolean
+}
 
-export const authReducer = (state: authReducerType = initialState, action: ActionsType) => {
+export const authReducer = (state: authReducerType = initialState, action: ActionsType): authReducerType => {
     switch (action.type) {
         case SET_USER_DATA: {
             return {
@@ -42,7 +47,7 @@ export const getAuthUserData = () => (dispatch: any) => {
     authAPI.me()
         .then(data => {
             if (data.resultCode === 0) {
-                let { id, email, login } = data.data
+                let { id, email, login } = data.data;
                 dispatch(setAuthUserData(id, email, login))
             }
         })

@@ -11,6 +11,8 @@ import {
 } from '../../redux/users-reducer';
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
+import { compose } from 'redux';
+import WithAuthRedirect from '../../hoc/WithAuthRedirect';
 
 
 type UsersPropsType = {
@@ -30,25 +32,12 @@ type UsersPropsType = {
 class UsersContainer extends React.Component<UsersPropsType, any> {
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize)
-        // this.props.toggleIsFetching(true)
-        // userAPI.getUsers(this.props.currentPage, this.props.pageSize)
-        //     .then(data => {
-        //         this.props.toggleIsFetching(false)
-        //         this.props.setUsers(data.items);
-        //         this.props.setUsersTotalCount(data.totalCount);
-        //     });
     };
 
     onPageChanged = (pageNumber: number) => {
         this.props.getUsers(pageNumber, this.props.pageSize)
-        // this.props.toggleIsFetching(true)
-        // this.props.setCurrentPage(pageNumber);
-        // userAPI.getUsers(pageNumber, this.props.pageSize)
-        //     .then(data => {
-        //         this.props.toggleIsFetching(false)
-        //         this.props.setUsers(data.items);
-        //     });
     }
+
     render() {
 
         return <> {this.props.isFetching ? <Preloader /> : null}
@@ -84,10 +73,14 @@ let mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
 })
 
 
-export default connect(mapStateToProps, {
-    toggleIsFetching,
-    setCurrentPage,
-    getUsers,
-    follow,
-    unfollow
-})(UsersContainer);
+
+export default compose(
+    WithAuthRedirect,
+    connect(mapStateToProps, {
+        toggleIsFetching,
+        setCurrentPage,
+        getUsers,
+        follow,
+        unfollow
+    })
+)(UsersContainer)
