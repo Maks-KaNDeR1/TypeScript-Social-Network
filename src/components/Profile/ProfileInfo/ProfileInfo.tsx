@@ -6,6 +6,8 @@ import ProfileStatus from './ProfileStatus';
 
 type PropsType = {
     profile: ProfileType
+    updateStatus: (value: string) => void
+    status: string
 }
 
 
@@ -22,7 +24,7 @@ const ProfileInfo = (props: PropsType) => {
                     <b>Full name</b>: {props.profile.fullName}
                 </div>
                 <div>
-                    <ProfileStatus value='Ya Krut' />
+                    <ProfileStatus updateStatus={props.updateStatus} value={props.status} />
                 </div>
                 <div>
                     <b>Looking for a job</b>: {props.profile.lookingForAJob ? "yes" : "no"}

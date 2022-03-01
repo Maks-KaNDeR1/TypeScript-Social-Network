@@ -3,11 +3,12 @@ import styles from './Profile.module.css';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import { MyPostsContainer } from './MyPosts/MyPostsContainer';
 import { ProfileType } from '../../redux/profile-reducer';
-import { Navigate } from 'react-router-dom';
 
 type PropsType = {
   profile: ProfileType
   isAuth: boolean
+  status: string
+  updateStatus: (value: string) => void
 }
 
 
@@ -15,7 +16,7 @@ const Profile = (props: PropsType) => {
 
   return (
     <div className={styles.content}>
-      <ProfileInfo profile={props.profile} />
+      <ProfileInfo updateStatus={props.updateStatus} status={props.status} profile={props.profile} />
       <MyPostsContainer />
     </div>
   )

@@ -1,42 +1,47 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 
 type PropsType = {
     value: string
+    updateStatus: (value: string) => void
 }
 
 function Profiletitle(props: PropsType) {
 
     const [editMode, setEditMode] = useState(false)
-    const [title, setTitle] = useState('props.value')
+    const [status, setStatus] = useState(props.value)
 
+
+    useEffect(() => {
+        setStatus(props.value);
+    }, [props.value])
 
     const activateEditMode = () => {
         setEditMode(true);
-        setTitle(props.value);
+        setStatus(props.value);
     }
 
     const activateViewMode = () => {
         setEditMode(false);
-        // props.onChange(title);
-        setTitle(title)
+        debugger
+        props.updateStatus(status);
     }
 
     const changeTitle = (e: ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.currentTarget.value)
+        setStatus(e.currentTarget.value)
     }
 
     return (
         <div>
             {!editMode &&
                 <div>
-                    <span onDoubleClick={activateEditMode}>{title}</span>
+                    <b> Status: </b> <span onDoubleClick={activateEditMode}>{props.value || "-----"}</span>
                 </div>
             }
             {editMode &&
                 <div >
                     <input autoFocus onBlur={activateViewMode} 
                     onChange={changeTitle}
-                      value={title} />
+                      value={status} />
                 </div>
             }
         </div>
