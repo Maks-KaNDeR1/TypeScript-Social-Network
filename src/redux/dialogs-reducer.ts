@@ -40,7 +40,7 @@ let initialState:DialogsReducerType = {
         newMessageBody: ''
 }
 
-export const dialogsReducer = (state:DialogsReducerType = initialState , action: ActionsType): DialogsReducerType  => {
+export const dialogsReducer = (state:DialogsReducerType = initialState , action: DialogsActionsType): DialogsReducerType  => {
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY: {
             return {
@@ -62,14 +62,16 @@ export const dialogsReducer = (state:DialogsReducerType = initialState , action:
 };
 
 
-type ActionsType = addMessageType | updateNewMessageBodyType
 
 type addMessageType = ReturnType<typeof addMessage>
 export const addMessage = () => ({ type: ADD_MESSAGE } as const)
 
 type updateNewMessageBodyType = ReturnType<typeof updateNewMessageBody>
 export const updateNewMessageBody = (body: string) =>
-    ({ type: UPDATE_NEW_MESSAGE_BODY, body } as const)
+({ type: UPDATE_NEW_MESSAGE_BODY, body } as const)
+
+
+export type DialogsActionsType = addMessageType | updateNewMessageBodyType
 
 
     export default dialogsReducer

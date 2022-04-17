@@ -1,4 +1,5 @@
 import { profileAPI } from "../api/api"
+import { AppThunkType } from "./redux-store"
 
 
 export const ADD_POST = 'ADD_POST'
@@ -60,7 +61,7 @@ let initialState = {
 
 export type initialStateType = typeof initialState
 
-export const profileReducer = (state = initialState, action: ActionsType): initialStateType => {
+export const profileReducer = (state = initialState, action: ProfileActionsType): initialStateType => {
     switch (action.type) {
         case UPDATE_NEW_POST_TEXT: {
             return { ...state, newPostText: action.newText }
@@ -90,11 +91,6 @@ export const profileReducer = (state = initialState, action: ActionsType): initi
 
 
 
-type ActionsType =
-    AddPostType |
-    UpdateNewPostTextType |
-    SetUserProfileType |
-    SetStatusType
 
 type AddPostType = ReturnType<typeof addPost>
 export const addPost = () => ({ type: ADD_POST } as const)
@@ -114,14 +110,14 @@ export const setStatus = (status: string) =>
 
 
 
-export const getUserProfile = (userId: number) => (dispatch: any) => {
+export const getUserProfile = (userId: number): AppThunkType => (dispatch) => {
     profileAPI.getUserProfie(userId)
         .then(data => {
             dispatch(setUserProfile(data));
         });
 }
 
-export const getStatus = (userId: number) => (dispatch: any) => {
+export const getStatus = (userId: number): AppThunkType => (dispatch) => {
     profileAPI.getStatus(userId)
     .then(data => {
        dispatch(setStatus(data))
@@ -129,7 +125,7 @@ export const getStatus = (userId: number) => (dispatch: any) => {
 }
 
 
-export const updateStatus = (status: string) => (dispatch: any) => {
+export const updateStatus = (status: string): AppThunkType => (dispatch) => {
     profileAPI.updateStatus(status)
     .then(data => {
         if (data.resultCode === 0) {
@@ -137,6 +133,14 @@ export const updateStatus = (status: string) => (dispatch: any) => {
         }
     })
 }
+
+export type ProfileActionsType =
+    AddPostType |
+    UpdateNewPostTextType |
+    SetUserProfileType |
+    SetStatusType
+
+    
 
 
 export default profileReducer

@@ -1,6 +1,6 @@
 import React, { ComponentType } from 'react';
 import { connect } from 'react-redux';
-import { AppStateType } from '../../redux/redux-store';
+import { AppRootStateType } from '../../redux/redux-store';
 import {
     setCurrentPage,
     UserType,
@@ -63,7 +63,7 @@ type MapStateToPropsType = {
     followingInProgress: any
 }
 
-let mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
+let mapStateToProps = (state: AppRootStateType): MapStateToPropsType => ({
     users: state.usersPage.users,
     pageSize: state.usersPage.pageSize,
     totalUsersCount: state.usersPage.totalUsersCount,
