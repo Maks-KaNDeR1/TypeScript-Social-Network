@@ -5,7 +5,7 @@ type PropsType = {
     updateStatus: (value: string) => void
 }
 
-function Profiletitle(props: PropsType) {
+function ProfileStatus(props: PropsType) {
 
     const [editMode, setEditMode] = useState(false)
     const [status, setStatus] = useState(props.value)
@@ -48,4 +48,4 @@ function Profiletitle(props: PropsType) {
     )
 }
 
-export default Profiletitle
+export default ProfileStatus

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './Music.module.css'
 
 
-function Music(props: any) {
+function Music() {
 
     const [switchOnOff, setSwitchOnOff] = useState(false)
 
@@ -25,9 +25,7 @@ function Music(props: any) {
             <div>
                 <div className={styles.item}>Radio📻</div>
             </div>
-            <button
-                onClick={() => handleOnOffClick()}
-            >
+            <button onClick={() => handleOnOffClick()} >
                 {
                     !switchOnOff ? <h2>▶️</h2> : <h2>⏸️</h2>
                 }

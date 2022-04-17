@@ -165,4 +165,3 @@ const updateNewMessageBodyActionCreator = (text: string) => {
     return { type: UPDATE_NEW_MESSAGE_BODY, newMessage: text }
 }
 
-store

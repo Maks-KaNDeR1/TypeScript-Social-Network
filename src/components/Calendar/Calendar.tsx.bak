@@ -1,19 +1,29 @@
-import React, { useEffect, useState, MouseEvent } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
-function Calendar() {
+function CurrentTime() {
 
     const [show, setShow] = useState<boolean>(false)
-    const [counter, setCounter] = useState(0)
-    const [date, setDate] = useState<Date>()
-    
-    const stringTime = date?.toLocaleTimeString() || <br /> // fix with date
-    const stringDate = date?.toLocaleDateString()
 
+    let date = new Date()
+    let h = date.getHours()
+    let m = date.getMinutes()
+    let s = date.getSeconds()
+    let hour = h < 10 ? '0' + h : h
+    let min = m < 10 ? '0' + m : m
+    let sec = s < 10 ? '0' + s : s
+
+    let d = date.getDate()
+    let mn = date.getMonth() + 1
+    let year = date.getFullYear()
+
+    let month = mn < 10 ? '0' + mn : mn
+    let day = d < 10 ? '0' + d : d
+
+    const [counter, setCounter] = useState(0)
 
     useEffect(() => {
         setInterval(() => {
-            setDate(new Date())
             setCounter(state => state + 1)
         }, 1000)
     }, []);
@@ -33,13 +43,13 @@ function Calendar() {
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
             >
-                <h2 style={{ marginTop: '0px', color: 'black' }}
-                > {stringTime}
+                <h2 style={{ marginTop: '0px', color: 'aqua' }}
+                > {hour} : {min} : {sec}
                 </h2>
             </div>
             {show ? (
                 <div>
-                    <h1> {stringDate} </h1>
+                    <h1> {day} : {month} : {year} </h1>
                 </div>
             ) : <br />}
         </div>
@@ -47,5 +57,13 @@ function Calendar() {
 
 }
 
+
+function Calendar() {
+
+
+    return <div>
+        <CurrentTime />
+    </div>;
+}
 
 export default Calendar;
