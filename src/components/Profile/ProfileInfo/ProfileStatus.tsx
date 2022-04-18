@@ -22,11 +22,10 @@ function ProfileStatus(props: PropsType) {
 
     const activateViewMode = () => {
         setEditMode(false);
-        debugger
         props.updateStatus(status);
     }
 
-    const changeTitle = (e: ChangeEvent<HTMLInputElement>) => {
+    const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
         setStatus(e.currentTarget.value)
     }
 
@@ -40,7 +39,7 @@ function ProfileStatus(props: PropsType) {
             {editMode &&
                 <div >
                     <input autoFocus onBlur={activateViewMode} 
-                    onChange={changeTitle}
+                    onChange={onStatusChange}
                       value={status} />
                 </div>
             }

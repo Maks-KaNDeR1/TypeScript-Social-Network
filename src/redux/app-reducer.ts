@@ -1,10 +1,6 @@
 import { getAuthUserData } from './auth-reducer';
-import { Dispatch } from "redux";
-import { AppThunkType } from './redux-store';
-
 
 export const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS'
-
 
 
 let initialState = {

@@ -1,10 +1,10 @@
-import React, { useEffect, useState, MouseEvent } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 function Calendar() {
 
     const [show, setShow] = useState<boolean>(false)
-    const [counter, setCounter] = useState(0)
+    const [ , setCounter] = useState(0)
     const [date, setDate] = useState<Date>()
     
     const stringTime = date?.toLocaleTimeString() || <br /> // fix with date
