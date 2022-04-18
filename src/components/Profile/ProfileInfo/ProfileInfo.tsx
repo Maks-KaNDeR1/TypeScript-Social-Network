@@ -3,6 +3,7 @@ import { ProfileType } from '../../../redux/profile-reducer';
 import Preloader from '../../common/Preloader/Preloader';
 import s from './ProfileInfo.module.css';
 import ProfileStatus from './ProfileStatus';
+import userPhoto from '../../../assets/images/user.png';
 
 type PropsType = {
     profile: ProfileType
@@ -18,8 +19,9 @@ const ProfileInfo = (props: PropsType) => {
     return (
         <div>
             <div className={s.descriptionBlock}>
-                {/* <img src='https://eksmo.ru/upload/iblock/523/rick_morty_l_min.jpg' alt='EEE'/> */}
-                <img src={props.profile.photos.large} alt='avatar' />
+                   <img src={props.profile.photos.large != null 
+                    ? props.profile.photos.large  
+                    : userPhoto} className={s.userPhoto}  alt='avatar' />
                 <div>
                     <b>Full name</b>: {props.profile.fullName}
                 </div>

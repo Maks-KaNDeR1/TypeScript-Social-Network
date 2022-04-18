@@ -4,6 +4,7 @@ import styles from './users.module.css';
 import userPhoto from '../../assets/images/user.png';
 import { UserType } from '../../redux/users-reducer';
 import { NavLink } from 'react-router-dom';
+import Paginator from '../common/Preloader/Paginator';
 
 
 type UsersPropsType = {
@@ -19,21 +20,15 @@ type UsersPropsType = {
 
 const Users = (props: UsersPropsType) => {
 
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i);
-    }
 
 
     return <div>
-        <div>
-            {pages.map(p => {
-                return <span // className={props.currentPage ===  p && styles.selectedPage }
-                    onClick={(e) => { props.onPageChanged(p); }}>{p}</span>
-            })}
-        </div>
+
+        <Paginator pageSize={props.pageSize} currentPage={props.currentPage}
+            totalUsersCount={props.totalUsersCount} onPageChanged={props.onPageChanged}
+        />
+
         {
             props.users.map(u => <div key={u.id}>
 
@@ -52,7 +47,7 @@ const Users = (props: UsersPropsType) => {
                             : <button disabled={props.followingInProgress.some(id => id === u.id)}
                                 onClick={() => { props.unfollow(u.id) }}
                             > Follow </button>
-                            }
+                        }
                     </div>
                 </span>
                 <span>

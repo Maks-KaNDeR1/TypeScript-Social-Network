@@ -43,14 +43,12 @@ export const setAuthUserData = (id: number, email: string, login: string) =>
 ({ type: SET_USER_DATA, data: { id, email, login } } as const)
 
 
-export const getAuthUserData = (): AppThunkType => (dispatch) => {
-    return authAPI.me()
-        .then(data => {
-            if (data.resultCode === 0) {
-                let { id, email, login } = data.data;
-                dispatch(setAuthUserData(id, email, login))
-            }
-        })
+export const getAuthUserData = (): AppThunkType => async (dispatch) => {
+    const data = await authAPI.me();
+    if (data.resultCode === 0) {
+        let { id, email, login } = data.data;
+        dispatch(setAuthUserData(id, email, login));
+    }
     }
     
 
