@@ -9,8 +9,6 @@ type PropsType = {
 }
 
 
-
-
 const Message = (props: PropsType) => {
 
     return (

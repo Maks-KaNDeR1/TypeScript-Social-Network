@@ -38,8 +38,8 @@ function Dialogs(props: PropsType) {
                 {messageElements}
                 <div ref={scroll} ></div>
             </div>
-            <hr />
-            <div>
+            <div />
+            <div style={{ margin: '15px' }} >
                 <AlternativeMessage
                     addMessage={props.addMessage}
                     scroll={scroll}
