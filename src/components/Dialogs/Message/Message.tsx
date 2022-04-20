@@ -1,16 +1,36 @@
-import styles from './Message.module.css'
+import s from './Message.module.css'
 
-type MessagePropsType = {
+type PropsType = {
+    id?: number
+    avatar: string
+    name: string
     message: string
+    // time: any
 }
 
-const Message = (props: MessagePropsType) => {
 
-    return <div className={styles.display}>
-              <div>
-                 <div className={styles.text}>{props.message}</div>
-              </div>
+
+
+const Message = (props: PropsType) => {
+
+    return (
+        <div className={s.display}>
+            <div className={s.message}>
+                <img src={props.avatar} alt={'avatar'} />
+
+                <div className={s.angle} />
+
+                <div className={s.description}>
+                    <div className={s.name}>{props.name}</div>
+                    <div className={s.text}>{props.message}</div>
+                    {/* <span className={s.time}>{props.time}</span> */}
+                </div>
             </div>
+            {/* <div>
+                 <div className={s.text}>{props.message}</div>
+              </div> */}
+        </div>
+    )
 }
 
 

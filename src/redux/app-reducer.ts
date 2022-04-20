@@ -16,7 +16,6 @@ export const appReducer = (state: AppReducerType = initialState, action: AppActi
             return {
                 ...state,
                 initialized: true
-
             }
         }
         default:
@@ -32,7 +31,7 @@ export const initializedSuccess = () => ({ type: INITIALIZED_SUCCESS } as const)
 export const initializeApp = () => async (dispatch: any) => {
 
     let promise = await dispatch(getAuthUserData())
-    const res = Promise.all([promise])
+    Promise.all([promise])
     dispatch(initializedSuccess())
 }
 

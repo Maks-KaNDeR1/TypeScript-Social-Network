@@ -1,14 +1,9 @@
 
-.display{
-    /* display: grid;
-    grid-template-columns: 1fr 10fr; */
-    border-color: darkblue;
-    border-width: 1px;
-}
+.message img {
+    height: 40px;
+    width: 40px;
+    
+    border-radius: 50%;
 
-.text {
-    padding: 2px;
-    align-self:flex-end;
 }
-
 

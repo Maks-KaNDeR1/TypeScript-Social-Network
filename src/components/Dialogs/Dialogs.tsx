@@ -1,9 +1,11 @@
 
-import React, { ChangeEvent } from 'react'
+import React from 'react'
 import DialogItem from './DialodsItem/DialogsItem';
 import Message from './Message/Message';
-import styles from './Dialogs.module.css'
+import s from './Dialogs.module.css'
 import { DialogsType, MessageType } from '../../redux/dialogs-reducer';
+import AlternativeMessage from './AlternativeMessage/AlternativeMessage';
+
 
 type PropsType = {
     dialogs: Array<DialogsType>
@@ -11,42 +13,47 @@ type PropsType = {
     newMessageBody: string
     addMessage: () => void
     updateNewMessageBody: (body: string) => void
+
 }
 
 
 function Dialogs(props: PropsType) {
-    
+
     const dialogsElements = props.dialogs.map(d =>
         <DialogItem name={d.name} key={d.id} id={d.id} src={d.src} />
     )
 
     const messageElements = props.message.map(m =>
-        <Message message={m.message} key={m.id} />
+        <Message key={m.id}
+            id={m.id} avatar={m.avatar} name={m.name} message={m.message} 
+        />
     )
 
-    const addMessage = () => {
-        props.addMessage()
-    }
 
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        let body = e.currentTarget.value
-        props.updateNewMessageBody(body)
-    }
-
+    const scroll = React.useRef(null)
 
     return (
-        <div className={styles.dialogs}>
-            <div className={styles.dialogsItems}>
+        <div className={s.dialogs}>
+            <div className={s.dialogsItems}>
                 {dialogsElements}
             </div>
-            <div className={styles.messages}>
+            <div style={{ overflow: 'auto', height: '500px' }}>
                 {messageElements}
-                <div>
-                    <input
-                        value={props.newMessageBody}
-                        onChange={onChangeHandler} />
-                    <button onClick={addMessage} >Send</button>
-                </div>
+                <div ref={scroll} ></div>
+            </div>
+            <hr />
+            <div>
+                <AlternativeMessage
+                    newMessageBody={props.newMessageBody}
+                    addMessage={props.addMessage}
+                    updateNewMessageBody={props.updateNewMessageBody}
+                    scroll={scroll}
+                />
+                {/* <AlternativeMessageLocalState
+                    newMessageBody={props.newMessageBody}
+                    addMessage={props.addMessage}
+                    scroll={scroll}
+                /> */}
             </div>
         </div>
     )
