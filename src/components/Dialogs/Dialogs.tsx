@@ -25,7 +25,7 @@ function Dialogs(props: PropsType) {
 
     const messageElements = props.message.map(m =>
         <Message key={m.id}
-            id={m.id} avatar={m.avatar} name={m.name} message={m.message} 
+            id={m.id} avatar={m.avatar} name={m.name} message={m.message} time={m.time}
         />
     )
 

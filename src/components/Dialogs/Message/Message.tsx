@@ -5,7 +5,7 @@ type PropsType = {
     avatar: string
     name: string
     message: string
-    // time: any
+    time: any
 }
 
 
@@ -23,12 +23,9 @@ const Message = (props: PropsType) => {
                 <div className={s.description}>
                     <div className={s.name}>{props.name}</div>
                     <div className={s.text}>{props.message}</div>
-                    {/* <span className={s.time}>{props.time}</span> */}
+                    <span className={s.time}>{props.time}</span>
                 </div>
             </div>
-            {/* <div>
-                 <div className={s.text}>{props.message}</div>
-              </div> */}
         </div>
     )
 }
