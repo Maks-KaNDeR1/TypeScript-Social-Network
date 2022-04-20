@@ -1,9 +1,60 @@
+.display {
+    /* display: grid;
+    grid-template-columns: 1fr 10fr; */
+    border-color: darkblue;
+    border-width: 1px;
+}
+
+.message {
+    display: flex;
+    align-items: flex-end;
+
+    margin: 10px;
+}
 
 .message img {
     height: 40px;
     width: 40px;
-    
+
     border-radius: 50%;
 
 }
 
+
+.description {
+    padding: 5px;
+    border-radius: 20px 26px 21px 0;
+    background-color: rgba(79, 140, 148, 0.452)
+}
+
+/* .setAngle {
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle at 0 0, rgba(30, 42, 39, 0) 15px, rgba(102, 157, 161, 0.507) 0);
+
+} */
+
+.angle {
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle at 0 0, rgba(30, 42, 39, 0) 15px, rgba(102, 157, 161, 0.507) 0);
+}
+
+.name {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(18, 58, 58, 0.685);
+}
+
+.text {
+    min-width: 150px;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+.time {
+    display: flex;
+    justify-content: flex-end;
+    color: rgba(38, 35, 216, 0.822);
+    font-size: 11px;
+}
