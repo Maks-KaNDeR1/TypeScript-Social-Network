@@ -20,7 +20,6 @@ export type MessageType = {
 export type DialogsReducerType = {
     dialogs: Array<DialogsType>
     message: Array<MessageType>
-    newMessageBody: string
 }
 
 let initialState: DialogsReducerType = {
@@ -76,17 +75,10 @@ let initialState: DialogsReducerType = {
         name: 'Alina', message: 'I will sleep', time: '22:23'
     }
 ] as Array<MessageType>,
-    newMessageBody: ''
 }
 
 export const dialogsReducer = (state: DialogsReducerType = initialState, action: DialogsActionsType): DialogsReducerType => {
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_BODY: {
-            return {
-                ...state,
-                newMessageBody: action.body
-            }
-        }
         case ADD_MESSAGE: {
 
             const rand = Math.floor(Math.random() * state.message.length)
@@ -96,14 +88,13 @@ export const dialogsReducer = (state: DialogsReducerType = initialState, action:
                 id: 9,
                 avatar: state.message[rand].avatar,
                 name: state.message[rand].name,
-                message: state.newMessageBody,
+                message: action.title,
                 time: '15 :' + min
         
             }
             return {
                 ...state,
                 message: [ ...state.message, newMessage],
-                newMessageBody: ''
             }
         }
         default:
@@ -114,14 +105,10 @@ export const dialogsReducer = (state: DialogsReducerType = initialState, action:
 
 
 type addMessageType = ReturnType<typeof addMessage>
-export const addMessage = () => ({ type: ADD_MESSAGE } as const)
-
-type updateNewMessageBodyType = ReturnType<typeof updateNewMessageBody>
-export const updateNewMessageBody = (body: string) =>
-    ({ type: UPDATE_NEW_MESSAGE_BODY, body } as const)
+export const addMessage = (title: string) => ({ type: ADD_MESSAGE, title } as const)
 
 
-export type DialogsActionsType = addMessageType | updateNewMessageBodyType
+export type DialogsActionsType = addMessageType
 
 
 export default dialogsReducer

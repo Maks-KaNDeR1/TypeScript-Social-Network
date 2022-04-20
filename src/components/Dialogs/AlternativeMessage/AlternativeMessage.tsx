@@ -1,26 +1,25 @@
-import React, { ChangeEvent, KeyboardEvent } from 'react'
+import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
 import s from './AlternativeMessage.module.css'
 
 type PropsType = {
-    newMessageBody: string
-    addMessage: () => void
-    updateNewMessageBody: (body: string) => void
+    addMessage: (title: string) => void
     scroll: any
-
 }
 
-function AlternativeMessageLocalState(props: PropsType) {
+function AlternativeMessage(props: PropsType) {
+
+    const [title, setTitle] = useState('')
 
     const addMessage = () => {
-        props.addMessage()
+        props.addMessage(title)
+        setTitle('')
         setTimeout(() => {
             props.scroll.current.scrollIntoView({ behavior: 'smooth' })
         }, 0)
     }
 
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        let body = e.currentTarget.value
-        props.updateNewMessageBody(body)
+    const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+        setTitle(event.currentTarget.value)
     }
 
 
@@ -35,7 +34,7 @@ function AlternativeMessageLocalState(props: PropsType) {
         <div className={s.items} >
              <input type='text'
                  placeholder=' New message...'
-                    value={props.newMessageBody}
+                    value={title}
                     onChange={onChangeHandler}
                     onKeyPress={onKeyPressHandler}
                      />
@@ -45,4 +44,4 @@ function AlternativeMessageLocalState(props: PropsType) {
 }
 
 
-export default AlternativeMessageLocalState
+export default AlternativeMessage

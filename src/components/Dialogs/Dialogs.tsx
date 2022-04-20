@@ -10,10 +10,7 @@ import AlternativeMessage from './AlternativeMessage/AlternativeMessage';
 type PropsType = {
     dialogs: Array<DialogsType>
     message: Array<MessageType>
-    newMessageBody: string
     addMessage: () => void
-    updateNewMessageBody: (body: string) => void
-
 }
 
 
@@ -44,16 +41,10 @@ function Dialogs(props: PropsType) {
             <hr />
             <div>
                 <AlternativeMessage
-                    newMessageBody={props.newMessageBody}
                     addMessage={props.addMessage}
-                    updateNewMessageBody={props.updateNewMessageBody}
                     scroll={scroll}
                 />
-                {/* <AlternativeMessageLocalState
-                    newMessageBody={props.newMessageBody}
-                    addMessage={props.addMessage}
-                    scroll={scroll}
-                /> */}
+
             </div>
         </div>
     )
