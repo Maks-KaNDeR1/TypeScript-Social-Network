@@ -1,5 +1,21 @@
 
 
 .loginForm {
-    display: inline-block;
+    font-family: sans-serif
 }
+
+.loginBlock {
+    display: block;
+    margin: 10px 0;
+    text-align-last: left;
+}
+
+.loginBlock input {
+    display: block;
+}
+
+.errors {
+    background: red;
+    color: #fff;
+    margin: 10px;
+  }

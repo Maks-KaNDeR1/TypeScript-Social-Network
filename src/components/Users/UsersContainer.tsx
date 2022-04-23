@@ -77,7 +77,7 @@ let mapStateToProps = (state: AppRootStateType) => ({
 
 
 export default compose<ComponentType>(
-    WithAuthRedirect,
+    // WithAuthRedirect,
     connect(mapStateToProps, {
         toggleIsFetching,
         setCurrentPage,

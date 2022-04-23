@@ -31,10 +31,7 @@ class App extends Component<PropsType, PropsType> {
 
   render() {
     if (!this.props.initialized) {
-      return <div
-        style={{ position: 'fixed', top: '30%', textAlign: 'center', width: '100%' }}>
-        <Preloader />
-      </div>
+      return <Preloader />
     }
 
     return (
@@ -43,15 +40,25 @@ class App extends Component<PropsType, PropsType> {
         <Navbar />
         <div className="app-wrapper-content">
           <Routes>
-            <Route path="/login" element={ <Login />} />
-            <Route path='/' element={<Navigate to={"/profile"} />} />
-            <Route path="/profile/*" element={ <ProfileContainer />} />
-            <Route path="/profile/:userId" element={ <ProfileContainer />} />
-            <Route path="/dialogs/*" element={ <DialogsContainer />} />
-            <Route path="/users" element={<UsersContainer />} />
-            <Route path="/calendar" element={<Calendar />} />
-            <Route path="/music" element={  <Music />} />
-            <Route path="404" element={ <h1 style={{ textAlign: 'center' }} >404: PAGE NOT FOUND</h1>} />
+		        <Route exact path='/'
+                            render={() => <Navigate to={"/profile"} />} />
+
+            <Route path="/profile/:userId" element={
+              <ProfileContainer />} />
+            <Route path="/profile/*" element={
+              <ProfileContainer />} />
+            <Route path="/dialogs/*" element={
+              <DialogsContainer />} />
+            <Route path="/users" element={
+              <UsersContainer />} />
+            <Route path="/login" element={
+              <Login />} />
+            <Route path="/calendar" element={
+              <Calendar />} />
+            <Route path="/music" element={
+              <Music />} />
+			<Route path="404" element={
+			<h1 style={{ textAlign: 'center' }} >404: PAGE NOT FOUND</h1>} />
             <Route path="*" element={<Navigate to='404' />} />
           </Routes>
         </div>
