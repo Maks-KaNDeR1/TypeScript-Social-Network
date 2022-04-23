@@ -3,11 +3,12 @@ import { NavLink } from 'react-router-dom';
 import s from './Header.module.css';
 
 type PropsType = {
-   
-    
+    isAuth: boolean
+    login: string | null
+    logout: () => void
 }
 
-function Header(props: any) {
+function Header(props: PropsType) {
     console.log(props.isAuth)
     return <header className={s.header}>
         <div className={s.loginBlock}>

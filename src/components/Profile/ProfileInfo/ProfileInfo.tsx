@@ -14,10 +14,10 @@ type PropsType = {
 
 const ProfileInfo = (props: PropsType) => {
 
-
     if (!props.profile) {
         return <Preloader />
     }
+    
     return (
         <div>
             <div className={s.descriptionBlock}>

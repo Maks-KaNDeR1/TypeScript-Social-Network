@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Post.module.css';
 
-type PostPropsType = {
+type PropsType = {
   message: string
   likesCount: number
 }
@@ -14,7 +14,7 @@ const buttonStyle = {
 }
 
 
-const Post = (props: PostPropsType) => {
+const Post = (props: PropsType) => {
 
   const [likes, setLikes] = useState(props.likesCount)
   const [likeIt, setLikeIt] = useState(false)
