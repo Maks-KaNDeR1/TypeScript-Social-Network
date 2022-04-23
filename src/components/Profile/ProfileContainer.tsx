@@ -30,7 +30,7 @@ const ProfileContainer = (props: PropsType) => {
             props.getUserProfile(userId)
             props.getStatus(userId)
         }
-    }, [])
+    }, [userId])
 
     return <Profile {...props}
         profile={props.profile}
