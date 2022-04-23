@@ -12,6 +12,7 @@ import {
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
 import { compose } from 'redux';
+import WithAuthRedirect from '../../hoc/WithAuthRedirect';
 import {
     getCurrentPage,
     getFollowingInProgress,
@@ -76,6 +77,7 @@ let mapStateToProps = (state: AppRootStateType) => ({
 
 
 export default compose<ComponentType>(
+    // WithAuthRedirect,
     connect(mapStateToProps, {
         toggleIsFetching,
         setCurrentPage,

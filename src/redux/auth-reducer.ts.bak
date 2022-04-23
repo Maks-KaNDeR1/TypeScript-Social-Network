@@ -71,7 +71,7 @@ export const logout = (): AppThunkType => (dispatch) => {
     authAPI.logout()
         .then(res => {
             if (res.data.resultCode === 0) {
-                dispatch(setAuthUserData(null, null, null))
+                dispatch(setAuthUserData(null, null, null, false))
             }
         })
 

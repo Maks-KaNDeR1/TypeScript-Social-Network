@@ -17,8 +17,7 @@ const loginSchema = Yup.object().shape({
 
 export const LoginForm = () => {
 
-  let dispatch = useDispatch()
-
+  const dispatch = useDispatch()
 
   let handleSubmit = (values: any) => {
     dispatch(loginTC(values.email, values.password, values.rememberMe));
@@ -37,12 +36,12 @@ export const LoginForm = () => {
             <Form className={s.loginBlock} >
               <label>
                 Email: <Field type="email" name="email" />
-                <ErrorMessage className={s.errors} name="email" component="div" />
+                <ErrorMessage name="email" component="div" />
               </label>
               <label>
                 Password:
                 <Field type="password" name="password" />
-                <ErrorMessage className={s.errors} name="password" component="div" />
+                <ErrorMessage name="password" component="div" />
               </label>
               <button type="submit" color={'primary'} disabled={isSubmitting}>
                 Submit
@@ -59,11 +58,7 @@ export const LoginForm = () => {
 
 function Login() {
 
-  const isAuth = useSelector<AppRootStateType, boolean>(state => state.auth.isAuth)
-
-  if (isAuth) {
-    return <Navigate to={"/"} />
-  }
+ 
 
   return (
     <div className={s.loginForm}>
