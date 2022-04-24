@@ -4,7 +4,7 @@ import styles from './users.module.css';
 import userPhoto from '../../assets/images/user.png';
 import { UserType } from '../../redux/users-reducer';
 import { NavLink } from 'react-router-dom';
-import Paginator from '../common/Preloader/Paginator';
+import Paginator from '../common/Paginator/Paginator';
 
 
 type UsersPropsType = {
@@ -20,13 +20,10 @@ type UsersPropsType = {
 
 const Users = (props: UsersPropsType) => {
 
-
-
-
     return <div>
 
         <Paginator pageSize={props.pageSize} currentPage={props.currentPage}
-            totalUsersCount={props.totalUsersCount} onPageChanged={props.onPageChanged}
+            totalItemsCount={props.totalUsersCount} onPageChanged={props.onPageChanged}
         />
 
         {
