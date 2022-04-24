@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/TypeScript-Social-Network/static/css/main.7223301b.chunk.css",
-    "main.js": "/TypeScript-Social-Network/static/js/main.3a05ce5b.chunk.js",
-    "main.js.map": "/TypeScript-Social-Network/static/js/main.3a05ce5b.chunk.js.map",
-    "runtime-main.js": "/TypeScript-Social-Network/static/js/runtime-main.827e0866.js",
-    "runtime-main.js.map": "/TypeScript-Social-Network/static/js/runtime-main.827e0866.js.map",
-    "static/js/2.d6917db7.chunk.js": "/TypeScript-Social-Network/static/js/2.d6917db7.chunk.js",
-    "static/js/2.d6917db7.chunk.js.map": "/TypeScript-Social-Network/static/js/2.d6917db7.chunk.js.map",
-    "static/js/3.7da0b204.chunk.js": "/TypeScript-Social-Network/static/js/3.7da0b204.chunk.js",
-    "static/js/3.7da0b204.chunk.js.map": "/TypeScript-Social-Network/static/js/3.7da0b204.chunk.js.map",
+    "main.css": "/TypeScript-Social-Network/static/css/main.54440bf4.chunk.css",
+    "main.js": "/TypeScript-Social-Network/static/js/main.fdde9caa.chunk.js",
+    "main.js.map": "/TypeScript-Social-Network/static/js/main.fdde9caa.chunk.js.map",
+    "runtime-main.js": "/TypeScript-Social-Network/static/js/runtime-main.c6ddac32.js",
+    "runtime-main.js.map": "/TypeScript-Social-Network/static/js/runtime-main.c6ddac32.js.map",
+    "static/js/2.b203bf68.chunk.js": "/TypeScript-Social-Network/static/js/2.b203bf68.chunk.js",
+    "static/js/2.b203bf68.chunk.js.map": "/TypeScript-Social-Network/static/js/2.b203bf68.chunk.js.map",
+    "static/js/3.25147568.chunk.js": "/TypeScript-Social-Network/static/js/3.25147568.chunk.js",
+    "static/js/3.25147568.chunk.js.map": "/TypeScript-Social-Network/static/js/3.25147568.chunk.js.map",
     "index.html": "/TypeScript-Social-Network/index.html",
-    "static/css/main.7223301b.chunk.css.map": "/TypeScript-Social-Network/static/css/main.7223301b.chunk.css.map",
-    "static/js/2.d6917db7.chunk.js.LICENSE.txt": "/TypeScript-Social-Network/static/js/2.d6917db7.chunk.js.LICENSE.txt",
+    "static/css/main.54440bf4.chunk.css.map": "/TypeScript-Social-Network/static/css/main.54440bf4.chunk.css.map",
+    "static/js/2.b203bf68.chunk.js.LICENSE.txt": "/TypeScript-Social-Network/static/js/2.b203bf68.chunk.js.LICENSE.txt",
     "static/media/user.96e310a6.png": "/TypeScript-Social-Network/static/media/user.96e310a6.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.827e0866.js",
-    "static/js/2.d6917db7.chunk.js",
-    "static/css/main.7223301b.chunk.css",
-    "static/js/main.3a05ce5b.chunk.js"
+    "static/js/runtime-main.c6ddac32.js",
+    "static/js/2.b203bf68.chunk.js",
+    "static/css/main.54440bf4.chunk.css",
+    "static/js/main.fdde9caa.chunk.js"
   ]
 }
