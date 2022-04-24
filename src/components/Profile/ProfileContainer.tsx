@@ -27,9 +27,9 @@ const ProfileContainer = (props: PropsType) => {
             if (!userId) {
                 navigate("/login");
             }
+            props.getUserProfile(userId)
+            props.getStatus(userId)
         }
-        props.getUserProfile(userId)
-        props.getStatus(userId)
     }, [userId])
 
     return <Profile {...props}
