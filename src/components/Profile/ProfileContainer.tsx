@@ -1,4 +1,4 @@
-import React, { ComponentType, useEffect } from 'react';
+import React, { ComponentType, useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { AppRootStateType } from '../../redux/redux-store';
 import Profile from './Profile';
@@ -12,25 +12,32 @@ type PropsType = {
     profile: ProfileType
     authorizedUserId: number
     status: string
-    getStatus: (userId: any) => void
-    getUserProfile: (userId: any) => void
+    getStatus: (userId: number) => void
+    getUserProfile: (userId: string | undefined) => void
     updateStatus: (value: string) => void
 }
 
 const ProfileContainer = (props: PropsType) => {
 
-    let navigate = useNavigate()
-    let {userId} = useParams();
+    const getProfile = useCallback((userId: any) => {
+        props.getUserProfile(userId)
+        props.getStatus(userId)
+    }, [props])
+    
+
+
+    const navigate = useNavigate()
+    const { userId } = useParams();
     useEffect(() => {
         if (!userId) {
             let userId = props.authorizedUserId;
             if (!userId) {
                 navigate("/login");
             }
-            props.getUserProfile(userId)
-            props.getStatus(userId)
+            getProfile(userId)
         }
-    }, [userId])
+        getProfile(userId)
+    }, [props, userId, navigate, getProfile])
 
     return <Profile {...props}
         profile={props.profile}
@@ -41,7 +48,7 @@ const ProfileContainer = (props: PropsType) => {
 
 }
 
-let mapStateToProps = (state: AppRootStateType) => ({
+const mapStateToProps = (state: AppRootStateType) => ({
     profile: state.profilePage.profile,
     status: state.profilePage.status,
     authorizedUserId: state.auth.id,

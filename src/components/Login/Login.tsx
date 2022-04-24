@@ -10,7 +10,7 @@ import { Navigate } from "react-router-dom";
 const loginSchema = Yup.object().shape({
   password: Yup.string()
     .min(8, "Too Short!")
-    .max(50, "Too Long!")
+    .max(20, "Too Long!")
     .required("Required"),
   email: Yup.string().email("Invalid email").required("Required")
 });
@@ -19,7 +19,15 @@ const LoginForm = () => {
 
   const dispatch = useDispatch()
 
-  let handleSubmit = (values: any) => {
+
+  type ValuesType = {
+    email: string
+    password: any
+    rememberMe: boolean
+  }
+
+
+  let handleSubmit = (values: ValuesType) => {
     dispatch(loginTC(values.email, values.password, values.rememberMe));
   };
 
@@ -60,6 +68,7 @@ const Login = () => {
 
   const isAuth = useSelector<AppRootStateType, boolean>(state => state.auth.isAuth)
 
+  debugger
   if (isAuth) {
     return <Navigate to={"/profile"} />
   }

@@ -9,7 +9,6 @@ type PropsType = {
 }
 
 function Header(props: PropsType) {
-    console.log(props.isAuth)
     return <header className={s.header}>
         <div className={s.loginBlock}>
             {
