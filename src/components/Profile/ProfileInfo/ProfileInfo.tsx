@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { ProfileType } from '../../../redux/profile-reducer';
 import Preloader from '../../common/Preloader/Preloader';
 import s from './ProfileInfo.module.css';
@@ -9,21 +9,34 @@ type PropsType = {
     profile: ProfileType
     updateStatus: (value: string) => void
     status: string
+    isOwner: boolean
+    savePhoto: (file: any) => void
 }
 
 
 const ProfileInfo = (props: PropsType) => {
-
+ console.log(props.profile)
     if (!props.profile) {
         return <Preloader />
     }
-    
+
+    const onMainPhotoSelected = (e: ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files !== null) {
+            props.savePhoto(e.target.files[0]);
+        }
+    }
+
     return (
         <div>
             <div className={s.descriptionBlock}>
-                   <img src={props.profile.photos.large != null 
-                    ? props.profile.photos.large  
-                    : userPhoto} className={s.userPhoto}  alt='avatar' />
+                <img src={props.profile.photos.large 
+                    ? props.profile.photos.large
+                    : userPhoto} className={s.userPhoto} alt='avatar' />
+                {
+                    props.isOwner && <input type='file'
+                        accept=".jpg, .jpeg, .png"
+                        onChange={onMainPhotoSelected} />
+                }
                 <div>
                     <b>Full name</b>: {props.profile.fullName}
                 </div>
@@ -39,20 +52,20 @@ const ProfileInfo = (props: PropsType) => {
                     </div>
                 }
 
-                    <b>About me</b>: {props.profile.aboutMe}
-                    <p><b>Contacts: </b></p>
-                    <ul>
-                        <li>{props.profile.contacts.facebook}</li>
-                        <li>{props.profile.contacts.github}</li>
-                        <li>{props.profile.contacts.instagram}</li>
-                        <li>{props.profile.contacts.mainLink}</li>
-                        <li>{props.profile.contacts.twitter}</li>
-                        <li>{props.profile.contacts.vk}</li>
-                        <li>{props.profile.contacts.website}</li>
-                        <li>{props.profile.contacts.youtube}</li>
-                    </ul>
-                </div>
+                <b>About me</b>: {props.profile.aboutMe}
+                <p><b>Contacts: </b></p>
+                <ul>
+                    <li>{props.profile.contacts.facebook}</li>
+                    <li>{props.profile.contacts.github}</li>
+                    <li>{props.profile.contacts.instagram}</li>
+                    <li>{props.profile.contacts.mainLink}</li>
+                    <li>{props.profile.contacts.twitter}</li>
+                    <li>{props.profile.contacts.vk}</li>
+                    <li>{props.profile.contacts.website}</li>
+                    <li>{props.profile.contacts.youtube}</li>
+                </ul>
             </div>
+        </div>
     )
 }
 

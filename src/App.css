@@ -2,6 +2,7 @@
   margin: 0 auto;
   display: grid;
   width: 1200px;
+  min-height: 620px;
   grid-template-areas: "h h" "n c";
 
   grid-template-rows: 60px 1fr;

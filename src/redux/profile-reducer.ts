@@ -7,6 +7,7 @@ export const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
 export const SET_USER_PROFILE = 'SET_USER_PROFILE'
 export const SET_STATUS = 'SET_STATUS'
 export const DELETE_POST = 'DELETE_POST'
+export const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS'
 
 
 export type PostType = {
@@ -16,9 +17,9 @@ export type PostType = {
 }
 
 type PhotosType = {
-    small: string | null
-    // large: string | null
-    large: any
+    small?: string
+    large?: string
+    //large: any
 }
 
 type ContactType = {
@@ -43,13 +44,16 @@ export type ProfileType = {
 
 }
 
-// export type profileReducerType = {
-//     posts: Array<PostType>
-//     newPostText: string
-//     profile: ProfileType
-// }
+export type initialStateType = {
+    posts: Array<PostType>
+    newPostText: string
+    status: string
+    profile: ProfileType | null
+}
 
-let initialState = {
+
+
+let initialState: initialStateType = {
     posts: [
         { id: 1, message: "Hi, Yo", likesCount: 23 },
         { id: 2, message: "I'm in to IT", likesCount: 12 },
@@ -62,7 +66,6 @@ let initialState = {
 };
 
 
-export type initialStateType = typeof initialState
 
 export const profileReducer = (state = initialState, action: ProfileActionsType): initialStateType => {
     switch (action.type) {
@@ -106,7 +109,7 @@ export const updateNewPostText = (text: string) =>
     ({ type: UPDATE_NEW_POST_TEXT, newText: text } as const)
 
 type SetUserProfileType = ReturnType<typeof setUserProfile>
-export const setUserProfile = (profile: any) =>
+export const setUserProfile = (profile: ProfileType) =>
     ({ type: SET_USER_PROFILE, profile } as const)
 
 type SetStatusType = ReturnType<typeof setStatus>
@@ -118,8 +121,7 @@ export const deletePost = (postId: number) => ({ type: DELETE_POST, postId } as 
 
 
 
-
-export const getUserProfile = (userId: number): AppThunkType => async (dispatch) => {
+export const getUserProfile = (userId: any): AppThunkType => async (dispatch) => {
     let data = await profileAPI.getUserProfie(userId)
     dispatch(setUserProfile(data));
 }
@@ -136,12 +138,19 @@ export const updateStatus = (status: string): AppThunkType => async (dispatch) =
     }
 }
 
+export const savePhoto = (photos: any): AppThunkType => async (dispatch, getState) => {
+    const userId = getState().auth.id;
+    let res = await profileAPI.saveProfilePhoto(photos)
+    if (res.data.resultCode === 0) {
+        dispatch(getUserProfile(userId));
+    }
+}
+
 export type ProfileActionsType =
     | AddPostType
     | UpdateNewPostTextType
     | SetUserProfileType
     | SetStatusType
     | DeletePostType
-
 
 export default profileReducer

@@ -20,6 +20,7 @@ const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileCo
 type PropsType = {
   initializeApp: () => void
   initialized: boolean
+  isAuth: boolean
 }
 
 class App extends Component<PropsType, PropsType> {
@@ -28,6 +29,8 @@ class App extends Component<PropsType, PropsType> {
     this.props.initializeApp()
   }
 
+
+
   render() {
     if (!this.props.initialized) {
       return <div
@@ -35,7 +38,7 @@ class App extends Component<PropsType, PropsType> {
         <Preloader />
       </div>
     }
-
+  
     return (
       <div className="app-wrapper">
         <HeaderContainer />
@@ -47,12 +50,12 @@ class App extends Component<PropsType, PropsType> {
               <Route path='/' element={<Navigate to={"/profile"} />} />
               <Route path="/profile/*" element={<ProfileContainer />} />
               <Route path="/profile/:userId" element={<ProfileContainer />} />
-              <Route path="/dialogs/*" element={ <DialogsContainer /> } />
+              <Route path="/dialogs/*" element={<DialogsContainer />} />
               <Route path="/users" element={<UsersContainer />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/music" element={<Music />} />
               <Route path="404" element={<h1 style={{ textAlign: 'center' }} >404: PAGE NOT FOUND</h1>} />
-              <Route path="*" element={<Navigate to='404' />} />
+              <Route path="/*" element={<Navigate to='404' />} />
             </Routes>
           </Suspense>
         </div>
@@ -64,7 +67,8 @@ class App extends Component<PropsType, PropsType> {
 }
 
 const mapStateToProps = (state: AppRootStateType) => ({
-  initialized: state.app.initialized
+  initialized: state.app.initialized,
+  isAuth: state.auth.isAuth
 })
 
 export default compose<ComponentType>(

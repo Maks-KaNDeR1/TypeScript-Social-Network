@@ -67,8 +67,7 @@ const LoginForm = () => {
 const Login = () => {
 
   const isAuth = useSelector<AppRootStateType, boolean>(state => state.auth.isAuth)
-
-  debugger
+   
   if (isAuth) {
     return <Navigate to={"/profile"} />
   }

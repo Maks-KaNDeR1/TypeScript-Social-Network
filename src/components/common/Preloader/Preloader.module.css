@@ -1,11 +1,16 @@
-
+/*
+position: 'fixed', top: '30%', textAlign: 'center', width: '100%'
+*/
 .ldsspinner {
   color: official;
   display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-  z-index: 999999;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  top: 30%;
+    left: 50%;
+  /* height: 80px; */
+  z-index: 100;
   }
   .ldsspinner div {
     transform-origin: 40px 40px;

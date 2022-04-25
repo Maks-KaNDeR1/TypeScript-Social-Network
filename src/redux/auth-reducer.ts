@@ -25,8 +25,7 @@ export const authReducer = (state: authReducerType = initialState, action: AuthA
     switch (action.type) {
         case SET_USER_DATA: {
             return {
-                ...state,
-                ...action.payload,
+                ...state, ...action.payload
             }
         }
         default:
@@ -58,18 +57,19 @@ export const getAuthUserData = (): AppThunkType => async (dispatch) => {
 
 
 export const loginTC = (email: string, password: number, rememberMe: boolean, captcha = false): AppThunkType => (dispatch) => {
-    authAPI.login(email, password, rememberMe, captcha)
+    return authAPI.login(email, password, rememberMe, captcha)
         .then(res => {
-            if (res.data.resultCode === 0) {
+            if (res.resultCode === 0) {
                 dispatch(getAuthUserData())
             }
         })
 
 }
 export const logout = (): AppThunkType => (dispatch) => {
-    authAPI.logout()
+    return authAPI.logout()
         .then(res => {
-            if (res.data.resultCode === 0) {
+            console.log('in then', res)
+            if (res.resultCode === 0) {
                 dispatch(setAuthUserData(null, null, null, false))
             }
         })

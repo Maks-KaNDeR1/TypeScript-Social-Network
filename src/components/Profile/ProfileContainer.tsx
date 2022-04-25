@@ -2,7 +2,7 @@ import React, { ComponentType, useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { AppRootStateType } from '../../redux/redux-store';
 import Profile from './Profile';
-import { getUserProfile, getStatus, updateStatus, ProfileType } from "../../redux/profile-reducer";
+import { getUserProfile, getStatus, updateStatus, ProfileType, savePhoto } from "../../redux/profile-reducer";
 import { withRouter } from '../../hoc/WithRouter';
 import { compose } from 'redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -15,6 +15,7 @@ type PropsType = {
     getStatus: (userId: number) => void
     getUserProfile: (userId: string | undefined) => void
     updateStatus: (value: string) => void
+    savePhoto: (file: any) => void
 }
 
 const ProfileContainer = (props: PropsType) => {
@@ -22,7 +23,7 @@ const ProfileContainer = (props: PropsType) => {
     const getProfile = useCallback((userId: any) => {
         props.getUserProfile(userId)
         props.getStatus(userId)
-    }, [props])
+    }, [])
     
 
 
@@ -35,14 +36,18 @@ const ProfileContainer = (props: PropsType) => {
                 navigate("/login");
             }
             getProfile(userId)
+        } else {
+            getProfile(userId)
+
         }
-        getProfile(userId)
-    }, [props, userId, navigate, getProfile])
+    }, [])
 
     return <Profile {...props}
+    isOwner={!userId}
         profile={props.profile}
         status={props.status}
         updateStatus={props.updateStatus}
+        savePhoto={props.savePhoto}
     />
 
 
@@ -57,6 +62,6 @@ const mapStateToProps = (state: AppRootStateType) => ({
 
 export default compose<ComponentType>(
     // WithAuthRedirect,
-    connect(mapStateToProps, { getUserProfile, getStatus, updateStatus }),
+    connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto }),
     withRouter,
 )(ProfileContainer)

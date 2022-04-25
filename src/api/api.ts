@@ -1,3 +1,4 @@
+import { ProfileType } from './../redux/profile-reducer';
 import axios from "axios";
 
 
@@ -34,12 +35,21 @@ export const authAPI = {
 }
 
 export const profileAPI = {
-    getUserProfie: (userId: number) => instance.get(`profile/${userId}`)
+    getUserProfie: (userId: number) => instance.get<ProfileType>(`profile/${userId}`)
         .then(response => response.data),
     getStatus: (userId: number) => instance.get(`profile/status/${userId}`)
         .then(response => response.data),
-    updateStatus: (status: string) => instance.put(`profile/status`, { status: status })
+    updateStatus: (status: string) => instance.put(`profile/status`, { status })
         .then(response => response.data),
+    saveProfilePhoto(photoFile: any) {
+        const formData = new FormData();
+        formData.append("image", photoFile);
 
+        return instance.put(`profile/photo`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+    },
 }
 
