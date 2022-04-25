@@ -4,9 +4,18 @@
   /* background-color:rgb(3, 3, 3) */
 }
 
-
-.loginBlock {
+.header div {
   float: right;
-color: aqua;
+  color: aqua;
+}
 
+
+.header button {
+  border: none;
+  font-size: medium;
+  outline: none;
+  cursor: pointer;
+  color: #8221baed;
+  background-color: #001529;
+  /* font: inherit; */
 }

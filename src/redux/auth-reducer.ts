@@ -48,9 +48,9 @@ export const setAuthUserData = (
 
 
 export const getAuthUserData = (): AppThunkType => async (dispatch) => {
-    const data = await authAPI.me();
-    if (data.resultCode === 0) {
-        let { id, email, login } = data.data;
+    const res = await authAPI.me();
+    if (res.data.resultCode === 0) {
+        let { id, email, login } = res.data.data;
         dispatch(setAuthUserData(id, email, login, true));
     }
 }
@@ -59,7 +59,7 @@ export const getAuthUserData = (): AppThunkType => async (dispatch) => {
 export const loginTC = (email: string, password: number, rememberMe: boolean, captcha = false): AppThunkType => (dispatch) => {
     return authAPI.login(email, password, rememberMe, captcha)
         .then(res => {
-            if (res.resultCode === 0) {
+            if (res.data.resultCode === 0) {
                 dispatch(getAuthUserData())
             }
         })
@@ -69,7 +69,7 @@ export const logout = (): AppThunkType => (dispatch) => {
     return authAPI.logout()
         .then(res => {
             console.log('in then', res)
-            if (res.resultCode === 0) {
+            if (res.data.resultCode === 0) {
                 dispatch(setAuthUserData(null, null, null, false))
             }
         })

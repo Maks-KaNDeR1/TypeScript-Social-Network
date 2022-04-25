@@ -7,3 +7,10 @@
   height: 50px;
   border-radius: 30px;
 }
+
+.item button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+}

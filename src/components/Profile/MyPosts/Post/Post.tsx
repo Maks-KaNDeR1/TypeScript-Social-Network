@@ -6,13 +6,6 @@ type PropsType = {
   likesCount: number
 }
 
-const buttonStyle = {
-  border: 'none',
-  outline: 'none',
-  cursor: "pointer",
-  font: "inherit"
-}
-
 
 const Post = (props: PropsType) => {
 
@@ -37,7 +30,7 @@ const Post = (props: PropsType) => {
       {props.message}
       <div>
         <span> 
-          <button style={buttonStyle}
+          <button 
             onClick={handleClick}
           >
             {likeIt ? "💙" : "🤍"}

@@ -1,39 +1,39 @@
-
-
-
 .paginator {
-    z-index: 2;
     display: flex;
     justify-content: space-between;
     margin: 10px;
     margin-left: 20px;
+    overflow: 'auto'
 }
+
+
 .pageNumber {
     padding: 2px;
     border: 1.2px solid grey;
     border-radius: 10px;
-    /* border-color:rgb(255, 136, 0); */
-
+    outline: none;
+    cursor: pointer;
+        /* border-color:rgb(255, 136, 0); */
+        overflow: 'auto'
 }
 
 .selectedPage {
     font-weight: bold;
     border-color: black;
+    overflow: auto;
 }
 
 .paginator button {
     border-radius: 8px;
- 
+
 }
 
 .paginator button:hover {
     transform: scale(1.01);
 }
 
-.buttonPrev {
-    
-}
+.buttonPrev {}
 
 .buttonNext {
-   margin-right: 20px;
+    margin-right: 20px;
 }

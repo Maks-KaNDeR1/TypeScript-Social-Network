@@ -109,16 +109,16 @@ export const setUsersTotalCount = (totalUsersCount: number) =>
 export const requestUsers = (page: number, pageSize: number) => async (dispatch: any) => {
     dispatch(toggleIsFetching(true))
 	dispatch(setCurrentPage(page))
-    const data = await usersAPI.getUsers(page, pageSize)
+    const res = await usersAPI.getUsers(page, pageSize)
             dispatch(toggleIsFetching(false))
-            dispatch(setUsers(data.items));
-            dispatch(setUsersTotalCount(data.totalCount));
+            dispatch(setUsers(res.data.items));
+            dispatch(setUsersTotalCount(res.data.totalCount));
 }
 
 const followUnfollowFlow = async (dispatch: any, id: number, apiMethod: any) => {
     dispatch(toggleFollowingProgress(id, true))
-    const data = await apiMethod(id)
-            if (data.resultCode === 0) {
+    const res = await apiMethod(id)
+            if (res.data.resultCode === 0) {
                 dispatch(toggleFollow(id))
             }
             dispatch(toggleFollowingProgress(id, false))

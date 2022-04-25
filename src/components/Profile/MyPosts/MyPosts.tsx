@@ -2,6 +2,7 @@ import React, { ChangeEvent } from 'react';
 import Post from './Post/Post';
 import styles from './MyPosts.module.css';
 import { PostType } from '../../../redux/profile-reducer';
+import SuperButton from '../ProfileInfo/SuperButton/SuperButton';
 
 type PropsType = {
   posts: Array<PostType>
@@ -34,9 +35,10 @@ const MyPosts = React.memo((props: PropsType) => {
           onChange={onPostChange}
           className={styles.textarea}
         />
+      </div>
         <button onClick={addPost}
           className={styles.button}>Add post</button>
-      </div>
+                       
       <div className={styles.posts}>
         {postElements}
       </div>

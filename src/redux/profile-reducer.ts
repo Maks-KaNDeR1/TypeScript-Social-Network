@@ -86,7 +86,7 @@ export const profileReducer = (state = initialState, action: ProfileActionsType)
             }
             return {
                 ...state,
-                posts: [...state.posts, newPost],
+                posts: [newPost, ...state.posts],
                 newPostText: ''
             }
         }
@@ -122,18 +122,18 @@ export const deletePost = (postId: number) => ({ type: DELETE_POST, postId } as 
 
 
 export const getUserProfile = (userId: any): AppThunkType => async (dispatch) => {
-    let data = await profileAPI.getUserProfie(userId)
-    dispatch(setUserProfile(data));
+    const res = await profileAPI.getUserProfie(userId)
+    dispatch(setUserProfile(res.data));
 }
 
 export const getStatus = (userId: number): AppThunkType => async (dispatch) => {
-    const data = await profileAPI.getStatus(userId)
-    dispatch(setStatus(data))
+    const res = await profileAPI.getStatus(userId)
+    dispatch(setStatus(res.data))
 }
 
 export const updateStatus = (status: string): AppThunkType => async (dispatch) => {
-    let data = await profileAPI.updateStatus(status)
-    if (data.resultCode === 0) {
+    const res = await profileAPI.updateStatus(status)
+    if (res.data.resultCode === 0) {
         dispatch(setStatus(status))
     }
 }

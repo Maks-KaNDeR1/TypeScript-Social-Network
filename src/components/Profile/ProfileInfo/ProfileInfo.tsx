@@ -4,6 +4,7 @@ import Preloader from '../../common/Preloader/Preloader';
 import s from './ProfileInfo.module.css';
 import ProfileStatus from './ProfileStatus';
 import userPhoto from '../../../assets/images/user.png';
+import SuperButton from './SuperButton/SuperButton';
 
 type PropsType = {
     profile: ProfileType
@@ -15,7 +16,7 @@ type PropsType = {
 
 
 const ProfileInfo = (props: PropsType) => {
- console.log(props.profile)
+
     if (!props.profile) {
         return <Preloader />
     }
@@ -26,47 +27,50 @@ const ProfileInfo = (props: PropsType) => {
         }
     }
 
-    return (
-        <div>
-            <div className={s.descriptionBlock}>
-                <img src={props.profile.photos.large 
-                    ? props.profile.photos.large
-                    : userPhoto} className={s.userPhoto} alt='avatar' />
+
+
+
+return (
+    <div>
+        <div className={s.descriptionBlock}>
+            <img src={props.profile.photos.large
+                ? props.profile.photos.large
+                : userPhoto} className={s.userPhoto} alt='avatar' />
                 {
                     props.isOwner && <input type='file'
                         accept=".jpg, .jpeg, .png"
                         onChange={onMainPhotoSelected} />
                 }
-                <div>
-                    <b>Full name</b>: {props.profile.fullName}
-                </div>
-                <div>
-                    <ProfileStatus updateStatus={props.updateStatus} value={props.status} />
-                </div>
-                <div>
-                    <b>Looking for a job</b>: {props.profile.lookingForAJob ? "yes" : "no"}
-                </div>
-                {props.profile.lookingForAJob &&
-                    <div>
-                        <b>My professional skills</b>: {props.profile.lookingForAJobDescription}
-                    </div>
-                }
-
-                <b>About me</b>: {props.profile.aboutMe}
-                <p><b>Contacts: </b></p>
-                <ul>
-                    <li>{props.profile.contacts.facebook}</li>
-                    <li>{props.profile.contacts.github}</li>
-                    <li>{props.profile.contacts.instagram}</li>
-                    <li>{props.profile.contacts.mainLink}</li>
-                    <li>{props.profile.contacts.twitter}</li>
-                    <li>{props.profile.contacts.vk}</li>
-                    <li>{props.profile.contacts.website}</li>
-                    <li>{props.profile.contacts.youtube}</li>
-                </ul>
+            <div>
+                <b>Full name</b>: {props.profile.fullName}
             </div>
+            <div>
+                <ProfileStatus updateStatus={props.updateStatus} value={props.status} />
+            </div>
+            <div>
+                <b>Looking for a job</b>: {props.profile.lookingForAJob ? "yes" : "no"}
+            </div>
+            {props.profile.lookingForAJob &&
+                <div>
+                    <b>My professional skills</b>: {props.profile.lookingForAJobDescription}
+                </div>
+            }
+
+            <b>About me</b>: {props.profile.aboutMe}
+            <p><b>Contacts: </b></p>
+            <ul>
+                <li>{props.profile.contacts.facebook}</li>
+                <li>{props.profile.contacts.github}</li>
+                <li>{props.profile.contacts.instagram}</li>
+                <li>{props.profile.contacts.mainLink}</li>
+                <li>{props.profile.contacts.twitter}</li>
+                <li>{props.profile.contacts.vk}</li>
+                <li>{props.profile.contacts.website}</li>
+                <li>{props.profile.contacts.youtube}</li>
+            </ul>
         </div>
-    )
+    </div>
+)
 }
 
 export default ProfileInfo

@@ -16,7 +16,7 @@ type PropsType = {
 const User: React.FC<PropsType> = ({ user, followingInProgress, unfollow, follow }
     ) => {
 
-    return <div>
+    return <div className={styles.userBlock}>
         <span>
             <div>
                 <NavLink to={`/profile/${user.id}`} >
@@ -24,12 +24,13 @@ const User: React.FC<PropsType> = ({ user, followingInProgress, unfollow, follow
                         className={styles.userPhoto} alt='profilePhoto' />
                 </NavLink>
             </div>
-            <div>
+            <div >
+                
                 {user.followed
-                    ? <button disabled={followingInProgress.some(id => id === user.id)}
+                    ? <button className={styles.gradientButton} disabled={followingInProgress.some(id => id === user.id)}
                         onClick={() => { follow(user.id) }}
                     > Unfollow </button>
-                    : <button disabled={followingInProgress.some(id => id === user.id)}
+                    : <button className={styles.gradientButton} disabled={followingInProgress.some(id => id === user.id)}
                         onClick={() => { unfollow(user.id) }}
                     > Follow </button>
                 }
@@ -38,11 +39,10 @@ const User: React.FC<PropsType> = ({ user, followingInProgress, unfollow, follow
         <span>
             <span>
                 <div>{user.name}</div>
-                <div>{user.status}</div>
+                <div>{user.status || <br /> } </div>
             </span>
         </span>
     </div>
-
 }
 
 export default User;
