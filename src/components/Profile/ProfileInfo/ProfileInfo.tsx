@@ -4,7 +4,6 @@ import Preloader from '../../common/Preloader/Preloader';
 import s from './ProfileInfo.module.css';
 import ProfileStatus from './ProfileStatus';
 import userPhoto from '../../../assets/images/user.png';
-import SuperButton from './SuperButton/SuperButton';
 
 type PropsType = {
     profile: ProfileType
