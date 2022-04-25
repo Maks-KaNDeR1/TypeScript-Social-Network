@@ -1,23 +1,31 @@
 {
   "files": {
-    "main.css": "/TypeScript-Social-Network/static/css/main.54440bf4.chunk.css",
-    "main.js": "/TypeScript-Social-Network/static/js/main.fdde9caa.chunk.js",
-    "main.js.map": "/TypeScript-Social-Network/static/js/main.fdde9caa.chunk.js.map",
-    "runtime-main.js": "/TypeScript-Social-Network/static/js/runtime-main.c6ddac32.js",
-    "runtime-main.js.map": "/TypeScript-Social-Network/static/js/runtime-main.c6ddac32.js.map",
-    "static/js/2.b203bf68.chunk.js": "/TypeScript-Social-Network/static/js/2.b203bf68.chunk.js",
-    "static/js/2.b203bf68.chunk.js.map": "/TypeScript-Social-Network/static/js/2.b203bf68.chunk.js.map",
-    "static/js/3.25147568.chunk.js": "/TypeScript-Social-Network/static/js/3.25147568.chunk.js",
-    "static/js/3.25147568.chunk.js.map": "/TypeScript-Social-Network/static/js/3.25147568.chunk.js.map",
+    "main.css": "/TypeScript-Social-Network/static/css/main.ffbfda2d.chunk.css",
+    "main.js": "/TypeScript-Social-Network/static/js/main.3b531353.chunk.js",
+    "main.js.map": "/TypeScript-Social-Network/static/js/main.3b531353.chunk.js.map",
+    "runtime-main.js": "/TypeScript-Social-Network/static/js/runtime-main.f9ddd445.js",
+    "runtime-main.js.map": "/TypeScript-Social-Network/static/js/runtime-main.f9ddd445.js.map",
+    "static/js/2.9d02e902.chunk.js": "/TypeScript-Social-Network/static/js/2.9d02e902.chunk.js",
+    "static/js/2.9d02e902.chunk.js.map": "/TypeScript-Social-Network/static/js/2.9d02e902.chunk.js.map",
+    "static/css/3.f9abf8c8.chunk.css": "/TypeScript-Social-Network/static/css/3.f9abf8c8.chunk.css",
+    "static/js/3.c8b2753b.chunk.js": "/TypeScript-Social-Network/static/js/3.c8b2753b.chunk.js",
+    "static/js/3.c8b2753b.chunk.js.map": "/TypeScript-Social-Network/static/js/3.c8b2753b.chunk.js.map",
+    "static/css/4.625ab3d1.chunk.css": "/TypeScript-Social-Network/static/css/4.625ab3d1.chunk.css",
+    "static/js/4.e6f0b677.chunk.js": "/TypeScript-Social-Network/static/js/4.e6f0b677.chunk.js",
+    "static/js/4.e6f0b677.chunk.js.map": "/TypeScript-Social-Network/static/js/4.e6f0b677.chunk.js.map",
+    "static/js/5.8abe950d.chunk.js": "/TypeScript-Social-Network/static/js/5.8abe950d.chunk.js",
+    "static/js/5.8abe950d.chunk.js.map": "/TypeScript-Social-Network/static/js/5.8abe950d.chunk.js.map",
     "index.html": "/TypeScript-Social-Network/index.html",
-    "static/css/main.54440bf4.chunk.css.map": "/TypeScript-Social-Network/static/css/main.54440bf4.chunk.css.map",
-    "static/js/2.b203bf68.chunk.js.LICENSE.txt": "/TypeScript-Social-Network/static/js/2.b203bf68.chunk.js.LICENSE.txt",
-    "static/media/user.96e310a6.png": "/TypeScript-Social-Network/static/media/user.96e310a6.png"
+    "static/css/3.f9abf8c8.chunk.css.map": "/TypeScript-Social-Network/static/css/3.f9abf8c8.chunk.css.map",
+    "static/css/4.625ab3d1.chunk.css.map": "/TypeScript-Social-Network/static/css/4.625ab3d1.chunk.css.map",
+    "static/css/main.ffbfda2d.chunk.css.map": "/TypeScript-Social-Network/static/css/main.ffbfda2d.chunk.css.map",
+    "static/js/2.9d02e902.chunk.js.LICENSE.txt": "/TypeScript-Social-Network/static/js/2.9d02e902.chunk.js.LICENSE.txt",
+    "static/media/user.png": "/TypeScript-Social-Network/static/media/user.96e310a6.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.c6ddac32.js",
-    "static/js/2.b203bf68.chunk.js",
-    "static/css/main.54440bf4.chunk.css",
-    "static/js/main.fdde9caa.chunk.js"
+    "static/js/runtime-main.f9ddd445.js",
+    "static/js/2.9d02e902.chunk.js",
+    "static/css/main.ffbfda2d.chunk.css",
+    "static/js/main.3b531353.chunk.js"
   ]
 }
