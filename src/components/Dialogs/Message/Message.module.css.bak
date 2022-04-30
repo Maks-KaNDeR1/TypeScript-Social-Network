@@ -1,10 +1,3 @@
-
-html, body {
-    scrollbar-color: #458245 #714826;     /* «цвет ползунка» «цвет полосы скроллбара» */
-    scrollbar-width: auto | thin | none;
-
-}
-
 .display {
     /* display: grid;
     grid-template-columns: 1fr 10fr; */

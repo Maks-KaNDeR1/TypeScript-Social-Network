@@ -34,7 +34,7 @@ function Dialogs(props: PropsType) {
             <div className={s.dialogsItems}>
                 {dialogsElements}
             </div>
-            <div className={s.dialogF} style={{ overflow: 'auto', height: '500px', WebkitOverflowScrolling: "touch" }}>
+            <div style={{ overflow: 'auto', height: '500px', WebkitOverflowScrolling: "touch" }}>
                 {messageElements}
                 <div ref={scroll} ></div>
             </div>

@@ -40,7 +40,6 @@ const MyPosts = React.memo((props: PropsType) => {
 <hr />    
 	<div>
         <textarea
-		placeholder='New Post'
           value={props.newPostText}
           onChange={onPostChange}
           className={styles.textarea}

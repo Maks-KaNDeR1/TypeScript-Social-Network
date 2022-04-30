@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     margin: 10px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     overflow: 'auto'
 }
 
@@ -35,5 +35,5 @@
 .buttonPrev {}
 
 .buttonNext {
-    margin-right: 20px;
+    margin-right: 2px;
 }

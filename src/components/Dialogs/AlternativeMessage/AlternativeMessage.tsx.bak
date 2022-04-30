@@ -11,13 +11,11 @@ function AlternativeMessage(props: PropsType) {
     const [title, setTitle] = useState('')
 
     const addMessage = () => {
-	if (title.trim() !== '') {
         props.addMessage(title)
         setTitle('')
         setTimeout(() => {
             props.scroll.current.scrollIntoView({ behavior: 'smooth' })
         }, 0)
-		}
     }
 
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {

@@ -14,7 +14,7 @@
     font: inherit;
     padding: 2px 5px;
     /* margin: 2px 4px; */
-    border-radius: 7px;
+    border-radius: 5px;
     background-image: linear-gradient(45deg, #83bcdb 10%, #3f010aae 50%, rgb(98, 255, 255) 120%);
     font-size: 14px;
     color: white;
