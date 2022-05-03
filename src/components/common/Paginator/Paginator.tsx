@@ -30,6 +30,8 @@ const Paginator: React.FC<PaginatorPropsType> = (
     let rightPortionPageNumber = portionNumber * portionSize;
 
 
+    
+
     return <div className={cn(styles.paginator)}>
         {/* <button onClick={(e) => { onPageChanged(1)}} >{'<<'}</button> */}
         <button className={styles.buttonPrev}
@@ -41,15 +43,14 @@ const Paginator: React.FC<PaginatorPropsType> = (
         {pages
             .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
             .map(p => {
-                return <span className={cn({
-                    [styles.selectedPage]: currentPage === p
-                }, styles.pageNumber)}
+                return <button 
                     key={p}
                     onClick={(e) => {
                         onPageChanged(p);
-                    }}>{p}</span>
+                    }}>{p}</button>
             })}
         <button className={styles.buttonNext}
+        style={{opacity:  portionCount < portionNumber + 1 ? '0.1' : ''}}
             disabled={portionCount < portionNumber + 1}
             onClick={() => { setPortionNumber(portionNumber + 1) }}
         >

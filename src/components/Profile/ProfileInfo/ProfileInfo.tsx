@@ -28,6 +28,7 @@ const ProfileInfo = (props: PropsType) => {
 
 
 
+    // <FaPaperclip />
 
 return (
     <div>

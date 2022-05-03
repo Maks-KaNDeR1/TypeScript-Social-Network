@@ -15,7 +15,6 @@ const Message = (props: PropsType) => {
         return (
             <div className={s.displaySent}>
                 <div className={s.message} style={{  justifyContent: 'flex-end'}} >                
-                //justify-content: flex-end;
                     <div className={s.description} style={{ borderRadius: '26px 28px 0 26px' }}>
                         <div className={s.nameSent}>{props.name}</div>
                         <div className={s.textSent}>{props.message}</div>

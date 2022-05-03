@@ -1,9 +1,4 @@
 
-html, body {
-    scrollbar-color: #458245 #714826;     /* «цвет ползунка» «цвет полосы скроллбара» */
-    scrollbar-width: auto | thin | none;
-
-}
 
 .display {
     /* display: grid;
@@ -44,7 +39,7 @@ html, body {
 .angleSent {
     width: 15px;
     height: 15px;
-    background: radial-gradient(circle at 100% 0, rgba(30, 42, 39, 0) 15px, #5e9bc3  0);
+    background: radial-gradient(circle at 100% 0, rgba(30, 42, 39, 0) 15px, #67accb   0);
 }
 
 
@@ -93,7 +88,7 @@ html, body {
 .timeSent {
 	
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     color: rgba(38, 35, 216, 0.822);
     font-size: 11px;
 }

@@ -40,7 +40,7 @@ const MyPosts = React.memo((props: PropsType) => {
 <hr />    
 	<div>
         <textarea
-		placeholder='New Post'
+		placeholder='New Post...'
           value={props.newPostText}
           onChange={onPostChange}
           className={styles.textarea}
@@ -49,7 +49,7 @@ const MyPosts = React.memo((props: PropsType) => {
       </div>
         <button onClick={addPost}
        
-          className={styles.button}>Add post</button>
+          className={styles.button}>Public</button>
                  
       <div className={styles.posts}>
         {postElements}

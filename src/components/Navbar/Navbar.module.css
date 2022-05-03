@@ -5,12 +5,14 @@
     /* background: rgba(101,108,133,.8); */
     padding: 15px;
     width: 170px;
+    
   }
-  
-  .item a{
+
+  a{
     color: white;
     /* color: #1890ff; */
     text-decoration: none;
+    margin-left: 3px;
   }
   
   .item a.active  {
