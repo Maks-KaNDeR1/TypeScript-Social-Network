@@ -1,15 +1,14 @@
-
-
 .postsBlock {
     padding: 10px;
 }
 
 .posts {
     margin-top: 10px;
- 
 }
+
 .textarea {
     border: none;
+    outline: none;
     cursor: pointer;
     font: inherit;
     padding: 2px 5px;
@@ -23,20 +22,21 @@
 }
 
 .button {
-      border: none;
-  cursor: pointer;
-  display: inline-block;
-  color: white;
-  padding: 3px 6px;
-  border-radius: 10px;
-  letter-spacing: 1px;
-  background-image: linear-gradient(to right, #80e3ea 0%, #26537c 51%, #62aacd 100%);
-  background-size: 200% auto;
-  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
-  transition: .5s;
- 
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    background-image: linear-gradient(to right, #80e3ea 0%, #26537c 51%, #62aacd 100%);
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    transition: .5s;
+
 }
 
 .button:hover {
     background-position: right center;
+    transform: scale(1.02);
 }

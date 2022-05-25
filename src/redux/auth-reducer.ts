@@ -56,7 +56,7 @@ export const getAuthUserData = (): AppThunkType => async (dispatch) => {
 }
 
 
-export const loginTC = (email: string, password: number, rememberMe: boolean, captcha = false): AppThunkType => (dispatch) => {
+export const loginTC = (email: string, password: string, rememberMe: boolean, captcha = false): AppThunkType => (dispatch) => {
     return authAPI.login(email, password, rememberMe, captcha)
         .then(res => {
             if (res.data.resultCode === 0) {

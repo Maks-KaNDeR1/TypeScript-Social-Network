@@ -28,7 +28,7 @@ export const usersAPI = {
 export const authAPI = {
     me: () => instance.get('auth/me'),
 
-    login: (email: string, password: number, rememberMe: boolean, captcha = false) =>
+    login: (email: string, password: string, rememberMe: boolean, captcha = false) =>
         instance.post(`auth/login`, { email, password, rememberMe, captcha }),
 
     logout: () => instance.delete(`auth/login`),

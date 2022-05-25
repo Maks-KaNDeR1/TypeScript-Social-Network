@@ -1,25 +1,90 @@
 
-
 .loginForm {
-    font-family: sans-serif;
-    margin-left: 25px;
-    
+
 }
 
-.loginBlock {
-    display: block;
-    margin: 10px 0;
-    text-align-last: left;
+
+.loginBox {
+    /* position: relative; */
+    width: 1280px;
+    height: 720px;
 }
 
-.loginBlock input {
-    display: block;
+.inputField {
+    position: absolute;
+    width: 413px;
+    height: 540px;
+    left: 434px;
+    top: 84px;
+
+    background: rgb(215, 231, 242);
+    border-radius: 18px;
 }
 
-.errors {
-    background: #fff;
-    color: red;
-    margin: 10px;
-    padding: 1px;
-    width: 150px;
-  }
+.formGroup {
+    margin: 40px 33px 0 33px;
+}
+
+
+p {
+	position: relative;
+	
+}
+
+
+
+
+.error {
+	color: red;
+	font-size: 14px;
+    margin-top: 0;
+	position: absolute; 
+}
+
+
+
+.social {
+    margin: 16px;
+    font-weight: 600;
+    font-size: 32px;
+    text-align: center;
+    color: #2D2E46;
+}
+
+
+.signIn {
+    margin: 20px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 33px;
+
+    text-align: center;
+    color: #2D2E46;
+}
+
+
+
+.loginButton {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    height: 36px;
+    width: 266px;
+    font-size: 17px;
+    margin: 45px 60px 0 40px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-image: linear-gradient(to right, #95eff5 0%, #4e79a1 51%, #8fcded 100%);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    background-size: 200% auto;
+    transition: .5s;
+}
+
+.loginButton:hover {
+    background-position: right center;
+    transform: scale(1.01);
+}
+

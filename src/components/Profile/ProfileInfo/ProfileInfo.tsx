@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, RefObject, useRef } from 'react';
 import { ProfileType } from '../../../redux/profile-reducer';
 import Preloader from '../../common/Preloader/Preloader';
 import s from './ProfileInfo.module.css';
@@ -26,7 +26,9 @@ const ProfileInfo = (props: PropsType) => {
         }
     }
 
+    // const inputElement = useRef<HTMLInputElement | null>(null);
 
+ const inRef = React.createRef<HTMLInputElement>();
 
     // <FaPaperclip />
 
@@ -37,9 +39,12 @@ return (
                 ? props.profile.photos.large
                 : userPhoto} className={s.userPhoto} alt='avatar' />
                 {
-                    props.isOwner && <input type='file'
+                    props.isOwner && <div> <input ref={inRef} type='file'
                         accept=".jpg, .jpeg, .png"
+                        style={{display: 'none'}}
                         onChange={onMainPhotoSelected} />
+                        <button className={s.button} onClick={() => inRef && inRef.current?.click()} > add photo</button>
+                        </div>
                 }
             <div>
                 <b>Full name</b>: {props.profile.fullName}

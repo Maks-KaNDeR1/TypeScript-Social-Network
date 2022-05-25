@@ -1,7 +1,7 @@
 import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
 import s from './AlternativeMessage.module.css'
 import { FaPaperPlane, FaRegPaperPlane } from "react-icons/fa";
-
+import SendIcon from '@mui/icons-material/Send';
 
 type PropsType = {
     addMessage: (title: string) => void
@@ -42,7 +42,8 @@ function AlternativeMessage(props: PropsType) {
                     onChange={onChangeHandler}
                     onKeyPress={onKeyPressHandler}
                      />
-                     <FaRegPaperPlane style={{cursor: 'pointer', color: '#133d92c8', marginLeft: '5px'}}  onClick={addMessage} /> 
+					 
+                     <SendIcon style={{cursor: 'pointer', marginBottom: '-6px'}}  onClick={addMessage} /> 
                      {/* <FaPaperPlane /> */}
                 {/* <button onClick={addMessage} >Send</button> */}
         </div>

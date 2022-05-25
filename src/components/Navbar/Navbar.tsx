@@ -8,32 +8,41 @@ function Navbar() {
     return (
         <div className={styles.nav}>
             <div className={`${styles.item} ${styles.active}`} >
-               <FaRegUserCircle />
+               <FaRegUserCircle style={styleIcon} />
                 <NavLink to="/profile/">Profile</NavLink>
             </div>
             <div className={`${styles.item} ${styles.active}`}>
-              <FaFacebookMessenger />
+              <FaFacebookMessenger style={styleIcon} />
               {/* <FaCommentDots /> */}
                 <NavLink to="/dialogs/">Messages</NavLink>
             </div>
             <div className={`${styles.item} ${styles.active}`}>
-             <FaMusic />
+             <FaMusic style={styleIcon} />
                 <NavLink to="/music">Music</NavLink>
             </div>
             <div className={`${styles.item} ${styles.active}`}>
-                <FaUsers />
+                <FaUsers style={styleIcon} />
                 <NavLink to="/users">Users</NavLink>
             </div>
             <div className={`${styles.item} ${styles.active}`}>
-                <FaCogs  />
+                <FaCogs style={styleIcon} />
                 <NavLink to="/setting">Setting</NavLink>
             </div>
             <div className={`${styles.item} ${styles.active}`}>
-               <FaRegCalendarAlt />
+               <FaRegCalendarAlt style={styleIcon} />
                 <NavLink to="/calendar">Сalendar</NavLink>
             </div>
         </div>
     )
 }
+
+
+
+
+
+let styleIcon: React.CSSProperties = {
+    color: 'rgb(56, 0, 0)'
+}
+
 
 export default Navbar

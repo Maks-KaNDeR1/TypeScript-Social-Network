@@ -6,24 +6,25 @@
 
 
 .paginator button {
-border: none;
-  cursor: pointer;
-  color: rgb(56, 0, 0);
-  padding: 2px 3px;
-  border-radius: 10px;
-  letter-spacing: 1px;
-  background-image: linear-gradient(to right, #95eff5 0%, #4e79a1 51%, #8fcded 100%);
-  background-size: 200% auto;
-  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
-  transition: .5s;
-  
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: rgb(56, 0, 0);
+    padding: 2px 3px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    background-image: linear-gradient(to right, #95eff5 0%, #4e79a1 51%, #8fcded 100%);
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    transition: .5s;
+
 }
 
 
 .paginator button:hover {
     background-position: right center;
     transform: scale(1.07);
-    
+
 }
 
 .buttonPrev {}

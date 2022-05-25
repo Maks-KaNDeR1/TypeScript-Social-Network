@@ -30,27 +30,25 @@ const MyPosts = React.memo((props: PropsType) => {
     if (e.charCode === 13) {
       addPost();
     }
-}
-
+  }
 
   return (
     <div>
-	<hr />
+      <hr />
       <h3>My posts</h3>
-<hr />    
-	<div>
+      <hr />
+      <div>
         <textarea
-		placeholder='New Post...'
+          placeholder='New Post...'
           value={props.newPostText}
           onChange={onPostChange}
           className={styles.textarea}
           onKeyPress={onKeyPressHandler}
         />
       </div>
-        <button onClick={addPost}
-       
-          className={styles.button}>Public</button>
-                 
+      <button onClick={addPost}
+        className={styles.button}>Public</button>
+
       <div className={styles.posts}>
         {postElements}
       </div>

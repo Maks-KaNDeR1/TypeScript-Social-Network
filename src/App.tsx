@@ -6,13 +6,13 @@ import Calendar from './components/Calendar/Calendar';
 import UsersContainer from './components/Users/UsersContainer';
 import Music from './components/Music/Music';
 import HeaderContainer from './components/Header/HeaderContainer';
-import Login from './components/Login/Login';
 import { connect } from 'react-redux';
 import { initializeApp } from './redux/app-reducer'
 import { withRouter } from './hoc/WithRouter'
 import { compose } from 'redux';
 import { AppRootStateType } from './redux/redux-store';
 import Preloader from './components/common/Preloader/Preloader';
+import { Login } from './components/Login/Login';
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))

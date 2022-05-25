@@ -35,6 +35,7 @@ const Paginator: React.FC<PaginatorPropsType> = (
     return <div className={cn(styles.paginator)}>
         {/* <button onClick={(e) => { onPageChanged(1)}} >{'<<'}</button> */}
         <button className={styles.buttonPrev}
+        style={{opacity:  portionNumber < 2 ? '0.4' : ''}}
             disabled={portionNumber < 2}
             onClick={() => { setPortionNumber(portionNumber - 1) }}
         >
@@ -50,7 +51,7 @@ const Paginator: React.FC<PaginatorPropsType> = (
                     }}>{p}</button>
             })}
         <button className={styles.buttonNext}
-        style={{opacity:  portionCount < portionNumber + 1 ? '0.1' : ''}}
+        style={{opacity:  portionCount < portionNumber + 1 ? '0.4' : ''}}
             disabled={portionCount < portionNumber + 1}
             onClick={() => { setPortionNumber(portionNumber + 1) }}
         >

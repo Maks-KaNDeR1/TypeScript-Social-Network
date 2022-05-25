@@ -1,4 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
+import s from './ProfileStatus.module.css';
+
 
 type PropsType = {
     value: string
@@ -30,7 +32,7 @@ function ProfileStatus(props: PropsType) {
     }
 
     return (
-        <div>
+        <div className={s.item} >
             {!editMode &&
                 <div>
                     <b> Status: </b> <span onDoubleClick={activateEditMode}>{props.value || "-----"}</span>
