@@ -7,6 +7,9 @@ import userPhoto from '../../../assets/images/user.png';
 import { ProfileDataForm } from './ProfileData/ProfileDataForm';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import { ProfileData } from './ProfileData/ProfileData';
+import { useSelector } from 'react-redux';
+import { AppRootStateType } from '../../../redux/redux-store';
+import { UserType } from '../../../redux/users-reducer';
 
 type PropsType = {
     profile: ProfileType
@@ -15,9 +18,25 @@ type PropsType = {
     updateStatus: (value: string) => void
     savePhoto: (file: File) => void
     saveProfile: (profile: ProfileType) => void
+    users: UserType[]
+    followingInProgress: []
+    follow: (id: number) => void
+    unfollow: (id: number) => void
 }
 
-const ProfileInfo: React.FC<PropsType> = ({ profile, status, updateStatus, savePhoto, saveProfile, isOwner }) => {
+const ProfileInfo: React.FC<PropsType> = (
+    {
+        profile,
+        status,
+        updateStatus,
+        savePhoto,
+        saveProfile,
+        isOwner,
+        users,
+        followingInProgress,
+        follow,
+        unfollow
+    }) => {
 
     let [editMode, setEditMode] = useState(false);
 
@@ -30,8 +49,6 @@ const ProfileInfo: React.FC<PropsType> = ({ profile, status, updateStatus, saveP
             savePhoto(e.target.files[0]);
         }
     }
-
-
 
     const inRef = React.createRef<HTMLInputElement>();
 
@@ -55,6 +72,16 @@ const ProfileInfo: React.FC<PropsType> = ({ profile, status, updateStatus, saveP
                     <div>
                         <ProfileStatus updateStatus={updateStatus} value={status} />
                     </div>
+                    {/* {
+                        users.map(u => u.followed
+                            ? <button className={s.gradientButton} disabled={followingInProgress.some(id => id === u.id)}
+                                onClick={() => { follow(u.id) }}
+                            > Unfollow </button>
+                            : <button className={s.gradientButton} disabled={followingInProgress.some(id => id === u.id)}
+                                onClick={() => { unfollow(u.id) }}
+                            > Follow </button>
+                        )
+                    } */}
                 </div>
                 <span ></span>
                 <div className={s.description}  >

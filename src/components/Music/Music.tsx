@@ -25,9 +25,9 @@ function Music() {
             <div>
                 <div className={styles.item}>Radio📻</div>
             </div>
-            <button onClick={() => handleOnOffClick()} >
+            <button onClick={handleOnOffClick} >
                 {
-                    !switchOnOff ? <h2>▶️</h2> : <h2>⏸️</h2>
+                    switchOnOff ? <h2>⏸️</h2> : <h2>▶️</h2>
                 }
             </button>
         </div>

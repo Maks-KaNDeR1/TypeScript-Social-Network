@@ -23,13 +23,13 @@ export const ProfileDataForm: React.FC<PropsType> = ({ profile, goToEditMode }) 
             </div>
             {profile.lookingForAJob &&
                 <div>
-                    <b>My professional skills</b>:  <input />
+                    <b>My professional skills</b>:  <input style={{ height: '15px'}} />
                 </div>
             }
             <div>
                 <b>About me</b>:  <input style={{marginLeft: '10px', height: '15px'}} />
             </div>
-            <div className={s.contacts} > <b>Contacts</b>:   
+            <div className={s.contactsInput} > <b>Contacts</b>:   
                 <li><span>facebook:</span> <input /></li>
                 <li><span>github:</span> <input /></li>
                 <li><span>instagram:</span>  <input /></li>

@@ -40,17 +40,22 @@
     min-width: 323px;
 }
 
+.contactsInput {
+    justify-content: space-between;
+    width: 325px;
+}
+
 .contacts span {
     /* font-size: 19px; */
     color: rgb(43, 10, 97)
 }
 
 
-.contacts input {
+.contactsInput input {
     float: right;
 }
 
-.contacts li {
+.item li {
     margin-left: 10px;
 }
 

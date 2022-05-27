@@ -1,6 +1,6 @@
 .descriptionBlock {
     display: grid;
-    margin: 20px 0 0 0;
+    margin-top: 10px;
     grid-template-columns: 260px 10px  600px ;
 }
 
@@ -16,14 +16,14 @@
 .profile {
     background-color: #e6f7fe;
     padding: 20px;
-    box-shadow: 0 16px 32px 2px rgb(0 20 120 / 20%);
+    box-shadow: inset 10px 15px 20px 0px rgb(0 20 120 / 15%);
     border-radius: 30px;
 }
 
 .description {
     background-color: #e6f7fe;
     padding: 20px;
-    box-shadow: 0 16px 32px 2px rgb(0 20 120 / 15%);
+    box-shadow: inset 6px -3px 20px 0px rgb(0 20 120 / 20%);
     border-radius: 30px;
 
 }

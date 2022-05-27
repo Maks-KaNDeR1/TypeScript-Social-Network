@@ -2,12 +2,11 @@
   display: inline-block;
   cursor: pointer;
   padding: 0 4px;
-  border-radius: 5px;
-  background-image: linear-gradient(45deg, #fff 0%, #d6ebf1 50%, #d6eef5 100%);
-
+  border-radius: 25px;
+  background-color: #e6f7fe;
   background-position: 100% 0;
   background-size: 200% 200%;
-  box-shadow: 0 3px 32px 0 rgba(0, 10, 10, .21);
+  box-shadow: 3px 8px 20px 0px rgb(205 222 239);
 }
 
 .item span:hover {

@@ -6,6 +6,7 @@ import { getUserProfile, getStatus, updateStatus, ProfileType, savePhoto, savePr
 import { withRouter } from '../../hoc/WithRouter';
 import { compose } from 'redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { UserType, follow, unfollow } from '../../redux/users-reducer';
 
 
 type PropsType = {
@@ -17,16 +18,32 @@ type PropsType = {
     updateStatus: (value: string) => void
     savePhoto: (file: any) => void
     saveProfile: (profile: ProfileType) => void
+    users: UserType[]
+    followingInProgress: []
+    follow: (id: number) => void
+    unfollow: (id: number) => void
 }
 
-const ProfileContainer: React.FC<PropsType> = ({ profile, authorizedUserId, status, getUserProfile, getStatus, updateStatus, savePhoto, saveProfile }) => {
+const ProfileContainer: React.FC<PropsType> = (
+    {
+        profile,
+        authorizedUserId,
+        status,
+        getUserProfile,
+        getStatus,
+        updateStatus,
+        savePhoto,
+        saveProfile,
+        users,
+        followingInProgress,
+        follow,
+        unfollow
+    }) => {
 
     const getProfile = useCallback((userId: any) => {
         getUserProfile(userId)
         getStatus(userId)
     }, [])
-    
-
 
     const navigate = useNavigate()
     const { userId } = useParams();
@@ -43,15 +60,17 @@ const ProfileContainer: React.FC<PropsType> = ({ profile, authorizedUserId, stat
     }, [])
 
     return <Profile
-    isOwner={!userId}
+        isOwner={!userId}
         profile={profile}
         status={status}
         updateStatus={updateStatus}
         savePhoto={savePhoto}
         saveProfile={saveProfile}
+        users={users}
+        followingInProgress={followingInProgress}
+        follow={follow}
+        unfollow={unfollow}
     />
-
-
 }
 
 const mapStateToProps = (state: AppRootStateType) => ({
@@ -59,10 +78,13 @@ const mapStateToProps = (state: AppRootStateType) => ({
     status: state.profilePage.status,
     authorizedUserId: state.auth.id,
     isAuth: state.auth.isAuth,
+    users: state.usersPage.users,
+    followingInProgress: state.usersPage.followingInProgress
 })
+
 
 export default compose<ComponentType>(
     // WithAuthRedirect,
-    connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile }),
+    connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile, follow, unfollow }),
     withRouter,
 )(ProfileContainer)

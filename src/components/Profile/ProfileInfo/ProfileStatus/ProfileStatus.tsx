@@ -28,7 +28,9 @@ const ProfileStatus: React.FC<PropsType> = ({value, updateStatus}) => {
     }
 
     const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setStatus(e.currentTarget.value)
+		if(e.currentTarget.value.length > 20) alert('many simbols')
+		else setStatus(e.currentTarget.value)
+		
     }
 
     return (

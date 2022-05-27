@@ -9,7 +9,9 @@
 }
 
 .dialogsItems {
-    width: 180px; 
+    padding: 10px 0 0 10px;
+    width: 180px;
+    
     border:  1px ridge rgb(66, 136, 174);
 }
 
