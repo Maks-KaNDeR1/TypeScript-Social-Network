@@ -19,8 +19,7 @@ type UsersPropsType = {
 
 const Users: React.FC<UsersPropsType> = (
     {
-        currentPage, totalUsersCount,
-        pageSize, onPageChanged, users,
+        currentPage, totalUsersCount, pageSize, onPageChanged, users,
         ...props
     }) => {
     return <div>

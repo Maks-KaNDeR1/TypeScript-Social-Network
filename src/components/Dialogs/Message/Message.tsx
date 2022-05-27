@@ -9,21 +9,20 @@ type PropsType = {
 }
 
 
-const Message = (props: PropsType) => {
-
-    if (props.name === 'Maksim') {
+const Message: React.FC<PropsType> = ({ id, avatar, name, message, time }) => {
+    if (name === 'Maksim') {
         return (
             <div className={s.displaySent}>
                 <div className={s.message} style={{  justifyContent: 'flex-end'}} >                
                     <div className={s.description} style={{ borderRadius: '26px 28px 0 26px' }}>
-                        <div className={s.nameSent}>{props.name}</div>
-                        <div className={s.textSent}>{props.message}</div>
-                        <span className={s.timeSent}>{props.time}</span>
+                        <div className={s.nameSent}>{name}</div>
+                        <div className={s.textSent}>{message}</div>
+                        <span className={s.timeSent}>{time}</span>
                     </div>
 
                     <div className={s.angleSent} />
 
-                    <img src={props.avatar} alt={'avatar'} />
+                    <img src={avatar} alt={'avatar'} />
                 </div>
             </div>
         )
@@ -31,14 +30,14 @@ const Message = (props: PropsType) => {
         return (
             <div className={s.display}>
                 <div className={s.message}>
-                    <img src={props.avatar} alt={'avatar'} />
+                    <img src={avatar} alt={'avatar'} />
 
                     <div className={s.angle} />
 
                     <div className={s.description}>
-                        <div className={s.name}>{props.name}</div>
-                        <div className={s.text}>{props.message}</div>
-                        <span className={s.time}>{props.time}</span>
+                        <div className={s.name}>{name}</div>
+                        <div className={s.text}>{message}</div>
+                        <span className={s.time}>{time}</span>
                     </div>
                 </div>
             </div>

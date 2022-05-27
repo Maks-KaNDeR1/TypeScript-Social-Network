@@ -1,81 +1,72 @@
-import React, { ChangeEvent, RefObject, useRef } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { ProfileType } from '../../../redux/profile-reducer';
 import Preloader from '../../common/Preloader/Preloader';
 import s from './ProfileInfo.module.css';
-import ProfileStatus from './ProfileStatus';
+import ProfileStatus from './ProfileStatus/ProfileStatus';
 import userPhoto from '../../../assets/images/user.png';
+import { ProfileDataForm } from './ProfileData/ProfileDataForm';
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import { ProfileData } from './ProfileData/ProfileData';
 
 type PropsType = {
     profile: ProfileType
-    updateStatus: (value: string) => void
     status: string
     isOwner: boolean
-    savePhoto: (file: any) => void
+    updateStatus: (value: string) => void
+    savePhoto: (file: File) => void
+    saveProfile: (profile: ProfileType) => void
 }
 
+const ProfileInfo: React.FC<PropsType> = ({ profile, status, updateStatus, savePhoto, saveProfile, isOwner }) => {
 
-const ProfileInfo = (props: PropsType) => {
+    let [editMode, setEditMode] = useState(false);
 
-    if (!props.profile) {
+    if (!profile) {
         return <Preloader />
     }
 
     const onMainPhotoSelected = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.files !== null) {
-            props.savePhoto(e.target.files[0]);
+            savePhoto(e.target.files[0]);
         }
     }
 
-    // const inputElement = useRef<HTMLInputElement | null>(null);
 
- const inRef = React.createRef<HTMLInputElement>();
 
-    // <FaPaperclip />
+    const inRef = React.createRef<HTMLInputElement>();
 
-return (
-    <div>
-        <div className={s.descriptionBlock}>
-            <img src={props.profile.photos.large
-                ? props.profile.photos.large
-                : userPhoto} className={s.userPhoto} alt='avatar' />
-                {
-                    props.isOwner && <div> <input ref={inRef} type='file'
-                        accept=".jpg, .jpeg, .png"
-                        style={{display: 'none'}}
-                        onChange={onMainPhotoSelected} />
-                        <button className={s.button} onClick={() => inRef && inRef.current?.click()} > add photo</button>
+    return (
+        <div>
+            <div className={s.descriptionBlock}>
+                <div className={s.profile}>
+                    <img src={profile.photos.large
+                        ? profile.photos.large
+                        : userPhoto} className={s.userPhoto} alt='avatar' />
+                    {
+                        isOwner && <div> <input ref={inRef} type='file'
+                            accept=".jpg, .jpeg, .png"
+                            style={{ display: 'none' }}
+                            onChange={onMainPhotoSelected} />
+                            <AddPhotoAlternateIcon className={s.button} style={{ padding: '2px 3px', color: 'rgb(179 243 253)', transition: '.5s' }}
+                                onClick={() => inRef && inRef.current?.click()}
+                            />
                         </div>
-                }
-            <div>
-                <b>Full name</b>: {props.profile.fullName}
-            </div>
-            <div>
-                <ProfileStatus updateStatus={props.updateStatus} value={props.status} />
-            </div>
-            <div>
-                <b>Looking for a job</b>: {props.profile.lookingForAJob ? "yes" : "no"}
-            </div>
-            {props.profile.lookingForAJob &&
-                <div>
-                    <b>My professional skills</b>: {props.profile.lookingForAJobDescription}
+                    }
+                    <div>
+                        <ProfileStatus updateStatus={updateStatus} value={status} />
+                    </div>
                 </div>
-            }
-
-            <b>About me</b>: {props.profile.aboutMe}
-            <p><b>Contacts: </b></p>
-            <ul>
-                <li>{props.profile.contacts.facebook}</li>
-                <li>{props.profile.contacts.github}</li>
-                <li>{props.profile.contacts.instagram}</li>
-                <li>{props.profile.contacts.mainLink}</li>
-                <li>{props.profile.contacts.twitter}</li>
-                <li>{props.profile.contacts.vk}</li>
-                <li>{props.profile.contacts.website}</li>
-                <li>{props.profile.contacts.youtube}</li>
-            </ul>
+                <span ></span>
+                <div className={s.description}  >
+                    {editMode
+                        ? <ProfileDataForm initialValues={profile} profile={profile} goToEditMode={setEditMode} />
+                        : <ProfileData goToEditMode={() => { setEditMode(true) }} profile={profile} isOwner={isOwner} />}
+                </div>
+            </div>
         </div>
-    </div>
-)
+    )
 }
+
+
 
 export default ProfileInfo

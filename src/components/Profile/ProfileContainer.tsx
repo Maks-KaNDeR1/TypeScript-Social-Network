@@ -2,7 +2,7 @@ import React, { ComponentType, useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { AppRootStateType } from '../../redux/redux-store';
 import Profile from './Profile';
-import { getUserProfile, getStatus, updateStatus, ProfileType, savePhoto } from "../../redux/profile-reducer";
+import { getUserProfile, getStatus, updateStatus, ProfileType, savePhoto, saveProfile } from "../../redux/profile-reducer";
 import { withRouter } from '../../hoc/WithRouter';
 import { compose } from 'redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -16,13 +16,14 @@ type PropsType = {
     getUserProfile: (userId: string | undefined) => void
     updateStatus: (value: string) => void
     savePhoto: (file: any) => void
+    saveProfile: (profile: ProfileType) => void
 }
 
-const ProfileContainer = (props: PropsType) => {
+const ProfileContainer: React.FC<PropsType> = ({ profile, authorizedUserId, status, getUserProfile, getStatus, updateStatus, savePhoto, saveProfile }) => {
 
     const getProfile = useCallback((userId: any) => {
-        props.getUserProfile(userId)
-        props.getStatus(userId)
+        getUserProfile(userId)
+        getStatus(userId)
     }, [])
     
 
@@ -31,23 +32,23 @@ const ProfileContainer = (props: PropsType) => {
     const { userId } = useParams();
     useEffect(() => {
         if (!userId) {
-            let userId = props.authorizedUserId;
+            let userId = authorizedUserId;
             if (!userId) {
                 navigate("/login");
             }
             getProfile(userId)
         } else {
             getProfile(userId)
-
         }
     }, [])
 
-    return <Profile {...props}
+    return <Profile
     isOwner={!userId}
-        profile={props.profile}
-        status={props.status}
-        updateStatus={props.updateStatus}
-        savePhoto={props.savePhoto}
+        profile={profile}
+        status={status}
+        updateStatus={updateStatus}
+        savePhoto={savePhoto}
+        saveProfile={saveProfile}
     />
 
 
@@ -62,6 +63,6 @@ const mapStateToProps = (state: AppRootStateType) => ({
 
 export default compose<ComponentType>(
     // WithAuthRedirect,
-    connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto }),
+    connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile }),
     withRouter,
 )(ProfileContainer)

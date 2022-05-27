@@ -36,7 +36,6 @@ type UsersPropsType = {
 
 class UsersContainer extends React.Component<any, UsersPropsType> {
     componentDidMount() {
-
         const {currentPage, pageSize} = this.props
         this.props.getUsers(currentPage, pageSize)
     };

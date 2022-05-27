@@ -1,4 +1,4 @@
-import profileReducer, {addPostActionCreator, deletePost} from "./profile-reducer";
+import profileReducer, {addPost, deletePost} from "./profile-reducer";
 import ReactDOM from "react-dom";
 import App from "../App";
 import React from "react";
@@ -9,12 +9,15 @@ let state = {
         {id: 2, message: 'It\'s my first post', likesCount: 11},
         {id: 3, message: 'Blabla', likesCount: 11},
         {id: 4, message: 'Dada', likesCount: 11}
-    ]
+    ],
+    newPostText: '',
+    profile: null,
+    status: ''
 };
 
 it('length of posts should be incremented', () => {
     // 1. test data
-    let action = addPostActionCreator("it-kamasutra.com");
+    let action = addPost();
 
     // 2. action
     let newState = profileReducer(state, action);
@@ -26,7 +29,7 @@ it('length of posts should be incremented', () => {
 
 it('message of new post should be correct', () => {
     // 1. test data
-    let action = addPostActionCreator("it-kamasutra.com");
+    let action = addPost();
 
     // 2. action
     let newState = profileReducer(state, action);

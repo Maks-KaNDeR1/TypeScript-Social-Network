@@ -22,7 +22,7 @@ type PhotosType = {
     //large: any
 }
 
-type ContactType = {
+export type ContactType = {
     github: string
     vk: string
     facebook: string
@@ -103,7 +103,6 @@ export const profileReducer = (state = initialState, action: ProfileActionsType)
 type AddPostType = ReturnType<typeof addPost>
 export const addPost = () => ({ type: ADD_POST } as const)
 
-
 type UpdateNewPostTextType = ReturnType<typeof updateNewPostText>
 export const updateNewPostText = (text: string) =>
     ({ type: UPDATE_NEW_POST_TEXT, newText: text } as const)
@@ -118,7 +117,6 @@ export const setStatus = (status: string) =>
 
 type DeletePostType = ReturnType<typeof deletePost>
 export const deletePost = (postId: number) => ({ type: DELETE_POST, postId } as const)
-
 
 
 export const getUserProfile = (userId: any): AppThunkType => async (dispatch) => {
@@ -138,13 +136,27 @@ export const updateStatus = (status: string): AppThunkType => async (dispatch) =
     }
 }
 
-export const savePhoto = (photos: any): AppThunkType => async (dispatch, getState) => {
+export const savePhoto = (photos: File): AppThunkType => async (dispatch, getState) => {
     const userId = getState().auth.id;
-    let res = await profileAPI.saveProfilePhoto(photos)
+    const res = await profileAPI.saveProfilePhoto(photos)
     if (res.data.resultCode === 0) {
         dispatch(getUserProfile(userId));
     }
 }
+
+
+export const saveProfile = (profile: ProfileType): AppThunkType => async (dispatch, getState) => {
+        const userId = getState().auth.id;
+        const res = await profileAPI.saveProfile(profile);
+    
+        if (res.data.resultCode === 0) {
+            // dispatch(getUserProfile(userId));
+        } else {
+            return Promise.reject(res.data.messages[0]);
+        }
+    }
+
+
 
 export type ProfileActionsType =
     | AddPostType

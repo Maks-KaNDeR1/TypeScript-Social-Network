@@ -7,24 +7,24 @@ type PropsType = {
     updateStatus: (value: string) => void
 }
 
-function ProfileStatus(props: PropsType) {
+const ProfileStatus: React.FC<PropsType> = ({value, updateStatus}) => {
 
     const [editMode, setEditMode] = useState(false)
-    const [status, setStatus] = useState(props.value)
+    const [status, setStatus] = useState(value)
 
 
     useEffect(() => {
-        setStatus(props.value);
-    }, [props.value])
+        setStatus(value);
+    }, [value])
 
     const activateEditMode = () => {
         setEditMode(true);
-        setStatus(props.value);
+        setStatus(value);
     }
 
     const activateViewMode = () => {
         setEditMode(false);
-        props.updateStatus(status);
+        updateStatus(status);
     }
 
     const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +35,7 @@ function ProfileStatus(props: PropsType) {
         <div className={s.item} >
             {!editMode &&
                 <div>
-                    <b> Status: </b> <span onDoubleClick={activateEditMode}>{props.value || "-----"}</span>
+                    <b> Status: </b> <span onDoubleClick={activateEditMode}>{value || "-----"}</span>
                 </div>
             }
             {editMode &&

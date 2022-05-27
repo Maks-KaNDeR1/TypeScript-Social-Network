@@ -1,3 +1,10 @@
+.descriptionBlock {
+    display: grid;
+    margin: 20px 0 0 0;
+    grid-template-columns: 260px 10px  600px ;
+}
+
+
 .descriptionBlock img {
     margin-top: 3px;
     height: 125px;
@@ -5,6 +12,22 @@
     border: 2px ridge #4288ae;
     border-radius: 15%;
 }
+
+.profile {
+    background-color: #e6f7fe;
+    padding: 20px;
+    box-shadow: 0 16px 32px 2px rgb(0 20 120 / 20%);
+    border-radius: 30px;
+}
+
+.description {
+    background-color: #e6f7fe;
+    padding: 20px;
+    box-shadow: 0 16px 32px 2px rgb(0 20 120 / 15%);
+    border-radius: 30px;
+
+}
+
 
 .button {
     border: none;
@@ -18,9 +41,7 @@
     background-size: 200% auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, .1);
     transition: .5s;
-
 }
-
 
 .button:hover {
     background-position: right center;

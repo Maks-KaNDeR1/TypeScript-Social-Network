@@ -6,29 +6,18 @@
 
 
 .usersBlock {
-  /* width: 200px; */
-    /* width: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center; */
     display: grid;
     text-align: center;
-    margin: 50px 0 0 100px;
+    margin: 50px 0 0 80px;
     /* align-items: center; */
-    grid-template-columns: 340px 340px;
+    grid-template-columns: 295px 295px 290px;
     grid-template-rows: 180px 180px 180px 180px 180px 
     
 }
 
 .userBlock {
   width: 200px;
- 
 }
-
-
-/* style={{ overflow: 'auto', height: '800px' }} */ 
-
 
   .gradientButton {
     border: none;

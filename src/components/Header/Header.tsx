@@ -9,17 +9,17 @@ type PropsType = {
     logout: () => void
 }
 
-function Header(props: PropsType) {
+const Header: React.FC<PropsType> = ({ isAuth, login, logout }) => {
 
     return <header className={s.header}>
         <div className={s.loginBlock}>
             {
-                props.isAuth ? <FaUserCheck style={{ margin: '4px' }} />
+                isAuth ? <FaUserCheck style={{ margin: '4px' }} />
                     : <FaUserMinus style={{ margin: '4px' }} />
             }
             {
-                props.isAuth
-                    ? <div>{props.login} - <button onClick={props.logout}>Log out</button> </div>
+                isAuth
+                    ? <div>{login} - <button onClick={logout}>Log out</button> </div>
                     : <div><NavLink to='/login' > Login </NavLink> </div>
             }
         </div>

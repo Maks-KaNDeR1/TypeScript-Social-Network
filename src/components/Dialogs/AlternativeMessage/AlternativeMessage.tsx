@@ -1,6 +1,5 @@
 import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
 import s from './AlternativeMessage.module.css'
-import { FaPaperPlane, FaRegPaperPlane } from "react-icons/fa";
 import SendIcon from '@mui/icons-material/Send';
 
 type PropsType = {
@@ -8,18 +7,18 @@ type PropsType = {
     scroll: any
 }
 
-function AlternativeMessage(props: PropsType) {
+const AlternativeMessage: React.FC<PropsType> = ({ addMessage, scroll }) => {
 
     const [title, setTitle] = useState('')
 
-    const addMessage = () => {
-	if (title.trim() !== '') {
-        props.addMessage(title)
-        setTitle('')
-        setTimeout(() => {
-            props.scroll.current.scrollIntoView({ behavior: 'smooth' })
-        }, 0)
-		}
+    const onClickHandler = () => {
+        if (title.trim() !== '') {
+            addMessage(title)
+            setTitle('')
+            setTimeout(() => {
+                scroll.current.scrollIntoView({ behavior: 'smooth' })
+            }, 0)
+        }
     }
 
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -29,23 +28,20 @@ function AlternativeMessage(props: PropsType) {
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.charCode === 13) {
-            addMessage()
+            onClickHandler()
         }
     }
 
     return (
-        
+
         <div className={s.items} >
-             <input type='text'
-                 placeholder=' New message...'
-                    value={title}
-                    onChange={onChangeHandler}
-                    onKeyPress={onKeyPressHandler}
-                     />
-					 
-                     <SendIcon style={{cursor: 'pointer', marginBottom: '-6px'}}  onClick={addMessage} /> 
-                     {/* <FaPaperPlane /> */}
-                {/* <button onClick={addMessage} >Send</button> */}
+            <input type='text'
+                placeholder=' New message...'
+                value={title}
+                onChange={onChangeHandler}
+                onKeyPress={onKeyPressHandler}
+            />
+            <SendIcon style={{ cursor: 'pointer', marginBottom: '-6px' }} onClick={onClickHandler} />
         </div>
     )
 }

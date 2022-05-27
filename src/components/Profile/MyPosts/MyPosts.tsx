@@ -10,19 +10,19 @@ type PropsType = {
   updateNewPostText: (text: string) => void
 }
 
-const MyPosts = React.memo((props: PropsType) => {
+const MyPosts: React.FC<PropsType> = React.memo(({posts, newPostText, addPost, updateNewPostText}) => {
 
-  const postElements = props.posts.map(p =>
+  const postElements = posts.map(p =>
     <Post key={p.id} message={p.message} likesCount={p.likesCount} />
   )
 
-  const addPost = () => {
-    props.addPost()
+  const onClickHandler = () => {
+    addPost()
   }
 
   const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     let text = e.currentTarget.value
-    props.updateNewPostText(text)
+    updateNewPostText(text)
   }
 
 
@@ -40,13 +40,13 @@ const MyPosts = React.memo((props: PropsType) => {
       <div>
         <textarea
           placeholder='New Post...'
-          value={props.newPostText}
+          value={newPostText}
           onChange={onPostChange}
           className={styles.textarea}
           onKeyPress={onKeyPressHandler}
         />
       </div>
-      <button onClick={addPost}
+      <button onClick={onClickHandler}
         className={styles.button}>Public</button>
 
       <div className={styles.posts}>

@@ -29,8 +29,6 @@ class App extends Component<PropsType, PropsType> {
     this.props.initializeApp()
   }
 
-
-
   render() {
     if (!this.props.initialized) {
       return <div

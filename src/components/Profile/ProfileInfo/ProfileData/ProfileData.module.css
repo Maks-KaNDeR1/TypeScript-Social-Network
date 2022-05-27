@@ -1,0 +1,68 @@
+.item div {
+    font-family: inherit;
+    color: #2b5a82;
+    font-size: large;
+    font-weight: 400;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* font-style: italic; */
+}
+
+.item .fullName {
+    font-family: inherit;
+    color: #13157a;
+    font-size: 23px;
+    font-weight: 500;
+    /* text-transform: uppercase; */
+}
+
+.button {
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    background-image: linear-gradient(to right, #80e3ea 0%, #26537c 51%, #62aacd 100%);
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    transition: .5s;
+}
+
+.button:hover {
+    background-position: right center;
+    transform: scale(1.02);
+}
+
+
+.contacts {
+    justify-content: space-between;
+    min-width: 323px;
+}
+
+.contacts span {
+    /* font-size: 19px; */
+    color: rgb(43, 10, 97)
+}
+
+
+.contacts input {
+    float: right;
+}
+
+.contacts li {
+    margin-left: 10px;
+}
+
+.item input {
+    border: 1px solid #77d6e0;
+    outline: none;
+    cursor: pointer;
+    font: inherit;
+    /* margin: -2px 0; */
+    border-radius: 7px;
+    background-image: linear-gradient(to right, #daf9f4 0%, #d9e1ff 51%, #daf7f2 100%);
+    font-size: 14px;
+    color: #366c8f;
+    transition: .5s;
+}

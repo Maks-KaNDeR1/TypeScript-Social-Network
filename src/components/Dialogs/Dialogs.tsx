@@ -14,13 +14,13 @@ type PropsType = {
 }
 
 
-function Dialogs(props: PropsType) {
+const Dialogs: React.FC<PropsType> = ({addMessage, dialogs, message}) => {
 
-    const dialogsElements = props.dialogs.map(d =>
+    const dialogsElements = dialogs.map(d =>
         <DialogItem name={d.name} key={d.id} id={d.id} src={d.src} />
     )
 
-    const messageElements = props.message.map(m =>
+    const messageElements = message.map(m =>
         <Message key={m.id}
             id={m.id} avatar={m.avatar} name={m.name} message={m.message} time={m.time}
         />
@@ -41,7 +41,7 @@ function Dialogs(props: PropsType) {
             <div />
             <div style={{ margin: '15px', marginLeft: '340px' }} >
                 <AlternativeMessage
-                    addMessage={props.addMessage}
+                    addMessage={addMessage}
                     scroll={scroll}
                 />
             </div>

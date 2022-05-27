@@ -1,21 +1,21 @@
 import { NavLink } from 'react-router-dom'
 import styles from './../Dialogs.module.css'
 
-type DialodsItemPropsType = {
+type PropsType = {
     id: number
     name: string
     src: string
 }
 
 
-const DialogItem = (props: DialodsItemPropsType) => {
+const DialogItem: React.FC<PropsType> = ({ id, name, src }) => {
 
-    const path = "/dialogs/" + props.id;
+    const path = "/dialogs/" + id;
 
     return (
         <div className={styles.dialog + ' ' + styles.active}>
-            <img src={props.src} alt='ava' />
-            <NavLink to={path}>{props.name}</NavLink>
+            <img src={src} alt='ava' />
+            <NavLink to={path}>{name}</NavLink>
         </div>
     )
 }
