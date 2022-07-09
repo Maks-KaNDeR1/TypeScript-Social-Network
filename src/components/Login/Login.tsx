@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginTC } from "./auth-reducer";
 import s from './Login.module.css'
 import { AppRootStateType } from "../../redux/redux-store";
-import { Navigate, NavLink } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useState } from "react";
 import { Checkbox, FormControl, FormControlLabel, FormGroup, Grid, TextField } from "@mui/material";
 import Visibility from '@mui/icons-material/Visibility';

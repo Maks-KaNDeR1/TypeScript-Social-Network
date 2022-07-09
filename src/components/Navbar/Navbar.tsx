@@ -1,34 +1,33 @@
 import React from 'react'
-import { FaCogs, FaCommentDots, FaFacebookMessenger, FaMusic, FaRegCalendarAlt, FaRegUserCircle, FaUsers } from 'react-icons/fa'
+import { FaCogs, FaFacebookMessenger, FaMusic, FaRegCalendarAlt, FaRegUserCircle, FaUsers } from 'react-icons/fa'
 import { NavLink } from 'react-router-dom'
-import styles from './Navbar.module.css'
+import s from './Navbar.module.css'
 
 function Navbar() {
     return (
-        <div className={styles.nav}>
-            <div className={styles.item} >
-               <FaRegUserCircle style={styleIcon} />
+        <div className={s.nav}>
+            <div className={s.item} >
+                <FaRegUserCircle style={styleIcon} />
                 <NavLink to="/profile/">Profile</NavLink>
             </div>
-            <div className={styles.item}>
-              <FaFacebookMessenger style={styleIcon} />
-              {/* <FaCommentDots /> */}
+            <div className={s.item}>
+                <FaFacebookMessenger style={styleIcon} />
                 <NavLink to="/dialogs/">Messages</NavLink>
             </div>
-            <div className={styles.item}>
-             <FaMusic style={styleIcon} />
+            <div className={s.item}>
+                <FaMusic style={styleIcon} />
                 <NavLink to="/music">Music</NavLink>
             </div>
-            <div className={styles.item}>
+            <div className={s.item}>
                 <FaUsers style={styleIcon} />
                 <NavLink to="/users">Users</NavLink>
             </div>
-            <div className={styles.item}>
+            <div className={s.item}>
                 <FaCogs style={styleIcon} />
                 <NavLink to="/setting">Setting</NavLink>
             </div>
-            <div className={styles.item}>
-               <FaRegCalendarAlt style={styleIcon} />
+            <div className={s.item}>
+                <FaRegCalendarAlt style={styleIcon} />
                 <NavLink to="/calendar">Сalendar</NavLink>
             </div>
         </div>

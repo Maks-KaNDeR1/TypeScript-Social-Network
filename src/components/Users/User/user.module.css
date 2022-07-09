@@ -5,21 +5,16 @@
 }
 
 
-.usersBlock {
-    display: grid;
-    text-align: center;
-    margin: 50px 0 0 80px;
-    /* align-items: center; */
-    grid-template-columns: 295px 295px 290px;
-    grid-template-rows: 180px 180px 180px 180px 180px 
-    
-}
-
 .userBlock {
   width: 200px;
+  min-height: 210px;
+  padding: 10px;
+  box-shadow: 10px 8px 11px 2px rgb(0 20 120 / 20%);
+  border-radius: 30px;
+  margin: 3px;
 }
 
-  .gradientButton {
+.gradientButton {
     border: none;
     outline: none;
     cursor: pointer;
@@ -28,9 +23,11 @@
     display: inline-block;
     color: white;
     padding: 3px 2px;
+    margin: 7px;
     border-radius: 10px;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
+    line-height: normal;
     letter-spacing: 1px;
     background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
     background-size: 200% auto;

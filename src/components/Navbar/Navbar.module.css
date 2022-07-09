@@ -1,14 +1,12 @@
 .nav {
   grid-area: n;
-  /* background: #05427a; */
   background: rgba(101, 108, 133, .8);
-  /* background: rgba(101,108,133,.8); */
   padding: 15px;
-  width: 170px;
+  /* width: 170px; */
 
 }
 
-a {
+.nav a {
   font-size: large;
   font-weight: 400;
   color: #fff;
@@ -16,7 +14,7 @@ a {
   margin-left: 3px;
 }
 
-a:active {
+.nav a:active {
   color: #8498db;
 }
 

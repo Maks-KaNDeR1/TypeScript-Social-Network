@@ -1,6 +1,6 @@
 import React, { ChangeEvent, KeyboardEvent } from 'react';
 import Post from './Post/Post';
-import styles from './MyPosts.module.css';
+import s from './MyPosts.module.css';
 import { PostType } from '../profile-reducer';
 
 type PropsType = {
@@ -42,14 +42,18 @@ const MyPosts: React.FC<PropsType> = React.memo(({ posts, newPostText, addPost, 
           placeholder='New Post...'
           value={newPostText}
           onChange={onPostChange}
-          className={styles.textarea}
+          className={s.textarea}
           onKeyPress={onKeyPressHandler}
         />
       </div>
-      <button onClick={onClickHandler}
-        className={styles.button}>Public</button>
+      <button
+        className={s.button}
+        onClick={onClickHandler}
+      >
+        Public
+      </button>
 
-      <div className={styles.posts}>
+      <div className={s.posts}>
         {postElements}
       </div>
     </div>

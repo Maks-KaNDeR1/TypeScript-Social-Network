@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './Post.module.css';
+import s from './Post.module.css';
 
 type PropsType = {
   message: string
@@ -25,12 +25,12 @@ const Post = (props: PropsType) => {
   }
 
   return (
-    <div className={styles.item}>
+    <div className={s.item}>
       <img src='https://i.pinimg.com/600x315/63/e4/e2/63e4e23fffdb56ee09a20ff630eef6ea.jpg' alt='Ava' />
       {props.message}
       <div>
-        <span> 
-          <button 
+        <span>
+          <button
             onClick={handleClick}
           >
             {likeIt ? "💙" : "🤍"}

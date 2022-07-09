@@ -1,9 +1,35 @@
 .usersBlock {
     display: grid;
     text-align: center;
-    margin: 50px 0 0 80px;
-    /* align-items: center; */
-    grid-template-columns: 295px 295px 290px;
-    grid-template-rows: 180px 180px 180px 180px 180px 
-    
+    margin: 50px 0 0 30px;
+    grid-template-columns: 280px 280px 280px;
+}
+
+
+.pagination {
+    margin-left: 70px;
+    padding: 10px;
+}
+
+.pagination li {
+    background-image: linear-gradient(to right, #8ecce38c 0%, #08368952 51%, #8fceed7a 100%);
+    letter-spacing: 1px;
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    transition: .5s;
+}
+
+.pagination button {
+    background-image: linear-gradient(to right, #8ecce38c 0%, #08368952 51%, #8fceed7a 100%);
+    letter-spacing: 1px;
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    transition: .5s;
+}
+
+.pagination li:hover {
+    background-position: right center;
+}
+.pagination button:hover {
+    background-position: right center;
 }

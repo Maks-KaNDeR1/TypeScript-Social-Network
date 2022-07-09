@@ -23,3 +23,11 @@ body {
   /* background-color: #FAEBD7; */
 }
 
+
+.ant-select-selector {
+ background-image: linear-gradient(to right, #bbf3f7a7 0%, #4e79a195 51%, #8fceed9e 100%);
+  letter-spacing: 1px;
+ background-size: 200% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+  transition: .5s;   
+}

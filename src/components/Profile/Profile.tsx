@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Profile.module.css';
+import s from './Profile.module.css';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import { MyPostsContainer } from './MyPosts/MyPostsContainer';
 import { ProfileType } from './profile-reducer';
@@ -34,7 +34,7 @@ const Profile: React.FC<PropsType> = (
   }) => {
 
   return (
-    <div className={styles.content}>
+    <div className={s.content}>
       <ProfileInfo profile={profile}
         savePhoto={savePhoto}
         saveProfile={saveProfile}

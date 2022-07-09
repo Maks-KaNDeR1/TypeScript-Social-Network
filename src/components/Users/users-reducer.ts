@@ -46,6 +46,9 @@ export const usersReducer = (state: UsersReducerType = initialState, action: Act
         case 'SET_CURRENT_PAGE': {
             return { ...state, currentPage: action.page }
         }
+        case 'SET_PAGE_SIZE': {
+            return { ...state, pageSize: action.page }
+        }
         case 'TOGGLE_IS_FETCHING': {
             return { ...state, isFetching: action.isFetching }
         }
@@ -65,12 +68,13 @@ export const usersReducer = (state: UsersReducerType = initialState, action: Act
 
 
 type ActionsType =
-    ToggleFollowType |
-    setUsersType |
-    setCurrentPageType |
-    setUsersTotalCountType |
-    toggleIsFetchingType |
-    toggleIsFollowingProgressType
+    ToggleFollowType
+    | setUsersType
+    | setCurrentPageType
+    | setPageSizeType
+    | setUsersTotalCountType
+    | toggleIsFetchingType
+    | toggleIsFollowingProgressType
 
 type ToggleFollowType = ReturnType<typeof toggleFollow>
 export const toggleFollow = (userId: number) =>
@@ -91,6 +95,10 @@ export const setUsers = (users: Array<UserType>) =>
 type setCurrentPageType = ReturnType<typeof setCurrentPage>
 export const setCurrentPage = (page: number) =>
     ({ type: 'SET_CURRENT_PAGE', page } as const)
+
+type setPageSizeType = ReturnType<typeof setPageSize>
+export const setPageSize = (page: number) =>
+    ({ type: 'SET_PAGE_SIZE', page } as const)
 
 type setUsersTotalCountType = ReturnType<typeof setUsersTotalCount>
 export const setUsersTotalCount = (totalUsersCount: number) =>
