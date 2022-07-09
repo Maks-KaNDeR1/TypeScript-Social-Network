@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { loginTC } from "../../redux/auth-reducer";
+import { loginTC } from "./auth-reducer";
 import s from './Login.module.css'
 import { AppRootStateType } from "../../redux/redux-store";
 import { Navigate, NavLink } from "react-router-dom";
@@ -68,48 +68,48 @@ const LoginForm = () => {
                                 <div className={s.social}> Social-Network</div>
                                 <div className={s.signIn}> Sign In</div>
                                 <FormGroup className={s.formGroup}>
-                                 <p> 
-                                    <TextField style={{width: '343px'}} className={s.textField} 
-										label="Email"
-                                        margin="normal"
-                                        variant="standard"
-                                        {...formik.getFieldProps('email')} />
-                                       
-                                    {
-                                        formik.errors.email &&
-                                            formik.touched.email ?
-                                            <p className={s.error}>{formik.errors.email}</p>
-                                            : null
-                                    }
-									</p>
                                     <p>
-                                    <TextField style={{width: '343px'}} className={s.textField} 
-									    type={eye ? `password` : 'text'}
-                                        label="Password"
-                                        margin="normal"
-                                        variant="standard"
-                                        {...formik.getFieldProps('password')}
-                                        InputProps={{
-                                            endAdornment: (
-                                                <InputAdornment position="end">
-                                                    <IconButton
-                                                        aria-label="toggle password visibility"
-                                                        onClick={handleClick}
-                                                    >
-                                                        {eye ? <VisibilityOff /> : <Visibility />}
-                                                    </IconButton>
-                                                </InputAdornment>
-                                            )
-                                        }}
-                                    /> 
-                                   
-                                    {
-                                        formik.errors.password &&
-                                            formik.touched.password ?
-                                            <p className={s.error}>{formik.errors.password}</p>
-                                            : null
-                                    }
-									 </p>
+                                        <TextField style={{ width: '343px' }} className={s.textField}
+                                            label="Email"
+                                            margin="normal"
+                                            variant="standard"
+                                            {...formik.getFieldProps('email')} />
+
+                                        {
+                                            formik.errors.email &&
+                                                formik.touched.email ?
+                                                <p className={s.error}>{formik.errors.email}</p>
+                                                : null
+                                        }
+                                    </p>
+                                    <p>
+                                        <TextField style={{ width: '343px' }} className={s.textField}
+                                            type={eye ? `password` : 'text'}
+                                            label="Password"
+                                            margin="normal"
+                                            variant="standard"
+                                            {...formik.getFieldProps('password')}
+                                            InputProps={{
+                                                endAdornment: (
+                                                    <InputAdornment position="end">
+                                                        <IconButton
+                                                            aria-label="toggle password visibility"
+                                                            onClick={handleClick}
+                                                        >
+                                                            {eye ? <VisibilityOff /> : <Visibility />}
+                                                        </IconButton>
+                                                    </InputAdornment>
+                                                )
+                                            }}
+                                        />
+
+                                        {
+                                            formik.errors.password &&
+                                                formik.touched.password ?
+                                                <p className={s.error}>{formik.errors.password}</p>
+                                                : null
+                                        }
+                                    </p>
                                     <FormControlLabel label={'Remember me'}
                                         control={
                                             <div  >

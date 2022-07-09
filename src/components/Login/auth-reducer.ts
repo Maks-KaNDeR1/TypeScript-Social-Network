@@ -1,6 +1,6 @@
 
-import { authAPI } from "../api/api";
-import { AppThunkType } from "./redux-store";
+import { authAPI } from "../../api/api";
+import { AppThunkType } from "../../redux/redux-store";
 
 
 export const SET_USER_DATA = 'SET_USER_DATA'

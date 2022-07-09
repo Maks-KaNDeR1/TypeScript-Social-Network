@@ -1,5 +1,5 @@
-import { profileAPI } from "../api/api"
-import { AppThunkType } from "./redux-store"
+import { profileAPI } from "../../api/api"
+import { AppThunkType } from "../../redux/redux-store"
 
 
 export const ADD_POST = 'ADD_POST'
@@ -19,7 +19,6 @@ export type PostType = {
 type PhotosType = {
     small?: string
     large?: string
-    //large: any
 }
 
 export type ContactType = {
@@ -146,15 +145,15 @@ export const savePhoto = (photos: File): AppThunkType => async (dispatch, getSta
 
 
 export const saveProfile = (profile: ProfileType): AppThunkType => async (dispatch, getState) => {
-        const userId = getState().auth.id;
-        const res = await profileAPI.saveProfile(profile);
-    
-        if (res.data.resultCode === 0) {
-            // dispatch(getUserProfile(userId));
-        } else {
-            return Promise.reject(res.data.messages[0]);
-        }
+    const userId = getState().auth.id;
+    const res = await profileAPI.saveProfile(profile);
+
+    if (res.data.resultCode === 0) {
+        // dispatch(getUserProfile(userId));
+    } else {
+        return Promise.reject(res.data.messages[0]);
     }
+}
 
 
 

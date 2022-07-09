@@ -2,11 +2,11 @@ import React, { ComponentType, useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { AppRootStateType } from '../../redux/redux-store';
 import Profile from './Profile';
-import { getUserProfile, getStatus, updateStatus, ProfileType, savePhoto, saveProfile } from "../../redux/profile-reducer";
+import { getUserProfile, getStatus, updateStatus, ProfileType, savePhoto, saveProfile } from "./profile-reducer";
 import { withRouter } from '../../hoc/WithRouter';
 import { compose } from 'redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { UserType, follow, unfollow } from '../../redux/users-reducer';
+import { UserType, follow, unfollow } from '../Users/users-reducer';
 
 
 type PropsType = {

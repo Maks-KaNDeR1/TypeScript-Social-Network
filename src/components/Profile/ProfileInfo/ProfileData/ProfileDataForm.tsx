@@ -1,6 +1,6 @@
 import { Checkbox } from '@mui/material';
 import React, { Dispatch, SetStateAction } from 'react';
-import { ProfileType } from '../../../../redux/profile-reducer';
+import { ProfileType } from '../../profile-reducer';
 import s from './ProfileData.module.css';
 
 
@@ -19,17 +19,17 @@ export const ProfileDataForm: React.FC<PropsType> = ({ profile, goToEditMode }) 
                 <input />
             </div>
             <div>
-                <b>Looking for a job</b>: <Checkbox style={{height: '16px', color: '#376e91'}} />
+                <b>Looking for a job</b>: <Checkbox style={{ height: '16px', color: '#376e91' }} />
             </div>
             {profile.lookingForAJob &&
                 <div>
-                    <b>My professional skills</b>:  <input style={{ height: '15px'}} />
+                    <b>My professional skills</b>:  <input style={{ height: '15px' }} />
                 </div>
             }
             <div>
-                <b>About me</b>:  <input style={{marginLeft: '10px', height: '15px'}} />
+                <b>About me</b>:  <input style={{ marginLeft: '10px', height: '15px' }} />
             </div>
-            <div className={s.contactsInput} > <b>Contacts</b>:   
+            <div className={s.contactsInput} > <b>Contacts</b>:
                 <li><span>facebook:</span> <input /></li>
                 <li><span>github:</span> <input /></li>
                 <li><span>instagram:</span>  <input /></li>

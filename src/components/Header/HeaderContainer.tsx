@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { AppRootStateType } from '../../redux/redux-store'
 import Header from './Header'
-import { logout } from '../../redux/auth-reducer';
+import { logout } from '../Login/auth-reducer';
 
 type PropsType = {
     isAuth: boolean

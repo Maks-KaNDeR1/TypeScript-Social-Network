@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
-import { ProfileType } from '../../../redux/profile-reducer';
+import { ProfileType } from '../profile-reducer';
 import Preloader from '../../common/Preloader/Preloader';
 import s from './ProfileInfo.module.css';
 import ProfileStatus from './ProfileStatus/ProfileStatus';
@@ -9,7 +9,7 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import { ProfileData } from './ProfileData/ProfileData';
 import { useSelector } from 'react-redux';
 import { AppRootStateType } from '../../../redux/redux-store';
-import { UserType } from '../../../redux/users-reducer';
+import { UserType } from '../../Users/users-reducer';
 
 type PropsType = {
     profile: ProfileType

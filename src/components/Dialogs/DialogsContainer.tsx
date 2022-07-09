@@ -1,6 +1,6 @@
 
 import { AppRootStateType } from '../../redux/redux-store';
-import { addMessage, DialogsType, MessageType } from '../../redux/dialogs-reducer';
+import { addMessage, DialogsType, MessageType } from './dialogs-reducer';
 import { connect } from 'react-redux';
 import Dialogs from './Dialogs';
 import withAuthRedirect from '../../hoc/WithAuthRedirect';

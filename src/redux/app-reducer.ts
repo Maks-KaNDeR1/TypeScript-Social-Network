@@ -1,4 +1,4 @@
-import { getAuthUserData } from './auth-reducer';
+import { getAuthUserData } from '../components/Login/auth-reducer';
 
 export const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS'
 

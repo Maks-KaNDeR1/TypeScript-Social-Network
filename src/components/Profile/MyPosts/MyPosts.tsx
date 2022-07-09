@@ -1,7 +1,7 @@
 import React, { ChangeEvent, KeyboardEvent } from 'react';
 import Post from './Post/Post';
 import styles from './MyPosts.module.css';
-import { PostType } from '../../../redux/profile-reducer';
+import { PostType } from '../profile-reducer';
 
 type PropsType = {
   posts: Array<PostType>
@@ -10,7 +10,7 @@ type PropsType = {
   updateNewPostText: (text: string) => void
 }
 
-const MyPosts: React.FC<PropsType> = React.memo(({posts, newPostText, addPost, updateNewPostText}) => {
+const MyPosts: React.FC<PropsType> = React.memo(({ posts, newPostText, addPost, updateNewPostText }) => {
 
   const postElements = posts.map(p =>
     <Post key={p.id} message={p.message} likesCount={p.likesCount} />

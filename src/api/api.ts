@@ -1,4 +1,4 @@
-import { ProfileType } from './../redux/profile-reducer';
+import { ProfileType } from '../components/Profile/profile-reducer';
 import axios from "axios";
 
 

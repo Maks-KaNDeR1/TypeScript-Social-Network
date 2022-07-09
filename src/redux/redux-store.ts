@@ -1,10 +1,10 @@
-import { AuthActionsType, authReducer } from './auth-reducer';
-import { usersReducer } from './users-reducer';
+import { AuthActionsType, authReducer } from '../components/Login/auth-reducer';
 import { applyMiddleware, combineReducers, createStore } from "redux";
-import dialogsReducer, { DialogsActionsType } from "./dialogs-reducer";
-import profileReducer, { ProfileActionsType } from "./profile-reducer";
+import dialogsReducer, { DialogsActionsType } from "../components/Dialogs/dialogs-reducer";
+import profileReducer, { ProfileActionsType } from "../components/Profile/profile-reducer";
 import thunkMiddleware, { ThunkAction } from 'redux-thunk';
 import appReducer, { AppActionsType } from './app-reducer';
+import usersReducer from '../components/Users/users-reducer';
 
 
 let rootReducer = combineReducers({

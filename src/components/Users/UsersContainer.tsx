@@ -8,7 +8,7 @@ import {
     requestUsers,
     follow,
     unfollow
-} from '../../redux/users-reducer';
+} from './users-reducer';
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
 import { compose } from 'redux';
@@ -18,7 +18,7 @@ import {
     getIsFetching,
     getPageSize,
     getTotalUsersCount, getUsers
-} from "../../redux/users-selectors";
+} from "./users-selectors";
 
 type UsersPropsType = {
     users: Array<UserType>
@@ -36,7 +36,7 @@ type UsersPropsType = {
 
 class UsersContainer extends React.Component<any, UsersPropsType> {
     componentDidMount() {
-        const {currentPage, pageSize} = this.props
+        const { currentPage, pageSize } = this.props
         this.props.getUsers(currentPage, pageSize)
     };
 
@@ -78,7 +78,7 @@ export default compose<ComponentType>(
     connect(mapStateToProps, {
         toggleIsFetching,
         setCurrentPage,
-        getUsers: requestUsers ,
+        getUsers: requestUsers,
         follow,
         unfollow
     })

@@ -3,7 +3,7 @@ import React from 'react'
 import DialogItem from './DialodsItem/DialogsItem';
 import Message from './Message/Message';
 import s from './Dialogs.module.css'
-import { DialogsType, MessageType } from '../../redux/dialogs-reducer';
+import { DialogsType, MessageType } from './dialogs-reducer';
 import AlternativeMessage from './AlternativeMessage/AlternativeMessage';
 
 
@@ -14,7 +14,7 @@ type PropsType = {
 }
 
 
-const Dialogs: React.FC<PropsType> = ({addMessage, dialogs, message}) => {
+const Dialogs: React.FC<PropsType> = ({ addMessage, dialogs, message }) => {
 
     const dialogsElements = dialogs.map(d =>
         <DialogItem name={d.name} key={d.id} id={d.id} src={d.src} />
@@ -26,7 +26,7 @@ const Dialogs: React.FC<PropsType> = ({addMessage, dialogs, message}) => {
         />
     )
 
-//#002733;
+    //#002733;
     const scroll = React.useRef(null)
 
     return (

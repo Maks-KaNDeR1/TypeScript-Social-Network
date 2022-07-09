@@ -1,6 +1,6 @@
 
 import { AppRootStateType } from '../../../redux/redux-store';
-import { addPost, PostType, updateNewPostText } from '../../../redux/profile-reducer';
+import { addPost, PostType, updateNewPostText } from '../profile-reducer';
 import { connect } from 'react-redux';
 import MyPosts from './MyPosts';
 
