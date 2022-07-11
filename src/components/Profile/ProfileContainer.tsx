@@ -6,7 +6,7 @@ import { getUserProfile, getStatus, updateStatus, ProfileType, savePhoto, savePr
 import { withRouter } from '../../hoc/WithRouter';
 import { compose } from 'redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { UserType, follow, unfollow } from '../Users/users-reducer';
+import { UserType, follow, unfollow } from '../Users/state/users-reducer';
 
 
 type PropsType = {

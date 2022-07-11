@@ -15,6 +15,10 @@ function Navbar() {
                 <NavLink to="/dialogs/">Messages</NavLink>
             </div>
             <div className={s.item}>
+                <FaFacebookMessenger style={styleIcon} />
+                <NavLink to="/chat/">Chat</NavLink>
+            </div>
+            <div className={s.item}>
                 <FaMusic style={styleIcon} />
                 <NavLink to="/music">Music</NavLink>
             </div>

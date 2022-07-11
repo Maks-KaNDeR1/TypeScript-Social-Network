@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { UserType } from './users-reducer';
+import { UserType } from './state/users-reducer';
 import s from './users.module.css';
 import User from './User/User';
 import type { PaginationProps } from 'antd';
@@ -9,22 +9,19 @@ import 'antd/dist/antd.css';
 
 type UsersPropsType = {
     users: Array<UserType>
-    // pageSize: number
     totalUsersCount: number
     currentPage: number
     followingInProgress: []
     onPageChanged: (pageNumber: number, pageSize?: number) => void
-    onShowSizeChanged: (pageNumber: number, pageSize: number) => void
     follow: (id: number) => void
     unfollow: (id: number) => void
 }
 
 const Users: React.FC<UsersPropsType> = (
     {
-        currentPage, totalUsersCount, onPageChanged, users, onShowSizeChanged,
+        currentPage, totalUsersCount, onPageChanged, users,
         ...props
     }) => {
-
 
 
     const onChange: PaginationProps['onChange'] = (page, pageSize) => {
@@ -32,7 +29,6 @@ const Users: React.FC<UsersPropsType> = (
     };
 
     return <div>
-
         <div className={s.pagination}>
             <Pagination
                 showQuickJumper

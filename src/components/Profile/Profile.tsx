@@ -3,7 +3,7 @@ import s from './Profile.module.css';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import { MyPostsContainer } from './MyPosts/MyPostsContainer';
 import { ProfileType } from './profile-reducer';
-import { UserType } from '../Users/users-reducer';
+import { UserType } from '../Users/state/users-reducer';
 
 type PropsType = {
   profile: ProfileType

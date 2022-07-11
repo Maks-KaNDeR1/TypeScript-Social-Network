@@ -4,7 +4,8 @@ import dialogsReducer, { DialogsActionsType } from "../components/Dialogs/dialog
 import profileReducer, { ProfileActionsType } from "../components/Profile/profile-reducer";
 import thunkMiddleware, { ThunkAction } from 'redux-thunk';
 import appReducer, { AppActionsType } from './app-reducer';
-import usersReducer from '../components/Users/users-reducer';
+import usersReducer from '../components/Users/state/users-reducer';
+import chatReducer from '../pages/Chat/chat-reducer';
 
 
 let rootReducer = combineReducers({
@@ -12,7 +13,8 @@ let rootReducer = combineReducers({
     profilePage: profileReducer,
     usersPage: usersReducer,
     auth: authReducer,
-    app: appReducer
+    app: appReducer,
+    chat: chatReducer
 })
 
 
@@ -24,8 +26,11 @@ export type AllActionsType =
     | ProfileActionsType
     | AuthActionsType
 
-export type AppThunkType<ReturnType = void> = ThunkAction<ReturnType, AppRootStateType, unknown, AllActionsType>
 
+export type InferActionsTypes<T> = T extends { [keys: string]: (...args: any[]) => infer U } ? U : never
+
+
+export type AppThunkType<ReturnType = void> = ThunkAction<ReturnType, AppRootStateType, unknown, AllActionsType>
 
 
 export const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))

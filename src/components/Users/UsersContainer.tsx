@@ -4,12 +4,12 @@ import { AppRootStateType } from '../../redux/redux-store';
 import {
     setCurrentPage,
     setPageSize,
-    UserType,
     toggleIsFetching,
     requestUsers,
     follow,
-    unfollow
-} from './users-reducer';
+    unfollow,
+    UserType
+} from './state/users-reducer';
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
 import { compose } from 'redux';
@@ -20,7 +20,7 @@ import {
     getPageSize,
     getTotalUsersCount,
     getUsers
-} from "./users-selectors";
+} from "./state/users-selectors";
 
 type UsersPropsType = {
     users: Array<UserType>
@@ -43,34 +43,23 @@ class UsersContainer extends React.Component<any, UsersPropsType> {
         this.props.getUsers(currentPage, pageSize)
     };
 
-    // onPageChanged = (pageNumber: number) => {
-    //     this.props.getUsers(pageNumber)
-    // }
 
-    onPageChanged = (pageNumber: number, pageSizeClick?: number) => {
-        const { pageSize } = this.props
-        // let page = pageSizeClick ? pageSizeClick : pageSize
-        if (!pageSizeClick) {
-            this.props.getUsers(pageNumber, pageSize)
-        }
-        this.props.setPageSize(pageSizeClick)
-        this.props.getUsers(pageNumber, pageSizeClick)
-    }
-
-    onShowSizeChanged = (pageNumber: number, pageSize: number) => {
+    onPageChanged = (pageNumber: number, pageSize?: number) => {
+        // const { pageSize } = this.props
+        // if (!pageSizeClick) {
+        //     this.props.getUsers(pageNumber, pageSize)
+        // }
+        this.props.setPageSize(pageSize)
         this.props.getUsers(pageNumber, pageSize)
     }
 
     render() {
-
         return <> {this.props.isFetching ? <Preloader /> : null}
             <Users users={this.props.users}
-                // pageSize={this.props.pageSize}
                 totalUsersCount={this.props.totalUsersCount}
                 currentPage={this.props.currentPage}
                 followingInProgress={this.props.followingInProgress}
                 onPageChanged={this.onPageChanged}
-                onShowSizeChanged={this.onShowSizeChanged}
                 follow={this.props.follow}
                 unfollow={this.props.unfollow}
             />

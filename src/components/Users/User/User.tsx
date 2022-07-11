@@ -2,7 +2,7 @@
 import React from 'react';
 import s from './user.module.css';
 import userPhoto from '../../../assets/images/user.png';
-import { UserType } from '../users-reducer';
+import { UserType } from '../state/users-reducer';
 import { NavLink } from 'react-router-dom';
 
 
@@ -13,12 +13,7 @@ type PropsType = {
     unfollow: (id: number) => void
 }
 
-
-
-
-
 const User: React.FC<PropsType> = ({ user, followingInProgress, unfollow, follow }) => {
-
 
     const followOrUnfollowButton = (followOrUnfollow: (id: number) => void, title: string) => {
         return <>
@@ -44,8 +39,7 @@ const User: React.FC<PropsType> = ({ user, followingInProgress, unfollow, follow
                         className={s.userPhoto} alt='profilePhoto' />
                 </NavLink>
             </div>
-            <div >
-
+            <div>
                 {user.followed
                     ? followOrUnfollowButton(follow, 'Unfollow')
                     : followOrUnfollowButton(unfollow, 'Follow')

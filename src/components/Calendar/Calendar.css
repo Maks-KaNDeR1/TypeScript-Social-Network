@@ -1,0 +1,13 @@
+
+.site-calendar-customize-header-wrapper {
+  width: 600px;
+  height: 500px;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+}
+
+.ant-picker-panel th  {
+  background-size: 200% auto;
+  background-image: linear-gradient(to right, #def5f18c 0%, #9ea8e14a 51%);
+}
+

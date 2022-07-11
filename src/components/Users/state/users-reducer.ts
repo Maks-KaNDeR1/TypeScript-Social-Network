@@ -1,5 +1,4 @@
-import { usersAPI } from "../../api/api"
-
+import { usersAPI } from "../../../api/api"
 
 type PhotosType = {
     small: string | null
@@ -12,6 +11,7 @@ export type UserType = {
     status: string
     followed: boolean
 }
+
 
 let initialState = {
     users: [] as Array<UserType>,

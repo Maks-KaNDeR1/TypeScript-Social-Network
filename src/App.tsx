@@ -2,7 +2,7 @@ import React, { Component, ComponentType, Suspense } from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Calendar from './components/Calendar/Calendar';
+import { CalendarComponent } from './components/Calendar/Calendar';
 import UsersContainer from './components/Users/UsersContainer';
 import Music from './components/Music/Music';
 import HeaderContainer from './components/Header/HeaderContainer';
@@ -16,6 +16,7 @@ import { Login } from './components/Login/Login';
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
+const ChatPage = React.lazy(() => import('./pages/Chat/ChatPage'))
 
 type PropsType = {
   initializeApp: () => void
@@ -36,7 +37,7 @@ class App extends Component<PropsType, PropsType> {
         <Preloader />
       </div>
     }
-  
+
     return (
       <div className="app-wrapper">
         <HeaderContainer />
@@ -49,8 +50,9 @@ class App extends Component<PropsType, PropsType> {
               <Route path="/profile/*" element={<ProfileContainer />} />
               <Route path="/profile/:userId" element={<ProfileContainer />} />
               <Route path="/dialogs/*" element={<DialogsContainer />} />
+              <Route path='/chat' element={<ChatPage />} />
               <Route path="/users" element={<UsersContainer />} />
-              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/calendar" element={<CalendarComponent />} />
               <Route path="/music" element={<Music />} />
               <Route path="/404" element={<h1 style={{ textAlign: 'center' }} >404: PAGE NOT FOUND</h1>} />
               <Route path="/*" element={<Navigate to='404' />} />

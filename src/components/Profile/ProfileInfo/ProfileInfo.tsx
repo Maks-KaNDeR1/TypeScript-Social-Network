@@ -9,7 +9,7 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import { ProfileData } from './ProfileData/ProfileData';
 import { useSelector } from 'react-redux';
 import { AppRootStateType } from '../../../redux/redux-store';
-import { UserType } from '../../Users/users-reducer';
+import { UserType } from '../../Users/state/users-reducer';
 
 type PropsType = {
     profile: ProfileType

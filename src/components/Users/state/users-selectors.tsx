@@ -1,5 +1,5 @@
 import { createSelector } from "reselect";
-import { AppRootStateType } from "../../redux/redux-store";
+import { AppRootStateType } from "../../../redux/redux-store";
 import { UserType } from "./users-reducer";
 
 const getUsersSelector = (state: AppRootStateType) => state.usersPage.users;
