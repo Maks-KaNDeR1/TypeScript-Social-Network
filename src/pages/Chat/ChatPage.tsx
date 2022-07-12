@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { KeyboardEvent, useEffect, useRef, useState } from 'react'
 import { ChatMessageAPIType } from '../../api/chat-api'
 import { useDispatch, useSelector } from 'react-redux'
 import { sendMessage, startMessagesListening, stopMessagesListening } from './chat-reducer'
 import { AppRootStateType } from '../../redux/redux-store'
+import AlternativeMessage from './AlternativeMessage'
+import MessageComponent from '../../components/Dialogs/Message/Message'
 
 
 const ChatPage: React.FC = () => {
@@ -54,7 +56,7 @@ const Messages: React.FC<{}> = ({ }) => {
         }
     }, [messages])
 
-    return <div style={{ height: '400px', overflowY: 'auto' }} onScroll={scrollHandler}>
+    return <div style={{ height: '500px', overflowY: 'auto' }} onScroll={scrollHandler}>
         {messages.map((m, index) => <Message key={m.id} message={m} />)}
         <div ref={messagesAnchorRef}></div>
     </div>
@@ -63,12 +65,14 @@ const Messages: React.FC<{}> = ({ }) => {
 
 const Message: React.FC<{ message: ChatMessageAPIType }> = React.memo(({ message }) => {
     console.log(">>>>>>Message")
-    return <div>
-        <img src={message.photo} style={{ width: '30px' }} /> <b>{message.userName}</b>
-        <br />
-        {message.message}
-        <hr />
-    </div>
+    console.log(message)
+    return <MessageComponent
+        id={message.userId}
+        message={message.message}
+        avatar={message.photo}
+        name={message.userName}
+    />
+
 })
 
 
@@ -87,14 +91,13 @@ const AddMessageForm: React.FC<{}> = () => {
         setMessage('')
     }
 
-    return <div>
-        <div>
-            <textarea onChange={(e) => setMessage(e.currentTarget.value)} value={message}></textarea>
-        </div>
-        <div>
-            <button disabled={status !== 'ready'} onClick={sendMessageHandler}>Send</button>
-        </div>
-    </div>
+    return <AlternativeMessage
+        title={message}
+        setTitle={setMessage}
+        onClickHandler={sendMessageHandler}
+        disabled={status !== 'ready'}
+
+    />
 }
 
 export default ChatPage

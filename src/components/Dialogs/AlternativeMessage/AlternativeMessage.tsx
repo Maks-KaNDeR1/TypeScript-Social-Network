@@ -4,7 +4,7 @@ import SendIcon from '@mui/icons-material/Send';
 
 type PropsType = {
     addMessage: (title: string) => void
-    scroll: any
+    scroll?: any
 }
 
 const AlternativeMessage: React.FC<PropsType> = ({ addMessage, scroll }) => {
