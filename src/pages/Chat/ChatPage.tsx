@@ -36,7 +36,7 @@ const Chat: React.FC = () => {
     </div>
 }
 
-const Messages: React.FC<{}> = ({ }) => {
+const Messages: React.FC = () => {
     const messages = useSelector((state: AppRootStateType) => state.chat.messages)
     const messagesAnchorRef = useRef<HTMLDivElement>(null);
     const [isAutoScroll, setIsAutoScroll] = useState(true)

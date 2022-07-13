@@ -5,10 +5,13 @@ import {
     setCurrentPage,
     setPageSize,
     toggleIsFetching,
+} from './state/actions';
+import {
     requestUsers,
     follow,
     unfollow,
-    UserType
+    UserType,
+    FilterType
 } from './state/users-reducer';
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
@@ -19,7 +22,8 @@ import {
     getIsFetching,
     getPageSize,
     getTotalUsersCount,
-    getUsers
+    getUsers,
+    getUsersFilter
 } from "./state/users-selectors";
 
 type UsersPropsType = {
@@ -39,8 +43,8 @@ type UsersPropsType = {
 
 class UsersContainer extends React.Component<any, UsersPropsType> {
     componentDidMount() {
-        const { currentPage, pageSize } = this.props
-        this.props.getUsers(currentPage, pageSize)
+        const { currentPage, pageSize, filter } = this.props
+        this.props.getUsers(currentPage, pageSize, filter)
     };
 
 
@@ -49,8 +53,14 @@ class UsersContainer extends React.Component<any, UsersPropsType> {
         // if (!pageSizeClick) {
         //     this.props.getUsers(pageNumber, pageSize)
         // }
+        const { filter } = this.props
         this.props.setPageSize(pageSize)
-        this.props.getUsers(pageNumber, pageSize)
+        this.props.getUsers(pageNumber, pageSize, filter)
+    }
+
+    onFilterChanged = (filter: FilterType) => {
+        const { pageSize } = this.props
+        this.props.getUsers(1, pageSize, filter)
     }
 
     render() {
@@ -60,6 +70,7 @@ class UsersContainer extends React.Component<any, UsersPropsType> {
                 currentPage={this.props.currentPage}
                 followingInProgress={this.props.followingInProgress}
                 onPageChanged={this.onPageChanged}
+                onFilterChanged={this.onFilterChanged}
                 follow={this.props.follow}
                 unfollow={this.props.unfollow}
             />
@@ -75,7 +86,8 @@ let mapStateToProps = (state: AppRootStateType) => ({
     totalUsersCount: getTotalUsersCount(state),
     currentPage: getCurrentPage(state),
     isFetching: getIsFetching(state),
-    followingInProgress: getFollowingInProgress(state)
+    followingInProgress: getFollowingInProgress(state),
+    filter: getUsersFilter(state)
 })
 
 

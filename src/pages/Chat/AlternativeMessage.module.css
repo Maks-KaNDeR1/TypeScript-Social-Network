@@ -1,6 +1,8 @@
 
 .items {
   display: flex;
+  float: right;
+  margin-right: 50px;
 }
 
 .items input {
@@ -25,7 +27,7 @@
   margin: 2px 4px;
   /* padding: 3px 8px; */
   border-radius: 15px 55px 55px 15px;
-  background-image: linear-gradient(45deg, #021c7a 10%, #d06cd9e1 50%, #0f8b7d 100%);
+  background-image: linear-gradient(45deg, #65b5bd 35%, #1c4d87 50%);  /* background-size: 200% 200%; */
   background-size: 200% 200%;
   color: white;
   box-shadow: 0 16px 32px 0 rgba(0, 40, 120, .35);

@@ -1,13 +1,16 @@
-import { profileAPI } from "../../api/api"
-import { AppThunkType } from "../../redux/redux-store"
+import { profileAPI } from "../../../api/api"
+import { AppThunkType } from "../../../redux/redux-store"
+import {
+    ProfileActionsType,
+    setStatus,
+    setUserProfile,
+    ADD_POST,
+    DELETE_POST,
+    SET_STATUS,
+    SET_USER_PROFILE,
+    UPDATE_NEW_POST_TEXT
+} from "./actions"
 
-
-export const ADD_POST = 'ADD_POST'
-export const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
-export const SET_USER_PROFILE = 'SET_USER_PROFILE'
-export const SET_STATUS = 'SET_STATUS'
-export const DELETE_POST = 'DELETE_POST'
-export const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS'
 
 
 export type PostType = {
@@ -97,28 +100,7 @@ export const profileReducer = (state = initialState, action: ProfileActionsType)
 };
 
 
-
-
-type AddPostType = ReturnType<typeof addPost>
-export const addPost = () => ({ type: ADD_POST } as const)
-
-type UpdateNewPostTextType = ReturnType<typeof updateNewPostText>
-export const updateNewPostText = (text: string) =>
-    ({ type: UPDATE_NEW_POST_TEXT, newText: text } as const)
-
-type SetUserProfileType = ReturnType<typeof setUserProfile>
-export const setUserProfile = (profile: ProfileType) =>
-    ({ type: SET_USER_PROFILE, profile } as const)
-
-type SetStatusType = ReturnType<typeof setStatus>
-export const setStatus = (status: string) =>
-    ({ type: SET_STATUS, status } as const)
-
-type DeletePostType = ReturnType<typeof deletePost>
-export const deletePost = (postId: number) => ({ type: DELETE_POST, postId } as const)
-
-
-export const getUserProfile = (userId: any): AppThunkType => async (dispatch) => {
+export const getUserProfile = (userId: number | null): AppThunkType => async (dispatch) => {
     const res = await profileAPI.getUserProfie(userId)
     dispatch(setUserProfile(res.data));
 }
@@ -155,13 +137,5 @@ export const saveProfile = (profile: ProfileType): AppThunkType => async (dispat
     }
 }
 
-
-
-export type ProfileActionsType =
-    | AddPostType
-    | UpdateNewPostTextType
-    | SetUserProfileType
-    | SetStatusType
-    | DeletePostType
 
 export default profileReducer

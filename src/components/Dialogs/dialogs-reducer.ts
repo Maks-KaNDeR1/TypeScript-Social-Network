@@ -40,7 +40,7 @@ let initialState: DialogsReducerType = {
             name: 'Sasha', message: 'Hello, my friends', time: '22:00'
         },
         {
-            id: 2, avatar: 'https://i.pinimg.com/564x/69/07/a3/6907a3ecd829ce41a9fee86479597a39.jpg',
+            id: 24185, avatar: 'https://i.pinimg.com/564x/69/07/a3/6907a3ecd829ce41a9fee86479597a39.jpg',
             name: 'Maksim', message: 'Hi all', time: '22:07'
         },
         {
@@ -52,7 +52,7 @@ let initialState: DialogsReducerType = {
             name: 'Natali', message: 'How a you?', time: '22:17'
         },
         {
-            id: 5, avatar: 'https://i.pinimg.com/564x/69/07/a3/6907a3ecd829ce41a9fee86479597a39.jpg',
+            id: 24185, avatar: 'https://i.pinimg.com/564x/69/07/a3/6907a3ecd829ce41a9fee86479597a39.jpg',
             name: 'Maksim', message: 'Everything is fine', time: '22:18'
         },
         {

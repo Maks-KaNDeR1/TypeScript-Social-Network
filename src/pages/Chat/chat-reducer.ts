@@ -1,5 +1,4 @@
-
-import { Action, Dispatch } from 'redux'
+import { Dispatch } from 'redux'
 import { v1 } from 'uuid'
 import { chatAPI, ChatMessageAPIType, StatusType } from '../../api/chat-api'
 import { AppThunkType, InferActionsTypes } from '../../redux/redux-store'

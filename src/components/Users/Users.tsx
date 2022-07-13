@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { UserType } from './state/users-reducer';
 import s from './users.module.css';
@@ -6,6 +5,8 @@ import User from './User/User';
 import type { PaginationProps } from 'antd';
 import { Pagination } from 'antd';
 import 'antd/dist/antd.css';
+import { UsersSearchForm } from './UsersSearchForm'
+import { FilterType } from './state/users-reducer'
 
 type UsersPropsType = {
     users: Array<UserType>
@@ -13,13 +14,14 @@ type UsersPropsType = {
     currentPage: number
     followingInProgress: []
     onPageChanged: (pageNumber: number, pageSize?: number) => void
+    onFilterChanged: (filter: FilterType) => void
     follow: (id: number) => void
     unfollow: (id: number) => void
 }
 
 const Users: React.FC<UsersPropsType> = (
     {
-        currentPage, totalUsersCount, onPageChanged, users,
+        users, currentPage, totalUsersCount, onPageChanged, onFilterChanged,
         ...props
     }) => {
 
@@ -28,8 +30,11 @@ const Users: React.FC<UsersPropsType> = (
         onPageChanged(page, pageSize);
     };
 
+
     return <div>
-        <div className={s.pagination}>
+        <div className={s.menu}>
+            <UsersSearchForm onFilterChanged={onFilterChanged} />
+            <br />
             <Pagination
                 showQuickJumper
                 onChange={onChange}

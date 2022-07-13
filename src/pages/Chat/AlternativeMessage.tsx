@@ -1,4 +1,4 @@
-import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
+import React, { ChangeEvent, KeyboardEvent } from 'react'
 import s from './AlternativeMessage.module.css'
 import SendIcon from '@mui/icons-material/Send';
 
@@ -7,17 +7,13 @@ type PropsType = {
     setTitle: (title: string) => void
     onClickHandler: () => void
     disabled: boolean
-    scroll?: any
 }
 
-const AlternativeMessage: React.FC<PropsType> = (
-    { title, setTitle, onClickHandler, disabled, scroll }) => {
-
+const AlternativeMessage: React.FC<PropsType> = ({ title, setTitle, onClickHandler, disabled }) => {
 
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         setTitle(event.currentTarget.value)
     }
-
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.charCode === 13) {
@@ -29,7 +25,6 @@ const AlternativeMessage: React.FC<PropsType> = (
 
         <div className={s.items} >
             <div>
-
                 <input type='text'
                     placeholder=' New message...'
                     value={title}
@@ -38,7 +33,6 @@ const AlternativeMessage: React.FC<PropsType> = (
                 />
             </div>
             <div>
-
                 <button disabled={disabled}
                     style={{ cursor: 'pointer', marginBottom: '-6px' }}
                     onClick={onClickHandler}

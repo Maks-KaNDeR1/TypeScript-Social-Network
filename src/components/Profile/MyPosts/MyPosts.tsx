@@ -1,7 +1,7 @@
 import React, { ChangeEvent, KeyboardEvent } from 'react';
 import Post from './Post/Post';
 import s from './MyPosts.module.css';
-import { PostType } from '../profile-reducer';
+import { PostType } from '../state/profile-reducer';
 
 type PropsType = {
   posts: Array<PostType>

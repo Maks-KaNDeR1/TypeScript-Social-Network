@@ -1,11 +1,13 @@
 import { AuthActionsType, authReducer } from '../components/Login/auth-reducer';
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import dialogsReducer, { DialogsActionsType } from "../components/Dialogs/dialogs-reducer";
-import profileReducer, { ProfileActionsType } from "../components/Profile/profile-reducer";
+import profileReducer from "../components/Profile/state/profile-reducer";
 import thunkMiddleware, { ThunkAction } from 'redux-thunk';
 import appReducer, { AppActionsType } from './app-reducer';
 import usersReducer from '../components/Users/state/users-reducer';
 import chatReducer from '../pages/Chat/chat-reducer';
+import { ProfileActionsType } from '../components/Profile/state/actions';
+import { UsersActionsType } from '../components/Users/state/actions';
 
 
 let rootReducer = combineReducers({
@@ -25,6 +27,7 @@ export type AllActionsType =
     | DialogsActionsType
     | ProfileActionsType
     | AuthActionsType
+    | UsersActionsType
 
 
 export type InferActionsTypes<T> = T extends { [keys: string]: (...args: any[]) => infer U } ? U : never

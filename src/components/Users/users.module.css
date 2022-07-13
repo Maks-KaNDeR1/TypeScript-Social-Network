@@ -6,12 +6,12 @@
 }
 
 
-.pagination {
+.menu {
     margin-left: 70px;
     padding: 10px;
 }
 
-.pagination li {
+.menu li {
     background-image: linear-gradient(to right, #8ecce38c 0%, #08368952 51%, #8fceed7a 100%);
     letter-spacing: 1px;
     background-size: 200% auto;
@@ -19,7 +19,7 @@
     transition: .5s;
 }
 
-.pagination button {
+.menu button {
     background-image: linear-gradient(to right, #8ecce38c 0%, #08368952 51%, #8fceed7a 100%);
     letter-spacing: 1px;
     background-size: 200% auto;
@@ -27,9 +27,9 @@
     transition: .5s;
 }
 
-.pagination li:hover {
+.menu li:hover {
     background-position: right center;
 }
-.pagination button:hover {
+.menu button:hover {
     background-position: right center;
 }

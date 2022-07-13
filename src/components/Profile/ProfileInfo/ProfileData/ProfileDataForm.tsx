@@ -1,6 +1,6 @@
 import { Checkbox } from '@mui/material';
 import React, { Dispatch, SetStateAction } from 'react';
-import { ProfileType } from '../../profile-reducer';
+import { ProfileType } from '../../state/profile-reducer';
 import s from './ProfileData.module.css';
 
 

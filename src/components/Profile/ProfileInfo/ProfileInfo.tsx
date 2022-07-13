@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
-import { ProfileType } from '../profile-reducer';
+import { ProfileType } from '../state/profile-reducer';
 import Preloader from '../../common/Preloader/Preloader';
 import s from './ProfileInfo.module.css';
 import ProfileStatus from './ProfileStatus/ProfileStatus';

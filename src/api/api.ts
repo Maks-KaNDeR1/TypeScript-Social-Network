@@ -1,4 +1,4 @@
-import { ProfileType } from '../components/Profile/profile-reducer';
+import { ProfileType } from '../components/Profile/state/profile-reducer';
 import axios from "axios";
 
 
@@ -13,12 +13,11 @@ const instance = axios.create({
 
 
 export const usersAPI = {
-    getUsers: (currentPage: number, pageSize: number) =>
-        instance.get(`users?page=${currentPage}&count=${pageSize}`),
+    getUsers: (currentPage: number, pageSize: number, term: string = '', friend: null | boolean = null) =>
+        instance.get(`users?page=${currentPage}&count=${pageSize}&term=${term}` + (friend === null ? '' : `&friend=${friend}`)),
     follow: (id: number) => instance.delete(`follow/${id}`),
 
     unfollow: (id: number) => instance.post(`follow/${id}`),
-
 }
 
 export const authAPI = {
@@ -31,7 +30,7 @@ export const authAPI = {
 }
 
 export const profileAPI = {
-    getUserProfie: (userId: number) => instance.get<ProfileType>(`profile/${userId}`),
+    getUserProfie: (userId: number | null) => instance.get<ProfileType>(`profile/${userId}`),
 
     getStatus: (userId: number) => instance.get(`profile/status/${userId}`),
 
